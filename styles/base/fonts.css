@@ -1,0 +1,110 @@
+/*-------------------------------
+Font Face
+-------------------------------*/
+
+/* Inter */
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter/Inter-Regular.woff2") format("woff2"),
+    url("/fonts/inter/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter/Inter-Medium.woff2") format("woff2"),
+    url("/fonts/inter/Inter-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter/Inter-SemiBold.woff2") format("woff2"),
+    url("/fonts/inter/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*-------------------------------
+Fonts
+-------------------------------*/
+
+html {
+  @apply text-base font-inter antialiased;
+}
+
+h1,
+h2.h1 {
+  @apply text-7xl;
+}
+
+h2,
+h1.h2 {
+  @apply text-6xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-base uppercase font-semibold;
+}
+
+p {
+  @apply tracking-tight leading-relaxed;
+}
+
+a {
+  /* @apply transition-colors duration-500; */
+}
+
+/* a:hover {
+  @apply hover:text-ocean-400 transition-colors;
+} */
+
+/*-------------------------------
+Helpers
+-------------------------------*/
+
+.paragraph-lg,
+.paragraph-lg p {
+  @apply text-lg;
+}
+
+/*-------------------------------
+Wysiwyg
+-------------------------------*/
+
+.wysiwyg {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    @apply mb-5;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+}
+
+.wysiwyg a {
+  @apply underline hover:no-underline;
+}
+
+.wysiwyg img {
+  @apply mb-5;
+}
