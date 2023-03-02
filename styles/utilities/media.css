@@ -1,0 +1,116 @@
+/*-----------------------
+Aspect
+-----------------------*/
+
+@layer utilities {
+  .padding-aspect {
+    @apply relative;
+  }
+
+  .padding-aspect--absolute {
+    @apply absolute;
+  }
+
+  .padding-aspect:before {
+    display: block;
+    content: "";
+    width: 100%;
+  }
+
+  /* Landscape Sizes */
+
+  .padding-aspect--8\/3:before {
+    padding-top: calc((3 / 8) * 100%);
+  }
+
+  .padding-aspect--8\/4:before {
+    padding-top: calc((4 / 8) * 100%);
+  }
+
+  .padding-aspect--8\/5:before {
+    padding-top: calc((5 / 8) * 100%);
+  }
+
+  .padding-aspect--8\/6:before {
+    padding-top: calc((6 / 8) * 100%);
+  }
+
+  .padding-aspect--8\/7:before {
+    padding-top: calc((7 / 8) * 100%);
+  }
+
+  .padding-aspect--6\/4:before {
+    padding-top: calc((4 / 6) * 100%);
+  }
+
+  /* Portrait Sizes */
+
+  .padding-aspect--2\/6:before {
+    padding-top: calc((6 / 2) * 100%);
+  }
+
+  .padding-aspect--3\/6:before {
+    padding-top: calc((6 / 3) * 100%);
+  }
+
+  .padding-aspect--4\/6:before {
+    padding-top: calc((6 / 4) * 100%);
+  }
+
+  .padding-aspect--5\/6:before {
+    padding-top: calc((6 / 5) * 100%);
+  }
+
+  .padding-aspect--3\/5:before {
+    padding-top: calc((5 / 3) * 100%);
+  }
+
+  .padding-aspect--4\/5:before {
+    padding-top: calc((5 / 4) * 100%);
+  }
+
+  /* Media Sizes */
+
+  .padding-aspect--video:before {
+    padding-top: calc((9 / 16) * 100%);
+  }
+
+  .padding-aspect--square:before {
+    padding-top: calc((1 / 1) * 100%);
+  }
+
+  /* Media */
+
+  .padding-aspect {
+    img,
+    video,
+    .padding-aspect__element {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .padding-aspect--contain {
+    img,
+    video,
+    .padding-aspect__element {
+      object-fit: contain;
+    }
+  }
+}
+
+/*-----------------------
+SVG
+-----------------------*/
+
+.svg-width-full svg {
+  @apply w-full;
+}
+
+.svg-height-full svg {
+  @apply h-full;
+}

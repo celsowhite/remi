@@ -5,6 +5,8 @@
 
 /* Components */
 @import "tailwindcss/components";
+@import "./components/buttons.css";
 
 /* Utilities */
 @import "tailwindcss/utilities";
+@import "./utilities/media.css";

@@ -1,0 +1,16 @@
+/*-------------------------------
+Base
+-------------------------------*/
+
+.btn,
+button.btn {
+  @apply inline-flex justify-center items-center py-2 px-9 laptop:px-5 transition-colors cursor-pointer font-medium rounded-3xl text-sm;
+}
+
+.btn--primary {
+  @apply bg-purple hover:bg-transparent border border-purple text-white hover:text-purple;
+}
+
+.btn--secondary {
+  @apply bg-transparent hover:bg-purple border border-purple text-white hover:text-white;
+}

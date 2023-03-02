@@ -29,6 +29,15 @@ module.exports = {
         red: "#ec5b3e",
         green: "#bbe5b3",
       },
+      screens: {
+        wide: { max: "1599px" },
+        desktop: { max: "1439px" },
+        laptop: { max: "1199px" },
+        tablet: { max: "1079px" },
+        mobile: { max: "749px" },
+        "sm-mobile": { max: "500px" },
+        "touch-device": { raw: "(hover: none) and (pointer: coarse)" },
+      },
     },
   },
   corePlugins: {

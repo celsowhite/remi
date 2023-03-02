@@ -5,7 +5,6 @@ import SanityImage, {
 /*----------------------
 Portable Text Components
 ----------------------*/
-
 const portableTextComponents: Object = {
   types: {
     // Image

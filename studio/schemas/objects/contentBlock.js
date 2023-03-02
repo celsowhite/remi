@@ -1,7 +1,10 @@
+import {MdOutlineTextSnippet} from 'react-icons/md'
+
 export default {
   title: 'Content Block',
   name: 'content_block',
   type: 'object',
+  icon: MdOutlineTextSnippet,
   fields: [
     {
       title: 'Content',
