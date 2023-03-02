@@ -4,20 +4,11 @@ import SanityImage from "@/components/components/SanityImage";
 Portable Text Components
 ----------------------*/
 
-const portableTextComponents = {
+const portableTextComponents: Object = {
   types: {
     // Image
     image: ({ value }) => {
       return <SanityImage data={value} />;
-    },
-    // Embed
-    embed: ({ value }) => {
-      return (
-        <div
-          dangerouslySetInnerHTML={{ __html: value.code }}
-          className="mb-5"
-        ></div>
-      );
     },
   },
 };
