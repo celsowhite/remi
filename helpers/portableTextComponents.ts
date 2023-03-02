@@ -1,4 +1,4 @@
-import SanityImage from "../components/SanityImage";
+import SanityImage from "@/components/components/SanityImage";
 
 /*----------------------
 Portable Text Components
