@@ -1,12 +1,11 @@
 import {MdOutlineImage} from 'react-icons/md'
 
 export default {
-  title: 'Image Text Panel',
-  name: 'image_text_panel',
+  title: 'Section Header',
+  name: 'section_header',
   type: 'object',
   icon: MdOutlineImage,
   fields: [
-    {title: 'Eyebrow', name: 'eyebrow', type: 'string'},
     {title: 'Title', name: 'title', type: 'string'},
     {
       title: 'Text',
@@ -14,24 +13,13 @@ export default {
       type: 'text',
     },
     {
-      title: 'Image',
-      name: 'image',
-      type: 'image',
-      fields: [{title: 'Alt', name: 'alt', type: 'string'}],
-    },
-    {
-      title: 'Button',
-      name: 'button',
-      type: 'button',
-    },
-    {
-      title: 'Image Position',
-      name: 'image_position',
+      title: 'Content Position',
+      name: 'content_position',
       type: 'string',
       options: {
         list: [
           {title: 'Left', value: 'left'},
-          {title: 'Right', value: 'right'},
+          {title: 'Center', value: 'center'},
         ],
         layout: 'dropdown',
       },
@@ -40,7 +28,7 @@ export default {
   preview: {
     prepare(selection) {
       return {
-        title: 'Image Text Panel',
+        title: 'Section Header',
       }
     },
   },

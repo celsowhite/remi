@@ -15,10 +15,7 @@ export default {
     },
   ],
   preview: {
-    select: {
-      title: 'title',
-    },
-    prepare({title}) {
+    prepare(selection) {
       return {
         title: 'Accordions',
       }

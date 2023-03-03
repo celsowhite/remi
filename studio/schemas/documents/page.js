@@ -16,7 +16,7 @@ export default {
       name: 'page_builder',
       type: 'array',
       of: [
-        {type: 'content_block'},
+        {type: 'wysiwyg'},
         {type: 'embed'},
         {type: 'image_text_panel'},
         {type: 'card_grid'},
@@ -31,6 +31,9 @@ export default {
           ],
         },
         {type: 'accordions'},
+        {type: 'text_banner'},
+        {type: 'hero'},
+        {type: 'section_header'},
       ],
     },
     {

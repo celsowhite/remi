@@ -18,4 +18,11 @@ export default {
       rows: 3,
     },
   ],
+  preview: {
+    prepare(selection) {
+      return {
+        title: 'Embed',
+      }
+    },
+  },
 }

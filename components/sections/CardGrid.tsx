@@ -28,7 +28,12 @@ export default function CardGrid({ cards, columns = 3 }: CardGridProps) {
       {cards.map((card) => {
         return (
           <div className={columnClass}>
-            <Card title={card.title} text={card.text} image={card.image} />
+            <Card
+              title={card.title}
+              text={card.text}
+              image={card.image}
+              button={card.button}
+            />
           </div>
         );
       })}

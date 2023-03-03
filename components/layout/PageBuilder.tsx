@@ -2,15 +2,15 @@ import { PortableText } from "@portabletext/react";
 import portableTextComponents from "@/helpers/portableTextComponents";
 import ImageTextPanel from "@/components/sections/ImageTextPanel";
 import CardGrid from "@/components/sections/CardGrid";
-import SanityImage from "@/components/components/SanityImage";
 import ImageWithCaption from "../components/ImageWithCaption";
 import AccordionList from "../sections/AccordionList";
+import TextBanner from "../sections/TextBanner";
+import Hero from "@/components/sections/Hero";
+import SectionHeader from "../sections/SectionHeader";
 
 export default function PageBuilder({ blocks }) {
-  console.log(blocks);
-
   return blocks?.map((block) => {
-    if (block._type === "content_block") {
+    if (block._type === "wysiwyg") {
       /*----------------------
       Content Block
       ----------------------*/
@@ -60,6 +60,8 @@ export default function PageBuilder({ blocks }) {
       /*----------------------
       Card Grid
       ----------------------*/
+      console.log(block);
+
       return (
         <div key={block._key} className="mb-10">
           <div className="container max-w-7xl">
@@ -87,6 +89,49 @@ export default function PageBuilder({ blocks }) {
           <div className="container max-w-7xl">
             <AccordionList key={block._key} accordions={block.accordions} />
           </div>
+        </div>
+      );
+    } else if (block._type === "text_banner") {
+      /*----------------------
+      Text Banner
+      ----------------------*/
+      return (
+        <div key={block._key} className="mb-10">
+          <TextBanner
+            eyebrow={block?.eyebrow}
+            title={block?.title}
+            text={block?.text}
+            button={block?.button}
+          />
+        </div>
+      );
+    } else if (block._type === "hero") {
+      /*----------------------
+      Hero
+      ----------------------*/
+      return (
+        <div key={block._key} className="mb-10">
+          <Hero
+            eyebrow={block.eyebrow}
+            title={block.title}
+            text={block.text}
+            image={block.image}
+            contentPosition={block.content_position}
+            button={block.button}
+          />
+        </div>
+      );
+    } else if (block._type === "section_header") {
+      /*----------------------
+      Section Header
+      ----------------------*/
+      return (
+        <div key={block._key} className="mb-10">
+          <SectionHeader
+            title={block.title}
+            text={block.text}
+            contentPosition={block.content_position}
+          />
         </div>
       );
     }

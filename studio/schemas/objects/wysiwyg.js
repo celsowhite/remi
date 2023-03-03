@@ -1,7 +1,7 @@
 import {MdOutlineTextSnippet} from 'react-icons/md'
 
 export default {
-  title: 'Content',
+  title: 'Rich Text',
   name: 'wysiwyg',
   type: 'object',
   icon: MdOutlineTextSnippet,
@@ -35,7 +35,7 @@ export default {
     },
     prepare({title}) {
       return {
-        title: 'Content',
+        title: 'Rich Text',
       }
     },
   },

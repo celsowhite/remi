@@ -14,3 +14,11 @@ button.btn {
 .btn--secondary {
   @apply bg-transparent hover:bg-purple border border-purple text-white hover:text-white;
 }
+
+/*-------------------------------
+Base
+-------------------------------*/
+
+.link {
+  @apply inline-flex text-purple text-sm font-semibold underline hover:no-underline;
+}
