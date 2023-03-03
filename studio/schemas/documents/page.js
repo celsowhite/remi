@@ -30,6 +30,7 @@ export default {
             {title: 'Caption', name: 'caption', type: 'string'},
           ],
         },
+        {type: 'accordions'},
       ],
     },
     {

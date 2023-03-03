@@ -1,0 +1,52 @@
+/*-------------------------------
+Content
+-------------------------------*/
+
+.accordion-item__content {
+  overflow: hidden;
+}
+
+.accordion-item__content[data-state="open"] {
+  animation: accordionOpen 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.accordion-item__content[data-state="closed"] {
+  animation: accordionClose 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes accordionOpen {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordionClose {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Inner */
+
+.accordion-item__content-inner {
+  opacity: 0;
+}
+
+.accordion-item__content[data-state="open"] .accordion-item__content-inner {
+  animation: accordionContentOpen 1s forwards 0.3s;
+}
+
+@keyframes accordionContentOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

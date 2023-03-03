@@ -4,6 +4,7 @@ import ImageTextPanel from "@/components/sections/ImageTextPanel";
 import CardGrid from "@/components/sections/CardGrid";
 import SanityImage from "@/components/components/SanityImage";
 import ImageWithCaption from "../components/ImageWithCaption";
+import AccordionList from "../sections/AccordionList";
 
 export default function PageBuilder({ blocks }) {
   console.log(blocks);
@@ -74,6 +75,17 @@ export default function PageBuilder({ blocks }) {
         <div key={block._key} className="mb-10">
           <div className="container max-w-7xl">
             <ImageWithCaption image={block} caption={block.caption} />
+          </div>
+        </div>
+      );
+    } else if (block._type === "accordions") {
+      /*----------------------
+      Accordions
+      ----------------------*/
+      return (
+        <div key={block._key} className="mb-10">
+          <div className="container max-w-7xl">
+            <AccordionList key={block._key} accordions={block.accordions} />
           </div>
         </div>
       );
