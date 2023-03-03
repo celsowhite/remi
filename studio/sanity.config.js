@@ -2,6 +2,8 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
+import {structure} from './deskStructure'
+import {media} from 'sanity-plugin-media'
 
 // Singleton Settings
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
@@ -12,7 +14,7 @@ export default defineConfig({
   title: 'Otto',
   projectId: '1l7bk9fa',
   dataset: 'production',
-  plugins: [deskTool(), visionTool()],
+  plugins: [deskTool({structure}), visionTool(), media()],
   schema: {
     types: schemaTypes,
     // Filter out singleton types from the global “New document” menu options

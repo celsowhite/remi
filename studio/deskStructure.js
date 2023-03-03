@@ -4,7 +4,8 @@ export const structure = (S) => {
     .items([
       S.documentTypeListItem('page').title('Pages'),
       S.listItem()
-        .title('Site Settings')
+        .title('Settings')
+        .id('site_settings')
         .child(S.document().schemaType('site_settings').documentId('site_settings')),
     ])
 }
