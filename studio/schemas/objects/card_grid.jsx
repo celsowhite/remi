@@ -1,9 +1,9 @@
-import {MdGridView} from 'react-icons/md'
+import {ThLargeIcon} from '@sanity/icons'
 
 export default {
   title: 'Card Grid',
   name: 'card_grid',
-  icon: MdGridView,
+  icon: ThLargeIcon,
   type: 'object',
   fields: [
     {
@@ -30,6 +30,7 @@ export default {
     prepare(selection) {
       return {
         title: 'Card Grid',
+        media: ThLargeIcon,
       }
     },
   },

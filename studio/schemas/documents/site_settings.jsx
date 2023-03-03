@@ -1,7 +1,10 @@
+import {CogIcon} from '@sanity/icons'
+
 export default {
   title: 'Site Settings',
   name: 'site_settings',
   type: 'document',
+  icon: CogIcon,
   fields: [
     {
       title: 'Title',

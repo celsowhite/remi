@@ -1,3 +1,5 @@
+import {CogIcon} from '@sanity/icons'
+
 export const structure = (S) => {
   return S.list()
     .title('Base')
@@ -6,6 +8,7 @@ export const structure = (S) => {
       S.listItem()
         .title('Settings')
         .id('site_settings')
+        .icon(CogIcon)
         .child(S.document().schemaType('site_settings').documentId('site_settings')),
     ])
 }

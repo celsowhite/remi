@@ -1,17 +1,11 @@
-import {MdOutlineImage} from 'react-icons/md'
+import {BlockContentIcon} from '@sanity/icons'
 
 export default {
-  title: 'Hero',
-  name: 'hero',
+  title: 'Image Text Panel',
+  name: 'image_text_panel',
   type: 'object',
-  icon: MdOutlineImage,
+  icon: BlockContentIcon,
   fields: [
-    {
-      title: 'Image',
-      name: 'image',
-      type: 'image',
-      fields: [{title: 'Alt', name: 'alt', type: 'string'}],
-    },
     {title: 'Eyebrow', name: 'eyebrow', type: 'string'},
     {title: 'Title', name: 'title', type: 'string'},
     {
@@ -20,18 +14,23 @@ export default {
       type: 'text',
     },
     {
+      title: 'Image',
+      name: 'image',
+      type: 'image',
+      fields: [{title: 'Alt', name: 'alt', type: 'string'}],
+    },
+    {
       title: 'Button',
       name: 'button',
       type: 'button',
     },
     {
-      title: 'Content Position',
-      name: 'content_position',
+      title: 'Image Position',
+      name: 'image_position',
       type: 'string',
       options: {
         list: [
           {title: 'Left', value: 'left'},
-          {title: 'Center', value: 'center'},
           {title: 'Right', value: 'right'},
         ],
         layout: 'dropdown',
@@ -41,7 +40,8 @@ export default {
   preview: {
     prepare(selection) {
       return {
-        title: 'Hero',
+        title: 'Image Text Panel',
+        media: BlockContentIcon,
       }
     },
   },

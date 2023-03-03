@@ -1,14 +1,14 @@
-import {MdCode} from 'react-icons/md'
+import {CodeIcon} from '@sanity/icons'
 
 export default {
   title: 'Embed',
   name: 'embed',
-  icon: MdCode,
+  icon: CodeIcon,
   type: 'object',
   fields: [
     {
-      title: 'Name',
-      name: 'name',
+      title: 'Title',
+      name: 'title',
       type: 'string',
     },
     {
@@ -19,9 +19,13 @@ export default {
     },
   ],
   preview: {
+    select: {
+      title: 'title',
+    },
     prepare(selection) {
       return {
-        title: 'Embed',
+        title: selection.title,
+        media: CodeIcon,
       }
     },
   },

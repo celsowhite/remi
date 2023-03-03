@@ -1,10 +1,10 @@
-import {MdOutlineImage} from 'react-icons/md'
+import {InsertBelowIcon} from '@sanity/icons'
 
 export default {
   title: 'Section Header',
   name: 'section_header',
   type: 'object',
-  icon: MdOutlineImage,
+  icon: InsertBelowIcon,
   fields: [
     {title: 'Title', name: 'title', type: 'string'},
     {
@@ -29,6 +29,7 @@ export default {
     prepare(selection) {
       return {
         title: 'Section Header',
+        media: InsertBelowIcon,
       }
     },
   },

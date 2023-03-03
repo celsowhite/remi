@@ -1,10 +1,10 @@
-import {MdOutlineImage} from 'react-icons/md'
+import {BlockContentIcon} from '@sanity/icons'
 
 export default {
   title: 'Text Banner',
   name: 'text_banner',
   type: 'object',
-  icon: MdOutlineImage,
+  icon: BlockContentIcon,
   fields: [
     {title: 'Eyebrow', name: 'eyebrow', type: 'string'},
     {title: 'Title', name: 'title', type: 'string'},
@@ -23,6 +23,7 @@ export default {
     prepare(selection) {
       return {
         title: 'Text Banner',
+        media: BlockContentIcon,
       }
     },
   },

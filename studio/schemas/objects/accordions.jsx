@@ -1,7 +1,10 @@
+import {MenuIcon} from '@sanity/icons'
+
 export default {
   title: 'Accordions',
   name: 'accordions',
   type: 'object',
+  icon: MenuIcon,
   fields: [
     {
       title: 'Accordions',
@@ -18,6 +21,7 @@ export default {
     prepare(selection) {
       return {
         title: 'Accordions',
+        media: MenuIcon,
       }
     },
   },

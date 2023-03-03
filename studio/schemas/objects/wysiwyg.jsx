@@ -1,10 +1,10 @@
-import {MdOutlineTextSnippet} from 'react-icons/md'
+import {DocumentTextIcon} from '@sanity/icons'
 
 export default {
   title: 'Rich Text',
   name: 'wysiwyg',
   type: 'object',
-  icon: MdOutlineTextSnippet,
+  icon: DocumentTextIcon,
   fields: [
     {
       title: 'Content',
@@ -30,12 +30,10 @@ export default {
     },
   ],
   preview: {
-    select: {
-      title: 'title',
-    },
-    prepare({title}) {
+    prepare(selection) {
       return {
         title: 'Rich Text',
+        media: DocumentTextIcon,
       }
     },
   },

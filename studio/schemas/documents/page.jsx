@@ -1,10 +1,10 @@
-import {MdTextSnippet, MdOutlineImage} from 'react-icons/md'
+import {DocumentTextIcon, ImageIcon} from '@sanity/icons'
 
 export default {
   title: 'Page',
   name: 'page',
   type: 'document',
-  icon: MdTextSnippet,
+  icon: DocumentTextIcon,
   fields: [
     {
       title: 'Title',
@@ -24,7 +24,7 @@ export default {
           title: 'Image',
           name: 'image',
           type: 'image',
-          icon: MdOutlineImage,
+          icon: ImageIcon,
           fields: [
             {title: 'Alt', name: 'alt', type: 'string'},
             {title: 'Caption', name: 'caption', type: 'string'},
