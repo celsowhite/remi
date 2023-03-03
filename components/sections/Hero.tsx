@@ -23,7 +23,7 @@ export default function Hero({
   ----------------------*/
   return (
     <div className="relative">
-      <div className="padding-aspect padding-aspect--6/4">
+      <div className="padding-aspect padding-aspect--video">
         <SanityImage data={image} />
       </div>
       <div className="absolute top-0 left-0 w-full h-full flex items-center">

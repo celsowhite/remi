@@ -21,7 +21,7 @@ export default async function Page({ params }) {
   Template
   ----------------------*/
   return (
-    <div className="py-10">
+    <div>
       <PageBuilder blocks={content?.page_builder} />
     </div>
   );
