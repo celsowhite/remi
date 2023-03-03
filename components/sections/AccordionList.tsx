@@ -11,8 +11,6 @@ export interface AccordionListProps {
 }
 
 export default function AccordionList({ accordions }: AccordionListProps) {
-  console.log(accordions);
-
   const [activeAccordion, setActiveAccordion] = useState("");
 
   /*----------------------
