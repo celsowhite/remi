@@ -25,16 +25,21 @@ Get Global Data
 ----------------------*/
 async function getGlobalData() {
   return await client.fetch(
-    `*[_type == 'site_settings'][0] {
-      ...,
-      seo{
+    `{
+      "settings": *[_type == 'site_settings'][0] {
         ...,
-        image{
+        seo{
           ...,
-          asset->{
-            url
+          image{
+            ...,
+            asset->{
+              url
+            }
           }
         }
+      },
+      "navigation": *[_type == 'navigation'] {
+        ...
       }
     }`
   );
@@ -45,28 +50,30 @@ Generate Metadata
 ----------------------*/
 export async function generateMetadata({ params }): Promise<Metadata> {
   const globalData = await getGlobalData();
+  console.log(globalData);
+
   return {
     title: {
-      default: globalData?.seo?.title,
-      template: `%s | ${globalData?.seo?.title}`,
+      default: globalData?.settings?.seo?.title,
+      template: `%s | ${globalData?.settings?.seo?.title}`,
     },
-    description: globalData?.seo?.description,
+    description: globalData?.settings?.seo?.description,
     openGraph: {
       type: "website",
-      url: globalData?.site_url,
-      title: globalData?.seo?.title || globalData?.title,
-      description: globalData?.seo?.description,
+      url: globalData?.settings?.site_url,
+      title: globalData?.settings?.seo?.title || globalData?.settings?.title,
+      description: globalData?.settings?.seo?.description,
       images: [
         {
-          url: globalData?.seo?.image?.asset?.url,
-          alt: globalData?.seo?.image?.alt,
+          url: globalData?.settings?.seo?.image?.asset?.url,
+          alt: globalData?.settings?.seo?.image?.alt,
         },
       ],
-      siteName: globalData?.title,
+      siteName: globalData?.settings?.title,
     },
     twitter: {
       card: "summary_large_image",
-      site: globalData?.twitter_handle,
+      site: globalData?.settings?.twitter_handle,
     },
   };
 }

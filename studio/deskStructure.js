@@ -5,6 +5,7 @@ export const structure = (S) => {
     .title('Base')
     .items([
       S.documentTypeListItem('page').title('Pages'),
+      S.documentTypeListItem('navigation').title('Navigation'),
       S.listItem()
         .title('Settings')
         .id('site_settings')
