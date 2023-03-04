@@ -1,4 +1,6 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   title: 'SEO',
   name: 'seo',
   type: 'object',
@@ -7,20 +9,20 @@ export default {
     collapsed: true,
   },
   fields: [
-    {
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
       validation: (Rule) => Rule.max(60),
-    },
-    {
+    }),
+    defineField({
       title: 'Description',
       name: 'description',
       type: 'text',
       rows: 3,
       validation: (Rule) => Rule.max(155),
-    },
-    {
+    }),
+    defineField({
       title: 'Image',
       name: 'image',
       type: 'image',
@@ -32,6 +34,6 @@ export default {
           type: 'string',
         },
       ],
-    },
+    }),
   ],
-}
+})

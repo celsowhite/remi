@@ -1,18 +1,19 @@
 import {InsertBelowIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
   title: 'Section Header',
   name: 'section_header',
   type: 'object',
   icon: InsertBelowIcon,
   fields: [
-    {title: 'Title', name: 'title', type: 'string'},
-    {
+    defineField({title: 'Title', name: 'title', type: 'string'}),
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       title: 'Content Position',
       name: 'content_position',
       type: 'string',
@@ -23,7 +24,7 @@ export default {
         ],
         layout: 'dropdown',
       },
-    },
+    }),
   ],
   preview: {
     prepare(selection) {
@@ -33,4 +34,4 @@ export default {
       }
     },
   },
-}
+})

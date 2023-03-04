@@ -1,12 +1,13 @@
 import {ThLargeIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
   title: 'Card Grid',
   name: 'card_grid',
   icon: ThLargeIcon,
   type: 'object',
   fields: [
-    {
+    defineField({
       title: 'Columns',
       name: 'columns',
       type: 'number',
@@ -14,8 +15,8 @@ export default {
         list: [2, 3, 4],
         layout: 'dropdown',
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Cards',
       name: 'cards',
       type: 'array',
@@ -24,7 +25,7 @@ export default {
           type: 'card',
         },
       ],
-    },
+    }),
   ],
   preview: {
     prepare(selection) {
@@ -34,4 +35,4 @@ export default {
       }
     },
   },
-}
+})

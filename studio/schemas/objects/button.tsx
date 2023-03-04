@@ -1,14 +1,16 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   title: 'Button',
   name: 'button',
   type: 'object',
   fields: [
-    {
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'URL',
       name: 'url',
       type: 'url',
@@ -17,6 +19,6 @@ export default {
           scheme: ['http', 'https', 'mailto', 'tel'],
           allowRelative: true,
         }),
-    },
+    }),
   ],
-}
+})

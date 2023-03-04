@@ -1,6 +1,7 @@
 import {DocumentTextIcon} from '@sanity/icons'
+import {defineArrayMember, defineType} from 'sanity'
 
-export default {
+export default defineType({
   title: 'Rich Text',
   name: 'wysiwyg',
   type: 'object',
@@ -11,8 +12,8 @@ export default {
       name: 'content',
       type: 'array',
       of: [
-        {type: 'block'},
-        {
+        defineArrayMember({type: 'block'}),
+        defineArrayMember({
           type: 'image',
           title: 'Image',
           fields: [
@@ -22,10 +23,10 @@ export default {
               type: 'string',
             },
           ],
-        },
-        {
+        }),
+        defineArrayMember({
           type: 'embed',
-        },
+        }),
       ],
     },
   ],
@@ -37,4 +38,4 @@ export default {
       }
     },
   },
-}
+})

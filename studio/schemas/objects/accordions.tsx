@@ -1,12 +1,13 @@
 import {MenuIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
   title: 'Accordions',
   name: 'accordions',
   type: 'object',
   icon: MenuIcon,
   fields: [
-    {
+    defineField({
       title: 'Accordions',
       name: 'accordions',
       type: 'array',
@@ -15,7 +16,7 @@ export default {
           type: 'accordion',
         },
       ],
-    },
+    }),
   ],
   preview: {
     prepare(selection) {
@@ -25,4 +26,4 @@ export default {
       }
     },
   },
-}
+})

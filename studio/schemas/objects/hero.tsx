@@ -1,30 +1,31 @@
 import {BlockElementIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
   title: 'Hero',
   name: 'hero',
   type: 'object',
   icon: BlockElementIcon,
   fields: [
-    {
+    defineField({
       title: 'Image',
       name: 'image',
       type: 'image',
       fields: [{title: 'Alt', name: 'alt', type: 'string'}],
-    },
-    {title: 'Eyebrow', name: 'eyebrow', type: 'string'},
-    {title: 'Title', name: 'title', type: 'string'},
-    {
+    }),
+    defineField({title: 'Eyebrow', name: 'eyebrow', type: 'string'}),
+    defineField({title: 'Title', name: 'title', type: 'string'}),
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       title: 'Button',
       name: 'button',
       type: 'button',
-    },
-    {
+    }),
+    defineField({
       title: 'Content Position',
       name: 'content_position',
       type: 'string',
@@ -36,7 +37,7 @@ export default {
         ],
         layout: 'dropdown',
       },
-    },
+    }),
   ],
   preview: {
     prepare(selection) {
@@ -46,4 +47,4 @@ export default {
       }
     },
   },
-}
+})
