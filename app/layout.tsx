@@ -4,15 +4,23 @@ import Footer from "@/components/layout/Footer";
 import { client } from "@/services/sanity/client";
 import "../styles/main.css";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  /*----------------------
+  Global Data
+  ----------------------*/
+  const globalData = await getGlobalData();
+
+  /*----------------------
+  Template
+  ----------------------*/
   return (
     <html lang="en">
       <body>
-        <Header />
+        <Header nav={globalData.main_navigation} />
         <main>{children}</main>
         <Footer />
       </body>
@@ -38,8 +46,17 @@ async function getGlobalData() {
           }
         }
       },
-      "navigation": *[_type == 'navigation'] {
-        ...
+      "main_navigation": *[_type == 'navigation' && slug.current == 'main-navigation'][0] {
+        ...,
+        items[]{
+          ...,
+          link{
+            ...,
+            internal->{
+              "slug": slug.current
+            }
+          }
+        }
       }
     }`
   );
@@ -50,7 +67,6 @@ Generate Metadata
 ----------------------*/
 export async function generateMetadata({ params }): Promise<Metadata> {
   const globalData = await getGlobalData();
-  console.log(globalData);
 
   return {
     title: {

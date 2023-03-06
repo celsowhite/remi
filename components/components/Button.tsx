@@ -9,7 +9,7 @@ export interface ButtonProps {
 export default function Button({
   text = "",
   url = "",
-  className = "btn btn--primary",
+  className = "",
   ...passThroughProps
 }: ButtonProps) {
   // External Flag

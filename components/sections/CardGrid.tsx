@@ -2,7 +2,7 @@ import Card, { CardProps } from "../components/Card";
 import { useMemo } from "react";
 
 export interface CardGridProps {
-  cards: [CardProps];
+  cards: CardProps[];
   columns?: number;
 }
 
@@ -27,7 +27,7 @@ export default function CardGrid({ cards, columns = 3 }: CardGridProps) {
     <div className="grid grid-cols-12 gap-5">
       {cards.map((card) => {
         return (
-          <div className={columnClass}>
+          <div className={columnClass} key={card._key}>
             <Card
               title={card.title}
               text={card.text}

@@ -3,6 +3,7 @@ import Button, { ButtonProps } from "@/components/components/Button";
 import Link from "next/link";
 
 export interface CardProps {
+  _key?: string;
   title: string;
   text?: string;
   image?: object;

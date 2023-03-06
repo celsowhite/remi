@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
-import type { Metadata } from "next";
 
 export default async function Page({ params }) {
   /*----------------------
@@ -92,3 +91,8 @@ export async function generateStaticParams() {
     slug: slug,
   }));
 }
+
+/*----------------------
+Revalidation
+----------------------*/
+export const revalidate = 60;

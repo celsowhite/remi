@@ -17,9 +17,9 @@ export default defineType({
       of: [{type: 'navigation_items'}],
     }),
     defineField({
-      name: 'id',
+      name: 'slug',
       type: 'slug',
-      title: 'ID',
+      title: 'Slug',
       options: {
         source: 'title',
       },
