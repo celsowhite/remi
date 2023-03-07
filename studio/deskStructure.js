@@ -5,6 +5,7 @@ export const structure = (S) => {
     .title('Base')
     .items([
       S.documentTypeListItem('page').title('Pages'),
+      S.documentTypeListItem('post').title('Posts'),
       S.documentTypeListItem('menu').title('Menus'),
       S.listItem()
         .title('Settings')
@@ -19,7 +20,7 @@ export const structure = (S) => {
                 .child(S.document().schemaType('general_settings').documentId('general_settings')),
               S.listItem()
                 .title('Social')
-                .icon(EarthGlobeIcon)
+                .icon(ControlsIcon)
                 .child(S.document().schemaType('social_settings').documentId('social_settings')),
             ])
         ),

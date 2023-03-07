@@ -1,3 +1,4 @@
+import {LinkIcon} from '@sanity/icons'
 import {defineType} from 'sanity'
 
 export default defineType({
@@ -22,4 +23,15 @@ export default defineType({
       of: [{type: 'menu_item'}],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare(selection) {
+      return {
+        title: selection.title,
+        media: LinkIcon,
+      }
+    },
+  },
 })

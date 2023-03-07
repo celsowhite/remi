@@ -1,27 +1,16 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
-import {DocumentTextIcon, ImageIcon} from '@sanity/icons'
+import {DocumentsIcon, DocumentTextIcon, ImageIcon} from '@sanity/icons'
 
 export default defineType({
-  title: 'Page',
-  name: 'page',
+  title: 'Post',
+  name: 'post',
   type: 'document',
-  icon: DocumentTextIcon,
+  icon: DocumentsIcon,
   fields: [
     defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-    }),
-    defineField({
-      title: 'Template',
-      name: 'genre',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Default', value: 'sci-fi'},
-          {title: 'Blog', value: 'western'},
-        ],
-      },
     }),
     defineField({
       title: 'Page Builder',

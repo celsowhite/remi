@@ -8,7 +8,19 @@ import TextBanner from "../sections/TextBanner";
 import Hero from "@/components/sections/Hero";
 import SectionHeader from "../sections/SectionHeader";
 
-export default function PageBuilder({ blocks }) {
+export default function PageBuilder({ blocks, containerSize = "large" }) {
+  /*----------------------
+  Style
+  ----------------------*/
+  let containerClass: String;
+  if (containerSize === "large") {
+    containerClass = "container max-w-7xl";
+  } else if (containerSize === "medium") {
+    containerClass = "container max-w-6xl";
+  } else if (containerSize === "small") {
+    containerClass = "container max-w-5xl";
+  }
+
   return blocks?.map((block) => {
     if (block._type === "rich_text") {
       /*----------------------
@@ -16,7 +28,7 @@ export default function PageBuilder({ blocks }) {
       ----------------------*/
       return (
         <div key={block._key} className="mb-10">
-          <div className="container max-w-7xl">
+          <div className={containerClass}>
             <div className="wysiwyg">
               <PortableText
                 value={block.content}
@@ -32,7 +44,7 @@ export default function PageBuilder({ blocks }) {
       ----------------------*/
       return (
         <div key={block._key} className="mb-10">
-          <div className="container max-w-7xl">
+          <div className={containerClass}>
             {" "}
             <div dangerouslySetInnerHTML={{ __html: block.code }}></div>
           </div>
@@ -44,7 +56,7 @@ export default function PageBuilder({ blocks }) {
       ----------------------*/
       return (
         <div key={block._key} className="mb-10">
-          <div className="container max-w-7xl">
+          <div className={containerClass}>
             <ImageTextPanel
               eyebrow={block.eyebrow}
               title={block.title}
@@ -62,7 +74,7 @@ export default function PageBuilder({ blocks }) {
       ----------------------*/
       return (
         <div key={block._key} className="mb-10">
-          <div className="container max-w-7xl">
+          <div className={containerClass}>
             <CardGrid cards={block.cards} columns={block.columns} />
           </div>
         </div>
@@ -73,7 +85,7 @@ export default function PageBuilder({ blocks }) {
       ----------------------*/
       return (
         <div key={block._key} className="mb-10">
-          <div className="container max-w-7xl">
+          <div className={containerClass}>
             <ImageWithCaption image={block} caption={block.caption} />
           </div>
         </div>
@@ -84,7 +96,7 @@ export default function PageBuilder({ blocks }) {
       ----------------------*/
       return (
         <div key={block._key} className="mb-10">
-          <div className="container max-w-7xl">
+          <div className={containerClass}>
             <AccordionList key={block._key} accordions={block.accordions} />
           </div>
         </div>
