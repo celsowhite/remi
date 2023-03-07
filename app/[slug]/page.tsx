@@ -2,18 +2,16 @@ import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
 import {
-  linkProjection,
   pageBuilderProjection,
   seoProjection,
 } from "@/helpers/groq/projections";
-import { settingsQuery } from "@/helpers/groq/queries";
+import { generalSettingsQuery } from "@/helpers/groq/queries";
 
 export default async function Page({ params }) {
   /*----------------------
   Page Date
   ----------------------*/
   const pageData = await getPageData(params.slug);
-  // console.log(pageData.content.page_builder);
 
   /*----------------------
   Template
@@ -36,7 +34,7 @@ async function getPageData(slug: string) {
         ${pageBuilderProjection},
         ${seoProjection}
       },
-      "globalSettings": ${settingsQuery}
+      "general_settings": ${generalSettingsQuery},
     }`,
     { slug }
   );
@@ -60,10 +58,10 @@ export async function generateMetadata({ params }): Promise<Metadata> {
         {
           url:
             pageData?.content?.seo?.image?.asset?.url ||
-            pageData?.globalSettings?.seo?.image?.asset?.url,
+            pageData.general_settings?.seo?.image?.asset?.url,
           alt:
             pageData?.content?.seo?.image?.alt ||
-            pageData?.globalSettings?.seo?.image?.alt,
+            pageData.general_settings?.seo?.image?.alt,
         },
       ],
     },
@@ -75,8 +73,9 @@ Generate Static Params
 ----------------------*/
 export async function generateStaticParams() {
   const slugs = await client.fetch(
-    `*[_type == "page" && defined(slug.current)][].slug.current`
+    `*[_type == "page" && defined(slug.current) && _id != *[_type=="general_settings"][0].home_page->_id][].slug.current`
   );
+
   return slugs.map((slug: String) => ({
     slug: slug,
   }));

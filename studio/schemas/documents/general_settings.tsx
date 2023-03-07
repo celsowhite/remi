@@ -1,11 +1,11 @@
-import {CogIcon} from '@sanity/icons'
+import {ControlsIcon} from '@sanity/icons'
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
-  title: 'Site Settings',
-  name: 'site_settings',
+  title: 'General Settings',
+  name: 'general_settings',
   type: 'document',
-  icon: CogIcon,
+  icon: ControlsIcon,
   fields: [
     defineField({
       title: 'Title',
@@ -18,13 +18,14 @@ export default defineType({
       type: 'url',
     }),
     defineField({
-      title: 'Copyright',
-      name: 'copyright',
-      type: 'string',
+      title: 'Home Page',
+      name: 'home_page',
+      type: 'reference',
+      to: [{type: 'page'}],
     }),
     defineField({
-      title: 'Twitter Handle',
-      name: 'twitter_handle',
+      title: 'Copyright',
+      name: 'copyright',
       type: 'string',
     }),
     defineField({

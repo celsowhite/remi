@@ -3,7 +3,11 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { client } from "@/services/sanity/client";
 import "../styles/main.css";
-import { mainNavigationQuery, settingsQuery } from "@/helpers/groq/queries";
+import {
+  mainNavigationQuery,
+  generalSettingsQuery,
+  socialSettingsQuery,
+} from "@/helpers/groq/queries";
 
 export default async function RootLayout({
   children,
@@ -35,7 +39,8 @@ Get Global Data
 async function getGlobalData() {
   return await client.fetch(
     `{
-      "settings": ${settingsQuery},
+      "general_settings": ${generalSettingsQuery},
+      "social_settings": ${socialSettingsQuery},
       "main_navigation": ${mainNavigationQuery}
     }`
   );
@@ -49,26 +54,28 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
   return {
     title: {
-      default: globalData?.settings?.seo?.title,
-      template: `%s | ${globalData?.settings?.seo?.title}`,
+      default: globalData?.general_settings?.seo?.title,
+      template: `%s | ${globalData?.general_settings?.seo?.title}`,
     },
-    description: globalData?.settings?.seo?.description,
+    description: globalData?.general_settings?.seo?.description,
     openGraph: {
       type: "website",
-      url: globalData?.settings?.site_url,
-      title: globalData?.settings?.seo?.title || globalData?.settings?.title,
-      description: globalData?.settings?.seo?.description,
+      url: globalData?.general_settings?.site_url,
+      title:
+        globalData?.general_settings?.seo?.title ||
+        globalData?.general_settings?.title,
+      description: globalData?.general_settings?.seo?.description,
       images: [
         {
-          url: globalData?.settings?.seo?.image?.asset?.url,
-          alt: globalData?.settings?.seo?.image?.alt,
+          url: globalData?.general_settings?.seo?.image?.asset?.url,
+          alt: globalData?.general_settings?.seo?.image?.alt,
         },
       ],
-      siteName: globalData?.settings?.title,
+      siteName: globalData?.general_settings?.title,
     },
     twitter: {
       card: "summary_large_image",
-      site: globalData?.settings?.twitter_handle,
+      site: globalData?.general_settings?.twitter_handle,
     },
   };
 }

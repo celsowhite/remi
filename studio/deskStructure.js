@@ -1,4 +1,4 @@
-import {CogIcon} from '@sanity/icons'
+import {CogIcon, ControlsIcon, EarthGlobeIcon} from '@sanity/icons'
 
 export const structure = (S) => {
   return S.list()
@@ -8,8 +8,20 @@ export const structure = (S) => {
       S.documentTypeListItem('navigation').title('Navigation'),
       S.listItem()
         .title('Settings')
-        .id('site_settings')
         .icon(CogIcon)
-        .child(S.document().schemaType('site_settings').documentId('site_settings')),
+        .child(
+          S.list()
+            .title('Settings')
+            .items([
+              S.listItem()
+                .title('General')
+                .icon(ControlsIcon)
+                .child(S.document().schemaType('general_settings').documentId('general_settings')),
+              S.listItem()
+                .title('Social')
+                .icon(EarthGlobeIcon)
+                .child(S.document().schemaType('social_settings').documentId('social_settings')),
+            ])
+        ),
     ])
 }
