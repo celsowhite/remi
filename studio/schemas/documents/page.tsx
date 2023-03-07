@@ -17,7 +17,7 @@ export default defineType({
       name: 'page_builder',
       type: 'array',
       of: [
-        defineArrayMember({type: 'wysiwyg'}),
+        defineArrayMember({type: 'rich_text'}),
         defineArrayMember({type: 'embed'}),
         defineArrayMember({type: 'image_text_panel'}),
         defineArrayMember({type: 'card_grid'}),

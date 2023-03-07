@@ -10,7 +10,7 @@ import SectionHeader from "../sections/SectionHeader";
 
 export default function PageBuilder({ blocks }) {
   return blocks?.map((block) => {
-    if (block._type === "wysiwyg") {
+    if (block._type === "rich_text") {
       /*----------------------
       Content Block
       ----------------------*/

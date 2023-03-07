@@ -13,9 +13,9 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      title: 'Text',
-      name: 'text',
-      type: 'wysiwyg',
+      title: 'Content',
+      name: 'content',
+      type: 'rich_text',
     }),
   ],
   preview: {

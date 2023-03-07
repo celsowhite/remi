@@ -23,7 +23,7 @@ export default function AccordionList({ accordions }: AccordionListProps) {
         value={accordion._key}
         index={index}
         title={accordion.title}
-        content={accordion.text.content}
+        content={accordion.content.content}
         active={activeAccordion === accordion._key}
       />
     );

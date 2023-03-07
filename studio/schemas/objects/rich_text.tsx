@@ -3,7 +3,7 @@ import {defineArrayMember, defineType} from 'sanity'
 
 export default defineType({
   title: 'Rich Text',
-  name: 'wysiwyg',
+  name: 'rich_text',
   type: 'object',
   icon: DocumentTextIcon,
   fields: [

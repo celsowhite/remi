@@ -1,4 +1,3 @@
-import Logo from "@/components/assets/Logo";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
 import { homePageQuery, generalSettingsQuery } from "@/helpers/groq/queries";
