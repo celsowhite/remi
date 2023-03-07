@@ -60,6 +60,8 @@ export default function PageBuilder({ blocks }) {
       /*----------------------
       Card Grid
       ----------------------*/
+      console.log(block);
+
       return (
         <div key={block._key} className="mb-10">
           <div className="container max-w-7xl">

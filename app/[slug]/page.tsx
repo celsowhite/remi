@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
+import {
+  linkProjection,
+  pageBuilderProjection,
+  seoProjection,
+} from "@/helpers/groq/projections";
+import { settingsQuery } from "@/helpers/groq/queries";
 
 export default async function Page({ params }) {
   /*----------------------
   Page Date
   ----------------------*/
   const pageData = await getPageData(params.slug);
+  // console.log(pageData.content.page_builder);
 
   /*----------------------
   Template
@@ -24,29 +31,12 @@ Get Page Data
 async function getPageData(slug: string) {
   return await client.fetch(
     `{
-      "content": *[_type == "page" && slug.current == $slug][0]{
+      "content": *[_type == "page" && slug.current == $slug][0] {
         ...,
-        seo{
-          ...,
-          image{
-            ...,
-            asset->{
-              url
-            }
-          }
-        }
+        ${pageBuilderProjection},
+        ${seoProjection}
       },
-      "globalSettings": *[_type == 'site_settings'][0] {
-        seo{
-          ...,
-          image{
-            ...,
-            asset->{
-              url
-            }
-          }
-        },
-      }
+      "globalSettings": ${settingsQuery}
     }`,
     { slug }
   );

@@ -1,13 +1,13 @@
 import SanityImage from "./SanityImage";
-import Button, { ButtonProps } from "@/components/components/Button";
-import Link from "next/link";
+import Link from "./Link";
+import { SanityButton } from "@/types";
 
 export interface CardProps {
   _key?: string;
   title: string;
   text?: string;
   image?: object;
-  button?: ButtonProps;
+  button?: SanityButton;
 }
 
 export default function Card({ title, text, image, button }: CardProps) {
@@ -28,7 +28,16 @@ export default function Card({ title, text, image, button }: CardProps) {
       {title && <h5 className="mt-4">{title}</h5>}
       {text && <p className="mt-1">{text}</p>}
       {button && (
-        <Button url={button?.url} text={button?.text} className="mt-4 link" />
+        <Link
+          url={
+            button?.link?.type === "internal"
+              ? button?.link?.internal
+              : button?.link?.external
+          }
+          className="mt-4 link"
+        >
+          {button.text}
+        </Link>
       )}
     </div>
   );

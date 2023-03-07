@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { client } from "@/services/sanity/client";
 import "../styles/main.css";
+import { mainNavigationQuery, settingsQuery } from "@/helpers/groq/queries";
 
 export default async function RootLayout({
   children,
@@ -34,30 +35,8 @@ Get Global Data
 async function getGlobalData() {
   return await client.fetch(
     `{
-      "settings": *[_type == 'site_settings'][0] {
-        ...,
-        seo{
-          ...,
-          image{
-            ...,
-            asset->{
-              url
-            }
-          }
-        }
-      },
-      "main_navigation": *[_type == 'navigation' && slug.current == 'main-navigation'][0] {
-        ...,
-        items[]{
-          ...,
-          link{
-            ...,
-            internal->{
-              "slug": slug.current
-            }
-          }
-        }
-      }
+      "settings": ${settingsQuery},
+      "main_navigation": ${mainNavigationQuery}
     }`
   );
 }

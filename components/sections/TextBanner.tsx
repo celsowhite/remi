@@ -1,10 +1,12 @@
 import Button, { ButtonProps } from "@/components/components/Button";
+import { SanityButton } from "@/types";
+import Link from "../components/Link";
 
 export interface TextBannerProps {
   eyebrow?: string;
   title: string;
   text?: string;
-  button?: ButtonProps;
+  button?: SanityButton;
 }
 
 export default function TextBanner({
@@ -23,11 +25,16 @@ export default function TextBanner({
         {title && <h2 className="mt-2">{title}</h2>}
         {text && <p className="mt-5">{text}</p>}
         {button && (
-          <Button
-            url={button?.url}
-            text={button?.text}
+          <Link
+            url={
+              button?.link?.type === "internal"
+                ? button?.link?.internal
+                : button?.link?.external
+            }
             className="btn btn--primary mt-5"
-          />
+          >
+            {button.text}
+          </Link>
         )}
       </div>
     </div>

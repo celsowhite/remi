@@ -1,14 +1,21 @@
-export interface LinkProps {
+/*----------------------
+Sanity
+----------------------*/
+
+export interface SanityLink {
   type: "internal" | "external";
-  internal: {
-    slug: string;
-  };
+  internal: string;
   external: string;
 }
 
-export interface NavItemProps {
+export interface SanityNavItem {
   _key: string;
-  link: LinkProps;
+  link: SanityLink;
   title: string;
-  children: NavItemProps[];
+  children: SanityNavItem[];
+}
+
+export interface SanityButton {
+  text: string;
+  link: SanityLink;
 }

@@ -11,14 +11,9 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      title: 'URL',
-      name: 'url',
-      type: 'url',
-      validation: (Rule) =>
-        Rule.uri({
-          scheme: ['http', 'https', 'mailto', 'tel'],
-          allowRelative: true,
-        }),
+      title: 'Link',
+      name: 'link',
+      type: 'link',
     }),
   ],
 })

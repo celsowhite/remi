@@ -2,11 +2,11 @@ import Logo from "@/components/assets/Logo";
 import ShopifyLogo from "@/components/assets/ShopifyLogo";
 import Link from "@/components/components/Link";
 import ChevronDown from "@/components/assets/icons/ChevronDown";
-import { NavItemProps } from "@/types";
+import { SanityNavItem } from "@/types";
 
 export interface HeaderProps {
   nav: {
-    items: NavItemProps[];
+    items: SanityNavItem[];
   };
 }
 
@@ -31,13 +31,14 @@ export default function Header({ nav }: HeaderProps) {
                   >
                     <div className="flex items-center cursor-pointer">
                       <Link
-                        label={item.title}
                         url={
-                          item?.link?.internal
-                            ? item?.link?.internal?.slug
+                          item?.link?.type === "internal"
+                            ? item?.link?.internal
                             : item?.link?.external
                         }
-                      />
+                      >
+                        {item.title}
+                      </Link>
                       {item?.children && (
                         <div className="ml-3 w-5 svg-width-full">
                           <ChevronDown />
@@ -52,10 +53,9 @@ export default function Header({ nav }: HeaderProps) {
                           return (
                             <li key={childItem._key}>
                               <Link
-                                label={childItem.title}
                                 url={
                                   childItem?.link?.internal
-                                    ? childItem?.link?.internal?.slug
+                                    ? childItem?.link?.internal
                                     : childItem?.link?.external
                                 }
                                 className={`block p-2 bg-white hover:bg-purple-light text-purple min-w-[200px] border-b border-b-purple-light ${
@@ -64,7 +64,9 @@ export default function Header({ nav }: HeaderProps) {
                                   index === item.children.length - 1 &&
                                   "rounded-bl-md rounded-br-md"
                                 }`}
-                              />
+                              >
+                                {childItem.title}
+                              </Link>
                             </li>
                           );
                         })}
