@@ -1,7 +1,7 @@
 import {defineType} from 'sanity'
 
 export default defineType({
-  name: 'navigation_items',
+  name: 'menu_items',
   type: 'object',
   title: 'Items',
   fields: [
@@ -19,7 +19,7 @@ export default defineType({
       type: 'array',
       name: 'children',
       title: 'Children',
-      of: [{type: 'navigation_item'}],
+      of: [{type: 'menu_item'}],
     },
   ],
 })

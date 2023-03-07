@@ -1,5 +1,5 @@
 export default {
-  name: 'navigation_item',
+  name: 'menu_item',
   type: 'object',
   title: 'Item',
   fields: [

@@ -29,8 +29,8 @@ export const socialSettingsQuery = `
 `;
 
 /* Menus */
-export const mainNavigationQuery = `
-  *[_type == 'navigation' && slug.current == 'main-navigation'][0] {
+export const mainMenuQuery = `
+  *[_type == 'menu' && slug.current == 'main'][0] {
     ...,
     items[]{
       ...,

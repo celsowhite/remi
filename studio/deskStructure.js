@@ -5,7 +5,7 @@ export const structure = (S) => {
     .title('Base')
     .items([
       S.documentTypeListItem('page').title('Pages'),
-      S.documentTypeListItem('navigation').title('Navigation'),
+      S.documentTypeListItem('menu').title('Menus'),
       S.listItem()
         .title('Settings')
         .icon(CogIcon)

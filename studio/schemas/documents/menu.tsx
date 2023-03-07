@@ -1,9 +1,9 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'navigation',
+  name: 'menu',
   type: 'document',
-  title: 'Navigation',
+  title: 'Menu',
   fields: [
     defineField({
       type: 'string',
@@ -14,7 +14,7 @@ export default defineType({
       type: 'array',
       name: 'items',
       title: 'Items',
-      of: [{type: 'navigation_items'}],
+      of: [{type: 'menu_items'}],
     }),
     defineField({
       name: 'slug',

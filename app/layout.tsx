@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import { client } from "@/services/sanity/client";
 import "../styles/main.css";
 import {
-  mainNavigationQuery,
+  mainMenuQuery,
   generalSettingsQuery,
   socialSettingsQuery,
 } from "@/helpers/groq/queries";
@@ -25,7 +25,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header nav={globalData.main_navigation} />
+        <Header nav={globalData.main_menu} />
         <main>{children}</main>
         <Footer />
       </body>
@@ -41,7 +41,7 @@ async function getGlobalData() {
     `{
       "general_settings": ${generalSettingsQuery},
       "social_settings": ${socialSettingsQuery},
-      "main_navigation": ${mainNavigationQuery}
+      "main_menu": ${mainMenuQuery}
     }`
   );
 }
