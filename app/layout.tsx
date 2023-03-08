@@ -4,8 +4,9 @@ import Footer from "@/components/layout/Footer";
 import { client } from "@/services/sanity/client";
 import "../styles/main.css";
 import {
-  mainMenuQuery,
   generalSettingsQuery,
+  headerSettingsQuery,
+  footerSettingsQuery,
   socialSettingsQuery,
 } from "@/helpers/groq/queries";
 
@@ -18,6 +19,7 @@ export default async function RootLayout({
   Global Data
   ----------------------*/
   const globalData = await getGlobalData();
+  console.log(globalData.social_settings);
 
   /*----------------------
   Template
@@ -25,9 +27,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header nav={globalData.main_menu} />
+        <Header nav={globalData.header_settings.menu} />
         <main>{children}</main>
-        <Footer />
+        <Footer socialProfiles={globalData?.social_settings?.profiles} />
       </body>
     </html>
   );
@@ -40,8 +42,9 @@ async function getGlobalData() {
   return await client.fetch(
     `{
       "general_settings": ${generalSettingsQuery},
+      "header_settings": ${headerSettingsQuery},
+      "footer_settings": ${footerSettingsQuery},
       "social_settings": ${socialSettingsQuery},
-      "main_menu": ${mainMenuQuery}
     }`
   );
 }

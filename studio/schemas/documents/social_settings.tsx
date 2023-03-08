@@ -8,9 +8,26 @@ export default defineType({
   icon: ControlsIcon,
   fields: [
     defineField({
+      title: 'Profiles',
+      name: 'profiles',
+      type: 'array',
+      of: [
+        {
+          type: 'social_profile',
+        },
+      ],
+    }),
+    defineField({
       title: 'Twitter Handle',
       name: 'twitter_handle',
       type: 'string',
     }),
   ],
+  preview: {
+    prepare(selection) {
+      return {
+        title: 'Social',
+      }
+    },
+  },
 })

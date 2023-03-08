@@ -53,3 +53,17 @@ export const pageBuilderProjection = `
     }
   }
 `;
+
+export const menuProjection = `
+  menu->{
+    ...,
+    items[]{
+      ...,
+      ${linkProjection},
+      children[]{
+        ...,
+        ${linkProjection}
+      },
+    }
+  }
+`;

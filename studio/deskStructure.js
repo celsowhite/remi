@@ -1,4 +1,4 @@
-import {CogIcon, ControlsIcon, EarthGlobeIcon} from '@sanity/icons'
+import {CogIcon, ControlsIcon, DocumentsIcon, EarthGlobeIcon} from '@sanity/icons'
 
 export const structure = (S) => {
   return S.list()
@@ -17,6 +17,10 @@ export const structure = (S) => {
                     .title('Landing')
                     .items([
                       S.listItem()
+                        .title('Home')
+                        .showIcon(false)
+                        .child(S.document().schemaType('home_page').documentId('home_page')),
+                      S.listItem()
                         .title('Blog')
                         .showIcon(false)
                         .child(S.document().schemaType('blog_page').documentId('blog_page')),
@@ -25,7 +29,14 @@ export const structure = (S) => {
               S.documentTypeListItem('page').title('General'),
             ])
         ),
-      S.documentTypeListItem('post').title('Posts'),
+      S.listItem()
+        .title('Posts')
+        .icon(DocumentsIcon)
+        .child(
+          S.list()
+            .title('Posts')
+            .items([S.documentTypeListItem('post').title('All Posts')])
+        ),
       S.documentTypeListItem('menu').title('Menus'),
       S.listItem()
         .title('Settings')
@@ -36,11 +47,19 @@ export const structure = (S) => {
             .items([
               S.listItem()
                 .title('General')
-                .icon(ControlsIcon)
+                .showIcon(false)
                 .child(S.document().schemaType('general_settings').documentId('general_settings')),
               S.listItem()
+                .title('Header')
+                .showIcon(false)
+                .child(S.document().schemaType('header_settings').documentId('header_settings')),
+              S.listItem()
+                .title('Footer')
+                .showIcon(false)
+                .child(S.document().schemaType('footer_settings').documentId('footer_settings')),
+              S.listItem()
                 .title('Social')
-                .icon(ControlsIcon)
+                .showIcon(false)
                 .child(S.document().schemaType('social_settings').documentId('social_settings')),
             ])
         ),

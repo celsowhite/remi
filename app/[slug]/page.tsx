@@ -73,7 +73,7 @@ Generate Static Params
 ----------------------*/
 export async function generateStaticParams() {
   const slugs = await client.fetch(
-    `*[_type == "page" && defined(slug.current) && _id != *[_type=="general_settings"][0].home_page->_id][].slug.current`
+    `*[_type == "page" && defined(slug.current)][].slug.current`
   );
 
   return slugs.map((slug: String) => ({

@@ -1,4 +1,17 @@
 /*----------------------
+Unions
+----------------------*/
+
+export type SocialNetworks =
+  | "twitter"
+  | "instagram"
+  | "linkedin"
+  | "youtube"
+  | "vimeo"
+  | "facebook"
+  | "tiktok";
+
+/*----------------------
 Sanity
 ----------------------*/
 
@@ -18,4 +31,10 @@ export interface SanityNavItem {
 export interface SanityButton {
   text: string;
   link: SanityLink;
+}
+
+export interface SanitySocialNetwork {
+  _key: string;
+  network: SocialNetworks;
+  url: string;
 }

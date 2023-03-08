@@ -26,7 +26,7 @@ export default async function Page({ params }) {
 
       <PageBuilder
         blocks={pageData?.content?.page_builder}
-        containerSize="medium"
+        containerSize="small"
       />
     </div>
   );

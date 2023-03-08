@@ -18,12 +18,6 @@ export default defineType({
       type: 'url',
     }),
     defineField({
-      title: 'Home Page',
-      name: 'home_page',
-      type: 'reference',
-      to: [{type: 'page'}],
-    }),
-    defineField({
       title: 'Copyright',
       name: 'copyright',
       type: 'string',
