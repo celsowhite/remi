@@ -27,12 +27,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header nav={globalData.header_settings.menu} />
+        <Header menu={globalData?.header_settings?.menu} />
         <main>{children}</main>
         <Footer
           socialProfiles={globalData?.social_settings?.profiles}
           menu1={globalData?.footer_settings?.footer_menu_1}
           menu2={globalData?.footer_settings?.footer_menu_2}
+          copyright={globalData?.footer_settings?.copyright}
         />
       </body>
     </html>

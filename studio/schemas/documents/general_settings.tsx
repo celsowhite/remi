@@ -18,11 +18,6 @@ export default defineType({
       type: 'url',
     }),
     defineField({
-      title: 'Copyright',
-      name: 'copyright',
-      type: 'string',
-    }),
-    defineField({
       title: 'SEO',
       name: 'seo',
       type: 'seo',

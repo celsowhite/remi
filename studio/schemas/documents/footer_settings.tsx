@@ -19,6 +19,11 @@ export default defineType({
       type: 'reference',
       to: [{type: 'menu'}],
     }),
+    defineField({
+      title: 'Copyright',
+      name: 'copyright',
+      type: 'string',
+    }),
   ],
   preview: {
     prepare(selection) {

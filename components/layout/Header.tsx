@@ -2,15 +2,13 @@ import Logo from "@/components/assets/Logo";
 import ShopifyLogo from "@/components/assets/ShopifyLogo";
 import Link from "@/components/components/Link";
 import ChevronDown from "@/components/assets/icons/ChevronDown";
-import { SanityNavItem } from "@/types";
+import { SanityMenu } from "@/types";
 
 export interface HeaderProps {
-  nav: {
-    items: SanityNavItem[];
-  };
+  menu: SanityMenu;
 }
 
-export default function Header({ nav }: HeaderProps) {
+export default function Header({ menu }: HeaderProps) {
   return (
     <header className="bg-purple text-white py-6">
       <div className="container mx-auto">
@@ -23,7 +21,7 @@ export default function Header({ nav }: HeaderProps) {
           {/* Nav */}
           <div className="flex">
             <ul className="flex items-center h-full mr-10 relative">
-              {nav.items.map((item) => {
+              {menu.items.map((item) => {
                 return (
                   <li
                     className="h-full px-4 flex items-center group"
