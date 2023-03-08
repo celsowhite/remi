@@ -6,28 +6,39 @@ import {
   seoProjection,
 } from "@/helpers/groq/projections";
 import { generalSettingsQuery } from "@/helpers/groq/queries";
+import Link from "@/components/components/Link";
 
 export default async function Page({ params }) {
   /*----------------------
   Page Data
   ----------------------*/
-  const pageData = await getPageData(params.slug);
+  const pageData = await getPageData();
 
   /*----------------------
   Template
   ----------------------*/
   return (
-    <div>
-      <div className="py-10">
-        <div className="container max-w-5xl">
+    <div className="py-10">
+      <div className="pb-10">
+        <div className="container max-w-7xl">
           <h1>{pageData?.content?.title}</h1>
         </div>
       </div>
-
-      <PageBuilder
-        blocks={pageData?.content?.page_builder}
-        containerSize="medium"
-      />
+      <div className="">
+        <div className="container max-w-7xl">
+          <div className="grid grid-cols-12">
+            {pageData?.posts.map((post) => {
+              return (
+                <div className="col-span-6">
+                  <h3>
+                    <Link url={`/blog/${post.slug.current}`}>{post.title}</Link>
+                  </h3>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -35,17 +46,18 @@ export default async function Page({ params }) {
 /*----------------------
 Get Page Data
 ----------------------*/
-async function getPageData(slug: string) {
+async function getPageData() {
   return await client.fetch(
     `{
-      "content": *[_type == "post" && slug.current == $slug][0] {
+      "content": *[_type == "blog_page"][0] {
         ...,
-        ${pageBuilderProjection},
         ${seoProjection}
       },
+      "posts": *[_type == "post"] {
+        ...,
+      },
       "general_settings": ${generalSettingsQuery},
-    }`,
-    { slug }
+    }`
   );
 }
 
@@ -76,19 +88,6 @@ export async function generateMetadata({ params }): Promise<Metadata> {
       ],
     },
   };
-}
-
-/*----------------------
-Generate Static Params
-----------------------*/
-export async function generateStaticParams() {
-  const slugs = await client.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
-  );
-
-  return slugs.map((slug: String) => ({
-    slug: slug,
-  }));
 }
 
 /*----------------------

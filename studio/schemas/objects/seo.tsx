@@ -6,7 +6,7 @@ export default defineType({
   type: 'object',
   options: {
     collapsible: true,
-    collapsed: false,
+    collapsed: true,
   },
   fields: [
     defineField({
