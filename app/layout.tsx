@@ -19,7 +19,7 @@ export default async function RootLayout({
   Global Data
   ----------------------*/
   const globalData = await getGlobalData();
-  console.log(globalData.social_settings);
+  console.log(globalData.footer_settings);
 
   /*----------------------
   Template
@@ -29,7 +29,11 @@ export default async function RootLayout({
       <body>
         <Header nav={globalData.header_settings.menu} />
         <main>{children}</main>
-        <Footer socialProfiles={globalData?.social_settings?.profiles} />
+        <Footer
+          socialProfiles={globalData?.social_settings?.profiles}
+          menu1={globalData?.footer_settings?.footer_menu_1}
+          menu2={globalData?.footer_settings?.footer_menu_2}
+        />
       </body>
     </html>
   );

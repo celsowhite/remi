@@ -21,6 +21,11 @@ export interface SanityLink {
   external: string;
 }
 
+export interface SanityMenu {
+  title: string;
+  items: SanityNavItem[];
+}
+
 export interface SanityNavItem {
   _key: string;
   link: SanityLink;

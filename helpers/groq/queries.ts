@@ -25,13 +25,15 @@ export const generalSettingsQuery = `
 export const headerSettingsQuery = `
   *[_type == 'header_settings'][0] {
     ...,
-    ${menuProjection}
+    menu->${menuProjection}
   }
 `;
 
 export const footerSettingsQuery = `
   *[_type == 'footer_settings'][0] {
     ...,
+    footer_menu_1->${menuProjection},
+    footer_menu_2->${menuProjection},
     ${seoProjection}
   }
 `;

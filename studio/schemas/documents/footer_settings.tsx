@@ -8,8 +8,14 @@ export default defineType({
   icon: ControlsIcon,
   fields: [
     defineField({
-      title: 'Menu',
-      name: 'menu',
+      title: 'Footer Menu 1',
+      name: 'footer_menu_1',
+      type: 'reference',
+      to: [{type: 'menu'}],
+    }),
+    defineField({
+      title: 'Footer Menu 2',
+      name: 'footer_menu_2',
       type: 'reference',
       to: [{type: 'menu'}],
     }),
