@@ -9,8 +9,6 @@ export interface HeaderProps {
 }
 
 export default function Header({ menu }: HeaderProps) {
-  console.log(menu.items);
-
   return (
     <header className="bg-purple text-white py-6">
       <div className="container mx-auto">

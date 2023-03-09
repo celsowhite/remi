@@ -3,15 +3,10 @@
 import { useNextSanityImage, UseNextSanityImageProps } from "next-sanity-image";
 import { client } from "@/services/sanity/client";
 import Image from "next/image";
+import { SanityImage as SanityImageType } from "@/types";
 
 export interface SanityImageProps {
-  data: {
-    alt?: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
+  data: SanityImageType;
   className?: string;
   sizes?: string;
 }

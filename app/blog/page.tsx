@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
-import PageBuilder from "@/components/layout/PageBuilder";
-import {
-  pageBuilderProjection,
-  seoProjection,
-} from "@/helpers/groq/projections";
 import {
   blogPageQuery,
   generalSettingsQuery,
   postsQuery,
 } from "@/helpers/groq/queries";
 import Link from "@/components/components/Link";
+import SanityImage from "@/components/components/SanityImage";
+import PostCard from "@/components/components/PostCard";
+import { SanityPost } from "@/types";
 
 export default async function Page({ params }) {
   /*----------------------
@@ -31,12 +29,10 @@ export default async function Page({ params }) {
       <div className="">
         <div className="container max-w-7xl">
           <div className="grid grid-cols-12">
-            {pageData?.posts.map((post) => {
+            {pageData?.posts.map((post: SanityPost) => {
               return (
-                <div className="col-span-6">
-                  <h3>
-                    <Link url={`${post.slug.current}`}>{post.title}</Link>
-                  </h3>
+                <div className="col-span-6" key={post._id}>
+                  <PostCard post={post} />
                 </div>
               );
             })}
@@ -71,7 +67,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: pageData?.content?.site_url,
+      url: `${pageData?.general_settings?.site_url}/blog/tag/${pageData?.content?.slug?.current}`,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,

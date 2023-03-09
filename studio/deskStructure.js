@@ -35,7 +35,10 @@ export const structure = (S) => {
         .child(
           S.list()
             .title('Posts')
-            .items([S.documentTypeListItem('post').title('All Posts')])
+            .items([
+              S.documentTypeListItem('post').title('All Posts'),
+              S.documentTypeListItem('post_tag').title('Tags'),
+            ])
         ),
       S.documentTypeListItem('menu').title('Menus'),
       S.listItem()

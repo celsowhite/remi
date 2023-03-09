@@ -38,6 +38,32 @@ export default defineType({
         defineArrayMember({type: 'section_header'}),
       ],
     }),
+    defineField({
+      title: 'Featured Image',
+      name: 'featured_image',
+      type: 'image',
+      fields: [{title: 'Alt', name: 'alt', type: 'string'}],
+    }),
+    defineField({
+      title: 'Excerpt',
+      name: 'excerpt',
+      type: 'text',
+      rows: 3,
+      validation: (Rule) => Rule.max(250),
+    }),
+    defineField({
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'post_tag',
+          },
+        },
+      ],
+    }),
     slugAsPath('blog', 'title'),
     defineField({
       name: 'seo',

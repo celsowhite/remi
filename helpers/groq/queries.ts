@@ -27,6 +27,28 @@ export const postsQuery = `
   }
 `;
 
+export const postsByTagQuery = `
+  *[_type == "post" && (count((tags[]->slug.current)[@ in [$slug]]) > 0)] {
+    ...
+  }
+`;
+
+export const postQuery = `
+  *[_type == "post" && slug.current == $slug][0] {
+    ...,
+    tags[]->,
+    ${pageBuilderProjection},
+    ${seoProjection}
+  }
+`;
+
+export const postTagQuery = `
+  *[_type == "post_tag" && slug.current == $slug][0] {
+    ...,
+    ${seoProjection}
+  }
+`;
+
 /* Settings */
 export const generalSettingsQuery = `
   *[_type == 'general_settings'][0] {

@@ -42,3 +42,29 @@ export interface SanitySocialNetwork {
   network: SocialNetworks;
   url: string;
 }
+
+export interface SanityImage {
+  alt?: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+}
+
+export interface SanityPost {
+  _id: string;
+  slug: {
+    current: string;
+  };
+  featured_image?: SanityImage;
+  title: string;
+  excerpt?: string;
+}
+
+export interface SanityTag {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+}

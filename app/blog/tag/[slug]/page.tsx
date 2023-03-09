@@ -1,25 +1,45 @@
 import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
-import PageBuilder from "@/components/layout/PageBuilder";
 import {
-  pageBuilderProjection,
-  seoProjection,
-} from "@/helpers/groq/projections";
-import { generalSettingsQuery } from "@/helpers/groq/queries";
+  generalSettingsQuery,
+  postsByTagQuery,
+  postTagQuery,
+} from "@/helpers/groq/queries";
+import { SanityPost } from "@/types";
+import PostCard from "@/components/components/PostCard";
 
 export default async function Page({ params }) {
   /*----------------------
-  Page Date
+  Page Data
   ----------------------*/
   const pageData = await getPageData(params.slug);
-  console.log(pageData);
 
   /*----------------------
   Template
   ----------------------*/
   return (
-    <div>
-      <PageBuilder blocks={pageData?.content?.page_builder} />
+    <div className="pb-10">
+      {/* Header */}
+      <div className="py-10">
+        <div className="container max-w-7xl">
+          <h1>{pageData?.content?.title}</h1>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="">
+        <div className="container max-w-7xl">
+          <div className="grid grid-cols-12">
+            {pageData?.posts.map((post: SanityPost) => {
+              return (
+                <div className="col-span-6" key={post._id}>
+                  <PostCard post={post} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -30,14 +50,11 @@ Get Page Data
 async function getPageData(slug: string) {
   return await client.fetch(
     `{
-      "content": *[_type == "page" && slug.current == $slug][0] {
-        ...,
-        ${pageBuilderProjection},
-        ${seoProjection}
-      },
+      "content": ${postTagQuery},
+      "posts": ${postsByTagQuery},
       "general_settings": ${generalSettingsQuery},
     }`,
-    { slug: `/${slug}` }
+    { slug: `${slug}` }
   );
 }
 
@@ -46,12 +63,13 @@ Generate Metadata
 ----------------------*/
 export async function generateMetadata({ params }): Promise<Metadata> {
   const pageData = await getPageData(params.slug);
+
   return {
     title: pageData?.content?.seo?.title,
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: `${pageData?.general_settings?.site_url}${pageData?.content?.slug?.current}`,
+      url: pageData?.content?.site_url,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,
@@ -74,7 +92,7 @@ Generate Static Params
 ----------------------*/
 export async function generateStaticParams() {
   const slugs = await client.fetch(
-    `*[_type == "page" && defined(slug.current)][].slug.current`
+    `*[_type == "post_tag" && defined(slug.current)][].slug.current`
   );
 
   const baseSlugs = slugs.map((slug: String) => ({

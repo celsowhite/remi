@@ -40,7 +40,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: pageData?.content?.site_url,
+      url: `${pageData?.general_settings?.site_url}`,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,
