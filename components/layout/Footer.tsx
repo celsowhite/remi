@@ -36,15 +36,7 @@ export default function Footer({
                   {menu1?.items.map((item) => {
                     return (
                       <li className="mb-2" key={item._key}>
-                        <Link
-                          url={
-                            item?.link?.type === "internal"
-                              ? item?.link?.internal
-                              : item?.link?.external
-                          }
-                        >
-                          {item.title}
-                        </Link>
+                        <Link url={item?.link?.url}>{item.title}</Link>
                       </li>
                     );
                   })}
@@ -60,15 +52,7 @@ export default function Footer({
                   {menu1?.items.map((item) => {
                     return (
                       <li className="mb-2" key={item._key}>
-                        <Link
-                          url={
-                            item?.link?.type === "internal"
-                              ? item?.link?.internal
-                              : item?.link?.external
-                          }
-                        >
-                          {item.title}
-                        </Link>
+                        <Link url={item?.link?.url}>{item.title}</Link>
                       </li>
                     );
                   })}

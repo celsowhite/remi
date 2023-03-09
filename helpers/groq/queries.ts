@@ -14,6 +14,19 @@ export const homePageQuery = `
   }
 `;
 
+export const blogPageQuery = `
+  *[_type == "blog_page"][0] {
+    ...,
+    ${seoProjection}
+  }
+`;
+
+export const postsQuery = `
+  *[_type == "post"] {
+    ...,
+  }
+`;
+
 /* Settings */
 export const generalSettingsQuery = `
   *[_type == 'general_settings'][0] {

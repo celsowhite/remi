@@ -1,7 +1,12 @@
 export const linkProjection = `
   link {
     ...,
-    "internal": internal->slug.current
+    type == "internal" => {
+      "url": internal->slug.current
+    },
+    type == "external" => {
+      "url": external
+    }
   }
 `;
 

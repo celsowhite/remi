@@ -17,8 +17,7 @@ Sanity
 
 export interface SanityLink {
   type: "internal" | "external";
-  internal: string;
-  external: string;
+  url: string;
 }
 
 export interface SanityMenu {

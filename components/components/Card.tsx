@@ -28,14 +28,7 @@ export default function Card({ title, text, image, button }: CardProps) {
       {title && <h5 className="mt-4">{title}</h5>}
       {text && <p className="mt-1">{text}</p>}
       {button && (
-        <Link
-          url={
-            button?.link?.type === "internal"
-              ? button?.link?.internal
-              : button?.link?.external
-          }
-          className="mt-4 link"
-        >
+        <Link url={button?.link?.url} className="mt-4 link">
           {button.text}
         </Link>
       )}

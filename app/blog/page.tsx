@@ -5,7 +5,11 @@ import {
   pageBuilderProjection,
   seoProjection,
 } from "@/helpers/groq/projections";
-import { generalSettingsQuery } from "@/helpers/groq/queries";
+import {
+  blogPageQuery,
+  generalSettingsQuery,
+  postsQuery,
+} from "@/helpers/groq/queries";
 import Link from "@/components/components/Link";
 
 export default async function Page({ params }) {
@@ -31,7 +35,7 @@ export default async function Page({ params }) {
               return (
                 <div className="col-span-6">
                   <h3>
-                    <Link url={`/blog/${post.slug.current}`}>{post.title}</Link>
+                    <Link url={`${post.slug.current}`}>{post.title}</Link>
                   </h3>
                 </div>
               );
@@ -49,13 +53,8 @@ Get Page Data
 async function getPageData() {
   return await client.fetch(
     `{
-      "content": *[_type == "blog_page"][0] {
-        ...,
-        ${seoProjection}
-      },
-      "posts": *[_type == "post"] {
-        ...,
-      },
+      "content": ${blogPageQuery},
+      "posts": ${postsQuery},
       "general_settings": ${generalSettingsQuery},
     }`
   );

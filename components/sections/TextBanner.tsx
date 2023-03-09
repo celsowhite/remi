@@ -25,14 +25,7 @@ export default function TextBanner({
         {title && <h2 className="mt-2">{title}</h2>}
         {text && <p className="mt-5">{text}</p>}
         {button && (
-          <Link
-            url={
-              button?.link?.type === "internal"
-                ? button?.link?.internal
-                : button?.link?.external
-            }
-            className="btn btn--primary mt-5"
-          >
+          <Link url={button?.link?.url} className="btn btn--primary mt-5">
             {button.text}
           </Link>
         )}

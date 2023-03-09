@@ -9,6 +9,8 @@ export interface HeaderProps {
 }
 
 export default function Header({ menu }: HeaderProps) {
+  console.log(menu.items);
+
   return (
     <header className="bg-purple text-white py-6">
       <div className="container mx-auto">
@@ -28,15 +30,7 @@ export default function Header({ menu }: HeaderProps) {
                     key={item._key}
                   >
                     <div className="flex items-center cursor-pointer">
-                      <Link
-                        url={
-                          item?.link?.type === "internal"
-                            ? item?.link?.internal
-                            : item?.link?.external
-                        }
-                      >
-                        {item.title}
-                      </Link>
+                      <Link url={item?.link?.url}>{item.title}</Link>
                       {item?.children && (
                         <div className="ml-3 w-5 svg-width-full">
                           <ChevronDown />
@@ -51,11 +45,7 @@ export default function Header({ menu }: HeaderProps) {
                           return (
                             <li key={childItem._key}>
                               <Link
-                                url={
-                                  childItem?.link?.internal
-                                    ? childItem?.link?.internal
-                                    : childItem?.link?.external
-                                }
+                                url={childItem?.link?.url}
                                 className={`block p-2 bg-white hover:bg-purple-light text-purple min-w-[200px] border-b border-b-purple-light ${
                                   index === 0 && "rounded-tl-md rounded-tr-md"
                                 } ${
