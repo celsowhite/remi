@@ -39,6 +39,16 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      initialValue: {
+        current: '/',
+      },
+      readOnly: true,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'seo',
       title: 'SEO',
       type: 'seo',

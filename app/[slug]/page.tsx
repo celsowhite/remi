@@ -36,7 +36,7 @@ async function getPageData(slug: string) {
       },
       "general_settings": ${generalSettingsQuery},
     }`,
-    { slug }
+    { slug: `/${slug}` }
   );
 }
 
@@ -76,9 +76,11 @@ export async function generateStaticParams() {
     `*[_type == "page" && defined(slug.current)][].slug.current`
   );
 
-  return slugs.map((slug: String) => ({
-    slug: slug,
+  const baseSlugs = slugs.map((slug: String) => ({
+    slug: slug.substring(slug.lastIndexOf("/") + 1),
   }));
+
+  return baseSlugs;
 }
 
 /*----------------------

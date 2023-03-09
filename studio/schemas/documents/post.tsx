@@ -1,5 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {DocumentsIcon, DocumentTextIcon, ImageIcon} from '@sanity/icons'
+import slugAsPath from '../../functions/slug-as-path'
 
 export default defineType({
   title: 'Post',
@@ -37,15 +38,7 @@ export default defineType({
         defineArrayMember({type: 'section_header'}),
       ],
     }),
-    defineField({
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      options: {
-        source: 'title',
-      },
-      validation: (Rule) => Rule.required(),
-    }),
+    slugAsPath('blog', 'title'),
     defineField({
       name: 'seo',
       title: 'SEO',

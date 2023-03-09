@@ -19,7 +19,6 @@ export default async function RootLayout({
   Global Data
   ----------------------*/
   const globalData = await getGlobalData();
-  console.log(globalData.footer_settings);
 
   /*----------------------
   Template

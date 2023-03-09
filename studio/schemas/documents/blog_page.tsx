@@ -17,7 +17,7 @@ export default defineType({
       type: 'slug',
       title: 'Slug',
       initialValue: {
-        current: 'blog',
+        current: '/blog',
       },
       readOnly: true,
       validation: (Rule) => Rule.required(),
