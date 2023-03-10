@@ -1,5 +1,4 @@
 import SanityImage from "@/components/components/SanityImage";
-import Button, { ButtonProps } from "@/components/components/Button";
 
 export interface SectionHeaderProps {
   title: string;

@@ -5,13 +5,21 @@ export default function getPostTypePath(type: SanityPostTypes, slug: string) {
   if (type === "post") {
     return `/blog/${slug}`;
   }
+  // Post Tag
+  else if (type === "post_tag") {
+    return `/blog/tag/${slug}`;
+  }
   // Page
   else if (type === "page") {
     return `/${slug}`;
   }
-  // Post Tag
-  else if (type === "post_tag") {
-    return `/blog/tag/${slug}`;
+  // Home Page
+  else if (type === "home_page") {
+    return `/`;
+  }
+  // Blo Page
+  else if (type === "blog_page") {
+    return `/blog`;
   }
   // Other
   else {

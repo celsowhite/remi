@@ -16,7 +16,9 @@ export default function Header({ menu }: HeaderProps) {
         <div className="flex justify-between">
           {/* Logo */}
           <div className="w-24">
-            <Logo />
+            <Link url="/">
+              <Logo />
+            </Link>
           </div>
 
           {/* Nav */}

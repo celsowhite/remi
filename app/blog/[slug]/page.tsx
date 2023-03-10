@@ -11,7 +11,6 @@ export default async function Page({ params }) {
   Page Data
   ----------------------*/
   const pageData = await getPageData(params.slug);
-  console.log(pageData);
 
   /*----------------------
   Template

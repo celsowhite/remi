@@ -1,7 +1,8 @@
 import SanityImage from "@/components/components/SanityImage";
+import { SanityImage as SanityImageType } from "@/types";
 
 export interface ImageWithCaptionProps {
-  image: any;
+  image: SanityImageType;
   caption: string;
 }
 
