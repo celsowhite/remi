@@ -11,13 +11,24 @@ export type SocialNetworks =
   | "facebook"
   | "tiktok";
 
+export type SanityPostTypes =
+  | "post"
+  | "post_tag"
+  | "page"
+  | "home_page"
+  | "blog_page";
+
 /*----------------------
-Sanity
+Interfaces
 ----------------------*/
 
 export interface SanityLink {
   type: "internal" | "external";
-  url: string;
+  internal: {
+    _type: SanityPostTypes;
+    slug: string;
+  };
+  external: string;
 }
 
 export interface SanityMenu {

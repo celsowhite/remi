@@ -1,6 +1,7 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {DocumentTextIcon, FolderIcon, ImageIcon} from '@sanity/icons'
 import slugAsPath from '../../functions/slug-as-path'
+import {SlugInput} from 'sanity-plugin-prefixed-slug'
 
 export default defineType({
   title: 'Page',
@@ -39,7 +40,19 @@ export default defineType({
         defineArrayMember({type: 'post_list'}),
       ],
     }),
-    slugAsPath('', 'title'),
+    defineField({
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      components: {
+        input: SlugInput,
+      },
+      options: {
+        source: 'title',
+        urlPrefix: '/',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'seo',
       title: 'SEO',

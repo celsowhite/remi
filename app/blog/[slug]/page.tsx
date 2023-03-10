@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
-import { generalSettingsQuery, postQuery } from "@/helpers/groq/queries";
+import { generalSettingsQuery, postBySlugQuery } from "@/helpers/groq/queries";
 import Link from "@/components/components/Link";
 import { SanityTag } from "@/types";
+import getPostTypePath from "@/helpers/getPostTypePath";
 
 export default async function Page({ params }) {
   /*----------------------
   Page Data
   ----------------------*/
   const pageData = await getPageData(params.slug);
+  console.log(pageData);
 
   /*----------------------
   Template
@@ -36,7 +38,7 @@ export default async function Page({ params }) {
             return (
               <li>
                 <Link
-                  url={`/blog/tag/${tag.slug.current}`}
+                  url={getPostTypePath("post_tag", tag.slug.current)}
                   className="p-2 bg-purple-light mr-2 uppercase text-sm"
                 >
                   {tag.title}
@@ -56,10 +58,10 @@ Get Page Data
 async function getPageData(slug: string) {
   return await client.fetch(
     `{
-      "content": ${postQuery},
+      "content": ${postBySlugQuery},
       "general_settings": ${generalSettingsQuery},
     }`,
-    { slug: `/blog/${slug}` }
+    { slug: slug }
   );
 }
 
@@ -100,11 +102,9 @@ export async function generateStaticParams() {
     `*[_type == "post" && defined(slug.current)][].slug.current`
   );
 
-  const baseSlugs = slugs.map((slug: String) => ({
-    slug: slug.substring(slug.lastIndexOf("/") + 1),
+  return slugs.map((slug: String) => ({
+    slug: slug,
   }));
-
-  return baseSlugs;
 }
 
 /*----------------------

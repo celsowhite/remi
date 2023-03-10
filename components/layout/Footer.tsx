@@ -2,6 +2,7 @@ import Logo from "@/components/assets/Logo";
 import { SanityMenu, SanitySocialNetwork } from "@/types";
 import Link from "../components/Link";
 import SocialIcon from "../components/SocialIcon";
+import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
 export interface FooterProps {
   menu1: SanityMenu;
@@ -36,7 +37,9 @@ export default function Footer({
                   {menu1?.items.map((item) => {
                     return (
                       <li className="mb-2" key={item._key}>
-                        <Link url={item?.link?.url}>{item.title}</Link>
+                        <Link url={getSanityLinkUrl(item.link)}>
+                          {item.title}
+                        </Link>
                       </li>
                     );
                   })}
@@ -52,7 +55,9 @@ export default function Footer({
                   {menu1?.items.map((item) => {
                     return (
                       <li className="mb-2" key={item._key}>
-                        <Link url={item?.link?.url}>{item.title}</Link>
+                        <Link url={getSanityLinkUrl(item.link)}>
+                          {item.title}
+                        </Link>
                       </li>
                     );
                   })}

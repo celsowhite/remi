@@ -1,5 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {DocumentTextIcon, FolderIcon, ImageIcon} from '@sanity/icons'
+import {SlugInput} from 'sanity-plugin-prefixed-slug'
 
 export default defineType({
   title: 'Home Page',
@@ -39,14 +40,16 @@ export default defineType({
       ],
     }),
     defineField({
+      title: 'Slug',
       name: 'slug',
       type: 'slug',
-      title: 'Slug',
-      initialValue: {
-        current: '/',
+      components: {
+        input: SlugInput,
+      },
+      options: {
+        urlPrefix: '/',
       },
       readOnly: true,
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'seo',

@@ -5,7 +5,9 @@ import {
   menuProjection,
 } from "./projections";
 
-/* Pages */
+/*----------------------
+Pages
+----------------------*/
 export const homePageQuery = `
   *[_type == "home_page"][0] {
     ...,
@@ -21,6 +23,9 @@ export const blogPageQuery = `
   }
 `;
 
+/*----------------------
+Posts
+----------------------*/
 export const postsQuery = `
   *[_type == "post"] {
     ...,
@@ -33,7 +38,7 @@ export const postsByTagQuery = `
   }
 `;
 
-export const postQuery = `
+export const postBySlugQuery = `
   *[_type == "post" && slug.current == $slug][0] {
     ...,
     tags[]->,
@@ -42,6 +47,9 @@ export const postQuery = `
   }
 `;
 
+/*----------------------
+Taxonomies
+----------------------*/
 export const postTagQuery = `
   *[_type == "post_tag" && slug.current == $slug][0] {
     ...,
@@ -49,7 +57,9 @@ export const postTagQuery = `
   }
 `;
 
-/* Settings */
+/*----------------------
+Settings
+----------------------*/
 export const generalSettingsQuery = `
   *[_type == 'general_settings'][0] {
     ...,

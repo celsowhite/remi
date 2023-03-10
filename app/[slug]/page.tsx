@@ -9,10 +9,9 @@ import { generalSettingsQuery } from "@/helpers/groq/queries";
 
 export default async function Page({ params }) {
   /*----------------------
-  Page Date
+  Page Data
   ----------------------*/
   const pageData = await getPageData(params.slug);
-  console.log(pageData);
 
   /*----------------------
   Template
@@ -37,7 +36,7 @@ async function getPageData(slug: string) {
       },
       "general_settings": ${generalSettingsQuery},
     }`,
-    { slug: `/${slug}` }
+    { slug: slug }
   );
 }
 
@@ -77,11 +76,9 @@ export async function generateStaticParams() {
     `*[_type == "page" && defined(slug.current)][].slug.current`
   );
 
-  const baseSlugs = slugs.map((slug: String) => ({
-    slug: slug.substring(slug.lastIndexOf("/") + 1),
+  return slugs.map((slug: String) => ({
+    slug: slug,
   }));
-
-  return baseSlugs;
 }
 
 /*----------------------

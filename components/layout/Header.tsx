@@ -3,6 +3,7 @@ import ShopifyLogo from "@/components/assets/ShopifyLogo";
 import Link from "@/components/components/Link";
 import ChevronDown from "@/components/assets/icons/ChevronDown";
 import { SanityMenu } from "@/types";
+import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
 export interface HeaderProps {
   menu: SanityMenu;
@@ -28,7 +29,9 @@ export default function Header({ menu }: HeaderProps) {
                     key={item._key}
                   >
                     <div className="flex items-center cursor-pointer">
-                      <Link url={item?.link?.url}>{item.title}</Link>
+                      <Link url={getSanityLinkUrl(item.link)}>
+                        {item.title}
+                      </Link>
                       {item?.children && (
                         <div className="ml-3 w-5 svg-width-full">
                           <ChevronDown />
@@ -43,7 +46,7 @@ export default function Header({ menu }: HeaderProps) {
                           return (
                             <li key={childItem._key}>
                               <Link
-                                url={childItem?.link?.url}
+                                url={getSanityLinkUrl(childItem.link)}
                                 className={`block p-2 bg-white hover:bg-purple-light text-purple min-w-[200px] border-b border-b-purple-light ${
                                   index === 0 && "rounded-tl-md rounded-tr-md"
                                 } ${

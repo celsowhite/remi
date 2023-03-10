@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {TagIcon} from '@sanity/icons'
+import {SlugInput} from 'sanity-plugin-prefixed-slug'
 
 export default defineType({
   title: 'Tag',
@@ -13,11 +14,15 @@ export default defineType({
       title: 'Title',
     }),
     defineField({
+      title: 'Slug',
       name: 'slug',
       type: 'slug',
-      title: 'Slug',
+      components: {
+        input: SlugInput,
+      },
       options: {
         source: 'title',
+        urlPrefix: '/blog/tag',
       },
       validation: (Rule) => Rule.required(),
     }),
