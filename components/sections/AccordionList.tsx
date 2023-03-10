@@ -2,12 +2,11 @@
 
 import * as Accordion from "@radix-ui/react-accordion";
 import { useState } from "react";
-import AccordionItem, {
-  AccordionItemProps,
-} from "@/components/components/AccordionItem";
+import AccordionItem from "@/components/components/AccordionItem";
+import { SanityAccordionItem } from "@/types";
 
 export interface AccordionListProps {
-  accordions: [AccordionItemProps];
+  accordions: SanityAccordionItem[];
 }
 
 export default function AccordionList({ accordions }: AccordionListProps) {

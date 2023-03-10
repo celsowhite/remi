@@ -44,7 +44,7 @@ export default defineType({
         defineArrayMember({type: 'post_list'}),
       ],
     }),
-    defineField({
+    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
@@ -55,7 +55,7 @@ export default defineType({
         urlPrefix: '/',
       },
       readOnly: true,
-    }),
+    },
     defineField({
       name: 'seo',
       title: 'SEO',

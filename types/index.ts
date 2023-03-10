@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "@sanity/types";
+
 /*----------------------
 Unions
 ----------------------*/
@@ -96,4 +98,13 @@ export interface SanityPageHero {
   hero: SanityHero;
   title: string;
   type: "title" | "image";
+}
+
+export interface SanityAccordionItem {
+  _key: string;
+  _type: "accordion";
+  content: {
+    content: PortableTextBlock;
+  };
+  title: string;
 }

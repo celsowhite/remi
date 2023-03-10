@@ -14,7 +14,7 @@ export default function PostCard({ post }: PostCardProps) {
         url={getPostTypePath("post", post.slug.current)}
         className="padding-aspect padding-aspect--8/5 block mb-5"
       >
-        <SanityImage data={post.featured_image} />
+        {post.featured_image && <SanityImage data={post.featured_image} />}
       </Link>
       <h3>
         <Link url={getPostTypePath("post", post.slug.current)}>

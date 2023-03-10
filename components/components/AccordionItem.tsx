@@ -1,13 +1,13 @@
 import * as Accordion from "@radix-ui/react-accordion";
-import { useRef, useEffect } from "react";
 import { PortableText } from "@portabletext/react";
+import { PortableTextBlock } from "@sanity/types";
 import portableTextComponents from "@/helpers/portableTextComponents";
 
 export interface AccordionItemProps {
   index: number;
   value: string;
   title: string;
-  content: [];
+  content: PortableTextBlock;
   active: boolean;
 }
 

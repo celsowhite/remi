@@ -1,5 +1,3 @@
-import SanityImage from "@/components/components/SanityImage";
-
 export interface SectionHeaderProps {
   title: string;
   text?: string;

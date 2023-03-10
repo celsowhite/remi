@@ -64,7 +64,7 @@ export default defineType({
         },
       ],
     }),
-    defineField({
+    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
@@ -76,7 +76,7 @@ export default defineType({
         urlPrefix: '/blog/',
       },
       validation: (Rule) => Rule.required(),
-    }),
+    },
     defineField({
       name: 'seo',
       title: 'SEO',

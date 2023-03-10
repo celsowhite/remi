@@ -10,6 +10,7 @@ module.exports = {
       inter: ["inter", "helvetica"],
     },
     extend: {
+      // Colors
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -29,6 +30,7 @@ module.exports = {
         red: "#ec5b3e",
         green: "#bbe5b3",
       },
+      // Screens
       screens: {
         wide: { max: "1599px" },
         desktop: { max: "1439px" },
@@ -37,6 +39,18 @@ module.exports = {
         mobile: { max: "749px" },
         "sm-mobile": { max: "500px" },
         "touch-device": { raw: "(hover: none) and (pointer: coarse)" },
+      },
+      // Spacing
+      spacing: {
+        xxs: "2px",
+        xs: "4px",
+        sm: "8px",
+        md: "10px",
+        lg: "20px",
+        xl: "40px",
+        "2xl": "60px",
+        "3xl": "80px",
+        "4xl": "100px",
       },
     },
   },

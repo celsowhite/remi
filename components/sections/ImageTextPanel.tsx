@@ -1,13 +1,13 @@
 import SanityImage from "@/components/components/SanityImage";
 import Link from "../components/Link";
-import { SanityButton } from "@/types";
+import { SanityButton, SanityImage as SanityImageType } from "@/types";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
 export interface ImageTextPanelProps {
   eyebrow?: string;
   title: string;
   text?: string;
-  image: object;
+  image: SanityImageType;
   imagePosition?: "left" | "right";
   button: SanityButton;
 }
@@ -27,7 +27,7 @@ export default function ImageTextPanel({
   const Image = () => {
     return (
       <div className="padding-aspect padding-aspect--6/4">
-        <SanityImage data={image} />
+        {image && <SanityImage data={image} />}
       </div>
     );
   };
