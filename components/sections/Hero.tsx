@@ -3,13 +3,14 @@ import Link from "../components/Link";
 import { SanityButton } from "@/types";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
-export interface ImageTextPanelProps {
+export interface HeroProps {
   eyebrow?: string;
   title: string;
   text?: string;
   image: object;
   contentPosition?: "left" | "center" | "right";
   button: SanityButton;
+  className?: string;
 }
 
 export default function Hero({
@@ -19,12 +20,13 @@ export default function Hero({
   image,
   contentPosition = "left",
   button,
-}: ImageTextPanelProps) {
+  className = "",
+}: HeroProps) {
   /*----------------------
   Template
   ----------------------*/
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <div className="padding-aspect padding-aspect--video">
         <SanityImage data={image} />
       </div>

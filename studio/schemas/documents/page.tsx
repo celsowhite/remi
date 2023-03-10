@@ -14,6 +14,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      title: 'Page Hero',
+      name: 'page_hero',
+      type: 'page_hero',
+    }),
+    defineField({
       title: 'Page Builder',
       name: 'page_builder',
       type: 'array',

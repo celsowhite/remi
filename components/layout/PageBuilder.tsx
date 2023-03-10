@@ -12,7 +12,7 @@ export default function PageBuilder({ blocks, containerSize = "large" }) {
   /*----------------------
   Style
   ----------------------*/
-  let containerClass: String;
+  let containerClass: string;
   if (containerSize === "large") {
     containerClass = "container max-w-7xl";
   } else if (containerSize === "medium") {

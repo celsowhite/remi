@@ -79,3 +79,21 @@ export interface SanityTag {
     current: string;
   };
 }
+
+export interface SanityHero {
+  _type: "_hero";
+  eyebrow: string;
+  image: SanityImage;
+  text: string;
+  title: string;
+  button: SanityButton;
+  contentPosition: "left" | "center" | "right";
+}
+
+export interface SanityPageHero {
+  _type: string;
+  excerpt: string;
+  hero: SanityHero;
+  title: string;
+  type: "title" | "image";
+}
