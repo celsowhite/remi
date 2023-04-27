@@ -21,7 +21,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Post List',
-        media: ThLargeIcon,
       }
     },
   },

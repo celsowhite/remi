@@ -31,7 +31,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Card Grid',
-        media: ThLargeIcon,
       }
     },
   },

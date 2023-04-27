@@ -91,8 +91,6 @@ export default function PageBuilder({ blocks, containerSize = "large" }) {
         </div>
       );
     } else if (block._type === "accordions") {
-      console.log(block.accordions[0].content);
-
       /*----------------------
       Accordions
       ----------------------*/

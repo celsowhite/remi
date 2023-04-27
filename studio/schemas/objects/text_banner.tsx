@@ -24,7 +24,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Text Banner',
-        media: BlockContentIcon,
       }
     },
   },

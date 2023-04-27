@@ -42,7 +42,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Image Text Panel',
-        media: BlockContentIcon,
       }
     },
   },

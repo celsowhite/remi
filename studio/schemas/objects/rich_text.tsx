@@ -34,7 +34,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Rich Text',
-        media: DocumentTextIcon,
       }
     },
   },

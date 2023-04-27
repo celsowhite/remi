@@ -50,7 +50,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Hero',
-        media: BlockElementIcon,
       }
     },
   },

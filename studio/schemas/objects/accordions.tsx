@@ -22,7 +22,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Accordions',
-        media: MenuIcon,
       }
     },
   },

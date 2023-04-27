@@ -30,7 +30,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: 'Section Header',
-        media: InsertBelowIcon,
       }
     },
   },

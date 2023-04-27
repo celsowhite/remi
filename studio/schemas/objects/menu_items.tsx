@@ -30,7 +30,6 @@ export default defineType({
     prepare(selection) {
       return {
         title: selection.title,
-        media: LinkIcon,
       }
     },
   },
