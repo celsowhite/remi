@@ -20,6 +20,7 @@ export default async function Home() {
         pageHero={pageData?.content?.page_hero}
       />
 
+      {/* Page Builder */}
       <PageBuilder blocks={pageData?.content?.page_builder} />
     </div>
   );

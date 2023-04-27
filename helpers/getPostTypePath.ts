@@ -17,7 +17,7 @@ export default function getPostTypePath(type: SanityPostTypes, slug: string) {
   else if (type === "home_page") {
     return `/`;
   }
-  // Blo Page
+  // Blog Page
   else if (type === "blog_page") {
     return `/blog`;
   }

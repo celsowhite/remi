@@ -2,9 +2,10 @@ import {LinkIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'menu_items',
+  name: 'menu_item_with_children',
   type: 'object',
   title: 'Items',
+  icon: LinkIcon,
   fields: [
     defineField({
       title: 'Title',
@@ -23,14 +24,4 @@ export default defineType({
       of: [{type: 'menu_item'}],
     }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-    },
-    prepare(selection) {
-      return {
-        title: selection.title,
-      }
-    },
-  },
 })

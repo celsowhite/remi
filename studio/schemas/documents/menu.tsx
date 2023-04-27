@@ -16,7 +16,7 @@ export default defineType({
       type: 'array',
       name: 'items',
       title: 'Items',
-      of: [{type: 'menu_items'}],
+      of: [{type: 'menu_item_with_children'}],
     }),
     defineField({
       name: 'slug',
