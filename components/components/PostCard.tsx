@@ -2,26 +2,30 @@ import getPostTypePath from "@/helpers/getPostTypePath";
 import { SanityPost } from "@/types";
 import Link from "./Link";
 import SanityImage from "./SanityImage";
+import { formatDate } from "@/helpers/formatDate";
 
 export interface PostCardProps {
   post: SanityPost;
 }
 
 export default function PostCard({ post }: PostCardProps) {
+  console.log(post);
+
   return (
     <div className="relative">
       <Link
         url={getPostTypePath("post", post.slug.current)}
-        className="padding-aspect padding-aspect--8/5 block mb-5"
+        className="padding-aspect padding-aspect--8/5 block mb-4"
       >
         {post.featured_image && <SanityImage data={post.featured_image} />}
       </Link>
-      <h3>
+      <h3 className="mb-2">
         <Link url={getPostTypePath("post", post.slug.current)}>
           {post.title}
         </Link>
       </h3>
-      {post.excerpt && <p className="mt-5">{post.excerpt}</p>}
+      <p>{formatDate(post._createdAt)}</p>
+      {post.excerpt && <p className="mt-4">{post.excerpt}</p>}
       <Link
         url={getPostTypePath("post", post.slug.current)}
         className="mt-5 block link"

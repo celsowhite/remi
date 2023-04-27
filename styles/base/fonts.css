@@ -41,12 +41,12 @@ html {
 
 h1,
 h2.h1 {
-  @apply text-7xl;
+  @apply text-6xl;
 }
 
 h2,
 h1.h2 {
-  @apply text-6xl;
+  @apply text-5xl;
 }
 
 h3 {

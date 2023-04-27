@@ -66,6 +66,9 @@ export interface SanityImage {
 
 export interface SanityPost {
   _id: string;
+  _createdAt: string;
+  _type: "post";
+  _updatedAt: string;
   slug: {
     current: string;
   };

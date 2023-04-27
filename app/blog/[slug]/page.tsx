@@ -5,12 +5,24 @@ import { generalSettingsQuery, postBySlugQuery } from "@/helpers/groq/queries";
 import Link from "@/components/components/Link";
 import { SanityTag } from "@/types";
 import getPostTypePath from "@/helpers/getPostTypePath";
+import { formatDate } from "@/helpers/formatDate";
+import SanityImage from "@/components/components/SanityImage";
+import SocialShareIcons from "@/components/components/SocialShareIcons";
 
 export default async function Page({ params }) {
   /*----------------------
   Page Data
   ----------------------*/
   const pageData = await getPageData(params.slug);
+
+  /*----------------------
+  URL
+  ----------------------*/
+  const path = getPostTypePath(
+    pageData?.content?._type,
+    pageData?.content?.slug?.current
+  );
+  const url = `${pageData?.general_settings?.site_url}${path}`;
 
   /*----------------------
   Template
@@ -20,9 +32,17 @@ export default async function Page({ params }) {
       {/* Header */}
       <div className="py-10">
         <div className="container max-w-5xl">
-          <h1>{pageData?.content?.title}</h1>
+          <h1 className="mb-4">{pageData?.content?.title}</h1>
+          <p>{formatDate(pageData?.content?._createdAt)}</p>
         </div>
       </div>
+
+      {/* Featured Image */}
+      {pageData?.content?.featured_image && (
+        <div className="container max-w-5xl mb-10">
+          <SanityImage data={pageData?.content?.featured_image} />
+        </div>
+      )}
 
       {/* Content */}
       <PageBuilder
@@ -30,8 +50,12 @@ export default async function Page({ params }) {
         containerSize="small"
       />
 
-      {/* Tags */}
-      <div className="container max-w-5xl">
+      {/* Post Footer */}
+      <div className="container max-w-5xl mb-5 flex justify-between">
+        {/* Social Share */}
+        <SocialShareIcons url={url} title={pageData?.content?.title} />
+
+        {/* Tags */}
         <ul className="flex">
           {pageData?.content?.tags.map((tag: SanityTag) => {
             return (
@@ -69,13 +93,18 @@ Generate Metadata
 ----------------------*/
 export async function generateMetadata({ params }): Promise<Metadata> {
   const pageData = await getPageData(params.slug);
+  const path = getPostTypePath(
+    pageData?.content?._type,
+    pageData?.content?.slug?.current
+  );
+  const url = `${pageData?.general_settings?.site_url}${path}`;
 
   return {
     title: pageData?.content?.seo?.title,
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: `${pageData?.general_settings?.site_url}/blog${pageData?.content?.slug?.current}`,
+      url: url,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,
