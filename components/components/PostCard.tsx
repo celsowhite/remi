@@ -9,8 +9,6 @@ export interface PostCardProps {
 }
 
 export default function PostCard({ post }: PostCardProps) {
-  console.log(post);
-
   return (
     <div className="relative">
       <Link

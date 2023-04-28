@@ -1,5 +1,4 @@
 import Logo from "@/components/assets/Logo";
-import ShopifyLogo from "@/components/assets/ShopifyLogo";
 import Link from "@/components/components/Link";
 import { SanityMenu } from "@/types";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
@@ -13,9 +12,9 @@ export default function Header({ menu }: HeaderProps) {
   return (
     <header className="bg-black text-white py-6">
       <div className="container mx-auto">
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm">
           {/* Logo */}
-          <div className="w-24">
+          <div className="w-20 text-white">
             <Link url="/">
               <Logo />
             </Link>
@@ -66,18 +65,6 @@ export default function Header({ menu }: HeaderProps) {
                   </li>
                 );
               })}
-            </ul>
-
-            {/* CTA */}
-            <ul className="flex items-center">
-              <li>
-                <a className="rounded-full bg-teal py-1 px-8 flex items-center font-semibold">
-                  Install on{" "}
-                  <div className="w-24">
-                    <ShopifyLogo />
-                  </div>
-                </a>
-              </li>
             </ul>
           </div>
         </div>
