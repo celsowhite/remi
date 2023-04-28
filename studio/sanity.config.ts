@@ -18,7 +18,7 @@ const singletonTypes = new Set([
 
 export default defineConfig({
   name: 'default',
-  title: 'Otto',
+  title: 'Remi',
   projectId: '1l7bk9fa',
   dataset: 'production',
   plugins: [deskTool({structure}), visionTool(), media()],
