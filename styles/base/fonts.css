@@ -102,7 +102,7 @@ Wysiwyg
 }
 
 .wysiwyg a {
-  @apply text-purple underline hover:no-underline;
+  @apply text-black underline hover:no-underline;
 }
 
 .wysiwyg img {

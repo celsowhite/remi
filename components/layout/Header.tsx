@@ -11,7 +11,7 @@ export interface HeaderProps {
 
 export default function Header({ menu }: HeaderProps) {
   return (
-    <header className="bg-purple text-white py-6">
+    <header className="bg-black text-white py-6">
       <div className="container mx-auto">
         <div className="flex justify-between">
           {/* Logo */}
@@ -42,14 +42,14 @@ export default function Header({ menu }: HeaderProps) {
                     </div>
                     {item?.children && (
                       <ul
-                        className={`invisible group-hover:visible absolute top-full bg-white text-purple rounded-md z-10`}
+                        className={`invisible group-hover:visible absolute top-full bg-white text-black rounded-md z-10`}
                       >
                         {item?.children.map((childItem, index) => {
                           return (
                             <li key={childItem._key}>
                               <Link
                                 url={getSanityLinkUrl(childItem.link)}
-                                className={`block p-2 bg-white hover:bg-purple-light text-purple min-w-[200px] border-b border-b-purple-light ${
+                                className={`block p-2 bg-white hover:bg-black-light text-black min-w-[200px] border-b border-b-purple-light ${
                                   index === 0 && "rounded-tl-md rounded-tr-md"
                                 } ${
                                   index === item.children.length - 1 &&

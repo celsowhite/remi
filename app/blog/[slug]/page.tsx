@@ -62,7 +62,7 @@ export default async function Page({ params }) {
               <li key={tag._id}>
                 <Link
                   url={getPostTypePath("post_tag", tag.slug.current)}
-                  className="p-2 bg-purple-light mr-2 uppercase text-sm"
+                  className="p-2 bg-black-light mr-2 uppercase text-sm"
                 >
                   {tag.title}
                 </Link>

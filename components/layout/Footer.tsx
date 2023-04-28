@@ -19,7 +19,7 @@ export default function Footer({
 }: FooterProps) {
   return (
     <footer>
-      <div className="bg-purple text-white py-10">
+      <div className="bg-black text-white py-10">
         <div className="container">
           {/* Logo */}
           <div className="grid grid-cols-12">
@@ -78,7 +78,7 @@ export default function Footer({
 
       {/* Copyright */}
       {copyright && (
-        <div className="bg-purple-light py-2">
+        <div className="bg-black-light py-2">
           <div className="container max-w-7xl text-center">
             <p className="text-xs">
               © {copyright} {new Date().getFullYear()}

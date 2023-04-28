@@ -8,11 +8,11 @@ button.btn {
 }
 
 .btn--primary {
-  @apply bg-purple hover:bg-transparent border border-purple text-white hover:text-purple;
+  @apply bg-black hover:bg-transparent border border-black text-white hover:text-black;
 }
 
 .btn--secondary {
-  @apply bg-transparent hover:bg-purple border border-purple text-white hover:text-white;
+  @apply bg-transparent hover:bg-black border border-black text-white hover:text-white;
 }
 
 /*-------------------------------
@@ -20,5 +20,5 @@ Base
 -------------------------------*/
 
 .link {
-  @apply inline-flex text-purple text-sm font-semibold underline hover:no-underline;
+  @apply inline-flex text-black text-sm font-semibold underline hover:no-underline;
 }

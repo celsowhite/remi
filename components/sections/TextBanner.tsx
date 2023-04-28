@@ -19,7 +19,7 @@ export default function TextBanner({
   Template
   ----------------------*/
   return (
-    <div className="py-20 bg-purple-light">
+    <div className="py-20 bg-black-light">
       <div className="container max-w-5xl text-center">
         {eyebrow && <h5>{eyebrow}</h5>}
         {title && <h2 className="mt-2">{title}</h2>}

@@ -14,21 +14,8 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-        black: "#222222",
+        black: "#000000",
         white: "#FFFFFF",
-        slate: {
-          DEFAULT: "#e2e8f0",
-          light: "#e2e8f0",
-          dark: "#475569",
-        },
-        purple: {
-          DEFAULT: "#6474b7",
-          light: "#faf5ff",
-          vibrant: "#5d6bc4",
-        },
-        teal: "#39c9d1",
-        red: "#ec5b3e",
-        green: "#bbe5b3",
       },
       // Screens
       screens: {
