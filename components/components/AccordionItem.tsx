@@ -2,6 +2,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@sanity/types";
 import portableTextComponents from "@/helpers/portableTextComponents";
+import Icon from "./Icon";
 
 export interface AccordionItemProps {
   index: number;
@@ -25,7 +26,7 @@ export default function AccordionItem({
     <Accordion.Item
       value={value}
       className={`accordion-item py-8 ${
-        index === 0 ? "border-t border-b" : "border-b"
+        index === 0 ? "border-black border-t border-b" : "border-b"
       }`}
     >
       <Accordion.Header
@@ -36,7 +37,13 @@ export default function AccordionItem({
           <p className="text-3xl laptop:text-2xl mobile:text-xl text-left leading-tight">
             {title}
           </p>
-          <div className="accordion-item__icon">{active ? "-" : "+"}</div>
+          <div
+            className={`accordion-item__icon transition-all ${
+              active ? "-rotate-180" : ""
+            }`}
+          >
+            <Icon name="chevronDown" />
+          </div>
         </Accordion.Trigger>
       </Accordion.Header>
       <Accordion.Content className="accordion-item__content">
