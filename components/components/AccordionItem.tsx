@@ -25,8 +25,8 @@ export default function AccordionItem({
   return (
     <Accordion.Item
       value={value}
-      className={`accordion-item py-8 ${
-        index === 0 ? "border-black border-t border-b" : "border-b"
+      className={`accordion-item py-8 border-black ${
+        index === 0 ? "border-t border-b" : "border-b"
       }`}
     >
       <Accordion.Header
@@ -34,9 +34,7 @@ export default function AccordionItem({
         className={`accordion-item__header transition-colors`}
       >
         <Accordion.Trigger className="w-full flex justify-between items-center group">
-          <p className="text-3xl laptop:text-2xl mobile:text-xl text-left leading-tight">
-            {title}
-          </p>
+          <h5 className="text-left leading-tight">{title}</h5>
           <div
             className={`accordion-item__icon transition-all ${
               active ? "-rotate-180" : ""

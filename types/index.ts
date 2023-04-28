@@ -91,7 +91,7 @@ export interface SanityHero {
   text: string;
   title: string;
   button: SanityButton;
-  contentPosition: "left" | "center" | "right";
+  content_position: "left" | "center" | "right";
 }
 
 export interface SanityPageHero {

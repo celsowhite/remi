@@ -14,20 +14,41 @@ export interface CardProps {
 export default function Card({ title, text, image, button }: CardProps) {
   return (
     <div>
-      {button ? (
-        <Link
-          className="mb-5 padding-aspect padding-aspect--6/4"
-          url={getSanityLinkUrl(button.link)}
-        >
-          {image && <SanityImage data={image} />}
-        </Link>
-      ) : (
-        <div className="mb-5 padding-aspect padding-aspect--6/4">
-          {image && <SanityImage data={image} />}
-        </div>
+      {/* Image */}
+      {image && (
+        <>
+          {button ? (
+            <Link className="mb-5" url={getSanityLinkUrl(button.link)}>
+              {image && <SanityImage data={image} />}
+            </Link>
+          ) : (
+            <div className="mb-5">{image && <SanityImage data={image} />}</div>
+          )}
+        </>
       )}
-      {title && <h5 className="mt-4">{title}</h5>}
+
+      {/* Title */}
+      {title && (
+        <>
+          {button ? (
+            <h5 className="mt-4">
+              <Link
+                className="hover:opacity-70"
+                url={getSanityLinkUrl(button.link)}
+              >
+                {title}
+              </Link>
+            </h5>
+          ) : (
+            <h5 className="mt-4">{title}</h5>
+          )}
+        </>
+      )}
+
+      {/* Text */}
       {text && <p className="mt-1">{text}</p>}
+
+      {/* Button */}
       {button && (
         <Link url={getSanityLinkUrl(button.link)} className="mt-4 link">
           {button.text}

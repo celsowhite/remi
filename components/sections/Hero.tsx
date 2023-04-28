@@ -8,7 +8,7 @@ export interface HeroProps {
   title: string;
   text?: string;
   image: object;
-  contentPosition?: "left" | "center" | "right";
+  content_position?: "left" | "center" | "right";
   button: SanityButton;
   className?: string;
 }
@@ -18,7 +18,7 @@ export default function Hero({
   title,
   text,
   image,
-  contentPosition = "left",
+  content_position = "left",
   button,
   className = "",
 }: HeroProps) {
@@ -33,14 +33,14 @@ export default function Hero({
       <div className="absolute top-0 left-0 w-full h-full flex items-center">
         <div
           className={`container max-w-7xl flex w-full ${
-            contentPosition === "center" && "justify-center text-center"
-          } ${contentPosition === "right" && "justify-end"}`}
+            content_position === "center" && "justify-center text-center"
+          } ${content_position === "right" && "justify-end"}`}
         >
           <div className="w-1/2 max-w-lg">
             {eyebrow && <h5>{eyebrow}</h5>}
             {title && <h2 className="mt-2">{title}</h2>}
             {text && <p className="mt-5">{text}</p>}
-            {button && (
+            {button && button?.text && button?.link && (
               <Link
                 url={getSanityLinkUrl(button.link)}
                 className="btn btn--primary mt-5"
