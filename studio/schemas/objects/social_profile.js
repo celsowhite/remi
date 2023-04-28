@@ -17,7 +17,6 @@ export default defineType({
           {title: 'Linkedin', value: 'linkedin'},
           {title: 'Instagram', value: 'instagram'},
           {title: 'Youtube', value: 'youtube'},
-          {title: 'Vimeo', value: 'vimeo'},
           {title: 'Tiktok', value: 'tiktok'},
           {title: 'Facebook', value: 'facebook'},
         ],

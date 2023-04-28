@@ -9,7 +9,6 @@ export type SocialNetworks =
   | "instagram"
   | "linkedin"
   | "youtube"
-  | "vimeo"
   | "facebook"
   | "tiktok";
 

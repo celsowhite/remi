@@ -5,7 +5,7 @@ import {
   LinkedinShareButton,
   FacebookShareButton,
 } from "react-share";
-import { Facebook, LinkedIn, Mail, Twitter } from "iconoir-react";
+import Icon from "./Icon";
 
 export interface SocialShareIconProps {
   url: string;
@@ -21,7 +21,7 @@ export default function SocialShareIcons({ url, title }: SocialShareIconProps) {
           title={title}
           className="w-5 flex justify-center items-center"
         >
-          <Twitter />
+          <Icon name="twitter" />
         </TwitterShareButton>
       </li>
       <li className="mr-2">
@@ -30,7 +30,7 @@ export default function SocialShareIcons({ url, title }: SocialShareIconProps) {
           title={title}
           className="w-5 flex justify-center items-center"
         >
-          <LinkedIn />
+          <Icon name="linkedin" />
         </LinkedinShareButton>
       </li>
       <li className="mr-2">
@@ -39,7 +39,7 @@ export default function SocialShareIcons({ url, title }: SocialShareIconProps) {
           title={title}
           className="w-5 flex justify-center items-center"
         >
-          <Facebook />
+          <Icon name="facebook" />
         </FacebookShareButton>
       </li>
       <li className="mr-2">
@@ -49,7 +49,7 @@ export default function SocialShareIcons({ url, title }: SocialShareIconProps) {
           rel="noreferrer"
           className="w-5 flex justify-center items-center"
         >
-          <Mail />
+          <Icon name="mail" />
         </a>
       </li>
     </ul>

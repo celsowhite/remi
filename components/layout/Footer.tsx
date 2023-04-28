@@ -1,8 +1,8 @@
 import Logo from "@/components/assets/Logo";
 import { SanityMenu, SanitySocialNetwork } from "@/types";
 import Link from "../components/Link";
-import SocialIcon from "../components/SocialIcon";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
+import SocialProfileIcons from "../components/SocialProfileIcons";
 
 export interface FooterProps {
   menu1: SanityMenu;
@@ -69,20 +69,7 @@ export default function Footer({
             {socialProfiles && socialProfiles.length > 0 && (
               <div className="col-span-3">
                 <h5 className="mb-5">Social</h5>
-                <ul className="flex">
-                  {socialProfiles?.map((profile) => {
-                    return (
-                      <li
-                        className="mr-4 w-5 svg-width-full"
-                        key={profile._key}
-                      >
-                        <Link url={profile.url}>
-                          <SocialIcon network={profile.network} />
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <SocialProfileIcons socialProfiles={socialProfiles} />
               </div>
             )}
           </div>

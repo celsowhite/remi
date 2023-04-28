@@ -59,7 +59,7 @@ export default async function Page({ params }) {
         <ul className="flex">
           {pageData?.content?.tags.map((tag: SanityTag) => {
             return (
-              <li>
+              <li key={tag._id}>
                 <Link
                   url={getPostTypePath("post_tag", tag.slug.current)}
                   className="p-2 bg-purple-light mr-2 uppercase text-sm"

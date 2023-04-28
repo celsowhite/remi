@@ -1,9 +1,9 @@
 import Logo from "@/components/assets/Logo";
 import ShopifyLogo from "@/components/assets/ShopifyLogo";
 import Link from "@/components/components/Link";
-import ChevronDown from "@/components/assets/icons/ChevronDown";
 import { SanityMenu } from "@/types";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
+import { NavArrowDown } from "iconoir-react";
 
 export interface HeaderProps {
   menu: SanityMenu;
@@ -35,8 +35,8 @@ export default function Header({ menu }: HeaderProps) {
                         {item.title}
                       </Link>
                       {item?.children && (
-                        <div className="ml-3 w-5 svg-width-full">
-                          <ChevronDown />
+                        <div className="ml-3 w-5">
+                          <NavArrowDown />
                         </div>
                       )}
                     </div>
