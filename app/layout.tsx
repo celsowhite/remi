@@ -9,6 +9,8 @@ import {
   footerSettingsQuery,
   socialSettingsQuery,
 } from "@/helpers/groq/queries";
+import GoogleAnalytics from "@/components/components/GoogleAnalytics";
+import Tracking from "@/components/components/Tracking";
 
 export default async function RootLayout({
   children,
@@ -34,6 +36,9 @@ export default async function RootLayout({
           menu2={globalData?.footer_settings?.footer_menu_2}
           copyright={globalData?.footer_settings?.copyright}
           byline={globalData?.footer_settings?.byline?.content}
+        />
+        <GoogleAnalytics
+          id={globalData?.general_settings?.google_analytics_id}
         />
       </body>
     </html>

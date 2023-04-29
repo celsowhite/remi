@@ -18,6 +18,11 @@ export default defineType({
       type: 'url',
     }),
     defineField({
+      title: 'Google Analytics ID',
+      name: 'google_analytics_id',
+      type: 'string',
+    }),
+    defineField({
       title: 'SEO',
       name: 'seo',
       type: 'seo',
