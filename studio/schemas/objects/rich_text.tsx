@@ -12,7 +12,9 @@ export default defineType({
       name: 'content',
       type: 'array',
       of: [
-        defineArrayMember({type: 'block'}),
+        defineArrayMember({
+          type: 'block',
+        }),
         defineArrayMember({
           type: 'image',
           title: 'Image',

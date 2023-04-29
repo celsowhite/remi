@@ -3,12 +3,16 @@ import { SanityMenu, SanitySocialNetwork } from "@/types";
 import Link from "../components/Link";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 import SocialProfileIcons from "../components/SocialProfileIcons";
+import { PortableText } from "@portabletext/react";
+import { PortableTextBlock } from "@sanity/types";
+import portableTextComponents from "@/helpers/portableTextComponents";
 
 export interface FooterProps {
   menu1: SanityMenu;
   menu2: SanityMenu;
   socialProfiles: SanitySocialNetwork[];
   copyright?: string;
+  byline?: PortableTextBlock;
 }
 
 export default function Footer({
@@ -16,6 +20,7 @@ export default function Footer({
   menu2,
   socialProfiles,
   copyright,
+  byline,
 }: FooterProps) {
   return (
     <footer>
@@ -79,10 +84,20 @@ export default function Footer({
       {/* Copyright */}
       {copyright && (
         <div className="bg-black-light py-2">
-          <div className="container max-w-7xl text-center">
-            <p className="text-xs">
-              © {copyright} {new Date().getFullYear()}
-            </p>
+          <div className="container text-center flex justify-between items-center text-xs">
+            {byline && (
+              <div className="wysiwyg">
+                <PortableText
+                  value={byline}
+                  components={portableTextComponents}
+                />
+              </div>
+            )}
+            {copyright && (
+              <div className="">
+                © {copyright} {new Date().getFullYear()}
+              </div>
+            )}
           </div>
         </div>
       )}

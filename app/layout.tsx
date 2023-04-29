@@ -33,6 +33,7 @@ export default async function RootLayout({
           menu1={globalData?.footer_settings?.footer_menu_1}
           menu2={globalData?.footer_settings?.footer_menu_2}
           copyright={globalData?.footer_settings?.copyright}
+          byline={globalData?.footer_settings?.byline?.content}
         />
       </body>
     </html>

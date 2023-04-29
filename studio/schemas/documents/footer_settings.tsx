@@ -20,6 +20,11 @@ export default defineType({
       to: [{type: 'menu'}],
     }),
     defineField({
+      title: 'Byline',
+      name: 'byline',
+      type: 'rich_text',
+    }),
+    defineField({
       title: 'Copyright',
       name: 'copyright',
       type: 'string',

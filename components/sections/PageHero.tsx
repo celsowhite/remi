@@ -7,8 +7,6 @@ export interface PageHeroProps {
 }
 
 export default function PageHero({ title, pageHero }: PageHeroProps) {
-  console.log(pageHero);
-
   return (
     <>
       {/* Hero - Title */}
