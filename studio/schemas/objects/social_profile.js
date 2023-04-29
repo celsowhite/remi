@@ -19,6 +19,7 @@ export default defineType({
           {title: 'Youtube', value: 'youtube'},
           {title: 'Tiktok', value: 'tiktok'},
           {title: 'Facebook', value: 'facebook'},
+          {title: 'Github', value: 'github'},
         ],
         layout: 'dropdown',
       },

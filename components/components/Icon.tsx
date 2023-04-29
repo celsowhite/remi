@@ -7,6 +7,7 @@ import {
   TikTok,
   Mail,
   NavArrowDown,
+  GitHub,
 } from "iconoir-react";
 
 export type Icons =
@@ -36,6 +37,8 @@ export default function Icon({ name }: { name: Icons }) {
     return <Mail />;
   } else if (name === "chevronDown") {
     return <NavArrowDown />;
+  } else if (name === "github") {
+    return <GitHub />;
   } else {
     return <></>;
   }

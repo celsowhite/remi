@@ -17,7 +17,10 @@ export default function SocialProfileIcons({
       {socialProfiles?.map((profile) => {
         return (
           <li className="mr-4 w-5 svg-width-full" key={profile._key}>
-            <Link url={profile.url}>
+            <Link
+              url={profile.url}
+              className="hover:opacity-70 transition-opacity"
+            >
               <Icon name={profile.network} />
             </Link>
           </li>

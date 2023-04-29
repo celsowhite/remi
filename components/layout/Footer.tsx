@@ -42,7 +42,10 @@ export default function Footer({
                   {menu1?.items.map((item) => {
                     return (
                       <li className="mb-2" key={item._key}>
-                        <Link url={getSanityLinkUrl(item.link)}>
+                        <Link
+                          url={getSanityLinkUrl(item.link)}
+                          className="hover:opacity-70 transition-opacity"
+                        >
                           {item.title}
                         </Link>
                       </li>
@@ -55,12 +58,15 @@ export default function Footer({
             {/* Menu 2 */}
             {menu2 && (
               <div className="col-span-3">
-                <h5 className="mb-5">{menu1?.title}</h5>
+                <h5 className="mb-5">{menu2?.title}</h5>
                 <ul>
-                  {menu1?.items.map((item) => {
+                  {menu2?.items.map((item) => {
                     return (
                       <li className="mb-2" key={item._key}>
-                        <Link url={getSanityLinkUrl(item.link)}>
+                        <Link
+                          url={getSanityLinkUrl(item.link)}
+                          className="hover:opacity-70 transition-opacity"
+                        >
                           {item.title}
                         </Link>
                       </li>
