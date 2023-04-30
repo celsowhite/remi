@@ -27,7 +27,7 @@ export default function Header({ menu }: HeaderProps) {
 
           {/* Nav */}
           <div className="flex">
-            <ul className="flex items-center h-full mr-10 relative">
+            <ul className="flex items-center h-full relative">
               {menu.items.map((item, itemIndex) => {
                 const isActive = pathName.includes(item?.link?.internal?.slug);
 

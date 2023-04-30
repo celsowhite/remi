@@ -10,7 +10,7 @@ import {
   socialSettingsQuery,
 } from "@/helpers/groq/queries";
 import GoogleAnalytics from "@/components/components/GoogleAnalytics";
-import Tracking from "@/components/components/Tracking";
+import { Suspense } from "react";
 
 export default async function RootLayout({
   children,
@@ -37,9 +37,11 @@ export default async function RootLayout({
           copyright={globalData?.footer_settings?.copyright}
           byline={globalData?.footer_settings?.byline?.content}
         />
-        <GoogleAnalytics
-          id={globalData?.general_settings?.google_analytics_id}
-        />
+        <Suspense>
+          <GoogleAnalytics
+            id={globalData?.general_settings?.google_analytics_id}
+          />
+        </Suspense>
       </body>
     </html>
   );
@@ -92,3 +94,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     },
   };
 }
+
+/*----------------------
+Revalidation
+----------------------*/
+export const revalidate = 60;
