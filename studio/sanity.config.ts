@@ -19,8 +19,9 @@ const singletonTypes = new Set([
 export default defineConfig({
   name: 'default',
   title: 'Remi',
-  projectId: '1l7bk9fa',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID as string,
+  dataset: process.env.SANITY_STUDIO_DATASET as string,
+  basePath: process.env.SANITY_STUDIO_BASE_PATH,
   plugins: [deskTool({structure}), visionTool(), media()],
   schema: {
     types: schemaTypes,
