@@ -46,12 +46,10 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
                 <Collapsible.Root
                   open={isOpen}
                   onOpenChange={() => toggleOpen(item.title)}
+                  key={item._key}
                 >
                   {/* Menu Item */}
-                  <li
-                    className="w-full border-black border-b py-5"
-                    key={item._key}
-                  >
+                  <li className="w-full border-black border-b py-5">
                     <div className="flex items-center justify-between cursor-pointer w-full">
                       <Link
                         url={getSanityLinkUrl(item.link)}

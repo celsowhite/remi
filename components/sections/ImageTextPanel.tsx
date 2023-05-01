@@ -24,7 +24,7 @@ export default function ImageTextPanel({
   Components
   ----------------------*/
   // Image
-  const Image = () => {
+  const PanelImage = () => {
     return (
       <div className="padding-aspect padding-aspect--6/4">
         {image && <SanityImage data={image} />}
@@ -33,7 +33,7 @@ export default function ImageTextPanel({
   };
 
   // Content
-  const Content = () => {
+  const PanelContent = () => {
     return (
       <div>
         {eyebrow && <h5>{eyebrow}</h5>}
@@ -61,10 +61,10 @@ export default function ImageTextPanel({
           imagePosition === "left" ? "" : "tablet:order-last"
         }`}
       >
-        {imagePosition === "left" ? <Image /> : <Content />}
+        {imagePosition === "left" ? <PanelImage /> : <PanelContent />}
       </div>
       <div className="col-span-6 tablet:col-span-12">
-        {imagePosition === "left" ? <Content /> : <Image />}
+        {imagePosition === "left" ? <PanelContent /> : <PanelImage />}
       </div>
     </div>
   );

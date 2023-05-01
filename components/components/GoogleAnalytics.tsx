@@ -18,7 +18,7 @@ export default function GoogleAnalytics({ id }: { id: string }) {
       page_location: url,
       page_title: document.title,
     });
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, id]);
 
   /*----------------------
   Script Initialization
