@@ -21,7 +21,6 @@ export default defineConfig({
   title: 'Remi',
   projectId: process.env.SANITY_STUDIO_PROJECT_ID as string,
   dataset: process.env.SANITY_STUDIO_DATASET as string,
-  basePath: '/studio',
   plugins: [deskTool({structure}), visionTool(), media()],
   schema: {
     types: schemaTypes,
