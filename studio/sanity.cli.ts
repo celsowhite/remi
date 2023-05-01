@@ -6,6 +6,6 @@ export default defineCliConfig({
     dataset: process.env.SANITY_STUDIO_DATASET,
   },
   project: {
-    basePath: process.env.SANITY_STUDIO_BASE_PATH,
+    basePath: '/studio',
   },
 })
