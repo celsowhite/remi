@@ -10,6 +10,7 @@
     "sanity:dev": "npm run copy-env && cd studio && sanity dev",
     "sanity:build": "npm run copy-env && cd studio && sanity build ../public/studio -y",
     "copy-env": "cp .env.local studio/.env.local",
+    "postinstall": "cd studio && npm install",
     "lint": "next lint"
   },
   "dependencies": {
