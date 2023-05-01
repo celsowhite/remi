@@ -3,12 +3,14 @@ import NextLink from "next/link";
 export interface LinkProps {
   url: string;
   className?: string;
+  onClick?: React.MouseEventHandler;
   children: React.ReactNode;
 }
 
 export default function Link({
   url = "",
   className = "",
+  onClick,
   children,
 }: LinkProps) {
   // External Flag
@@ -20,7 +22,13 @@ export default function Link({
   // External Link
   if (isExternal) {
     return (
-      <a href={url} target="_blank" rel="noreferrer" className={className}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={className}
+        onClick={onClick}
+      >
         {children}
       </a>
     );
@@ -29,7 +37,7 @@ export default function Link({
   // Internal Link
   else {
     return (
-      <NextLink href={url} className={className}>
+      <NextLink href={url} className={className} onClick={onClick}>
         {children}
       </NextLink>
     );

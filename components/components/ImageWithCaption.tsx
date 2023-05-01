@@ -12,7 +12,7 @@ export default function ImageWithCaption({
 }: ImageWithCaptionProps) {
   return (
     <div>
-      <SanityImage data={image} />
+      <SanityImage data={image} className="w-full" />
       {caption && <p className="mt-2">{caption}</p>}
     </div>
   );

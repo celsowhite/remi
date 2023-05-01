@@ -5,7 +5,6 @@ import Link from "@/components/components/Link";
 import { SanityMenu } from "@/types";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 import { NavArrowDown } from "iconoir-react";
-import { usePathname } from "next/navigation";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useGlobalStore } from "@/store/useGlobalStore";
 
@@ -14,10 +13,9 @@ export interface MobileMenuProps {
 }
 
 export default function MobileMenu({ menu }: MobileMenuProps) {
-  const pathName = usePathname();
-
   // Global Menu Open
   const menuIsOpen = useGlobalStore((state) => state.menuIsOpen);
+  const toggleMenuOpen = useGlobalStore((state) => state.toggleMenuOpen);
 
   // Toggle Submenu Open
   const [openItems, setOpenItems] = useState<string[]>([]);
@@ -58,6 +56,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
                       <Link
                         url={getSanityLinkUrl(item.link)}
                         className={`uppercase font-semibold tracking-wider`}
+                        onClick={() => toggleMenuOpen()}
                       >
                         {item.title}
                       </Link>
@@ -93,6 +92,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
                                       ? "mb-0"
                                       : "mb-2"
                                   }`}
+                                  onClick={() => toggleMenuOpen()}
                                 >
                                   {childItem.title}
                                 </Link>

@@ -56,10 +56,14 @@ export default function ImageTextPanel({
   ----------------------*/
   return (
     <div className="grid grid-cols-12 gap-5">
-      <div className="col-span-6">
+      <div
+        className={`col-span-6 tablet:col-span-12 ${
+          imagePosition === "left" ? "" : "tablet:order-last"
+        }`}
+      >
         {imagePosition === "left" ? <Image /> : <Content />}
       </div>
-      <div className="col-span-6">
+      <div className="col-span-6 tablet:col-span-12">
         {imagePosition === "left" ? <Content /> : <Image />}
       </div>
     </div>

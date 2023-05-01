@@ -44,8 +44,14 @@ export default function Hero({
       <div className="absolute mobile:relative top-0 left-0 w-full h-full mobile:h-auto flex items-center">
         <div
           className={`container max-w-7xl flex w-full ${
-            content_position === "center" && "justify-center text-center"
-          } ${content_position === "right" && "justify-end"}`}
+            content_position === "center"
+              ? "justify-center mobile:justify-start text-center mobile:text-left"
+              : ""
+          } ${
+            content_position === "right"
+              ? "justify-end mobile:justify-start"
+              : ""
+          }`}
         >
           <div className="w-1/2 mobile:w-full max-w-lg">
             {eyebrow && <h5>{eyebrow}</h5>}
