@@ -31,7 +31,7 @@ export default async function Page({ params }) {
           <div className="grid grid-cols-12">
             {pageData?.posts.map((post: SanityPost) => {
               return (
-                <div className="col-span-6" key={post._id}>
+                <div className="col-span-6 tablet:col-span-12" key={post._id}>
                   <PostCard post={post} />
                 </div>
               );
