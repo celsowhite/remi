@@ -13,6 +13,12 @@ export default defineType({
       type: 'image',
       fields: [{title: 'Alt', name: 'alt', type: 'string'}],
     }),
+    defineField({
+      title: 'Mobile Image',
+      name: 'mobile_image',
+      type: 'image',
+      fields: [{title: 'Alt', name: 'alt', type: 'string'}],
+    }),
     defineField({title: 'Eyebrow', name: 'eyebrow', type: 'string'}),
     defineField({title: 'Title', name: 'title', type: 'string'}),
     defineField({

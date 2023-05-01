@@ -4,8 +4,10 @@ import Logo from "@/components/assets/Logo";
 import Link from "@/components/components/Link";
 import { SanityMenu } from "@/types";
 import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
-import { NavArrowDown } from "iconoir-react";
+import { Cancel, Facebook, Menu, NavArrowDown } from "iconoir-react";
 import { usePathname } from "next/navigation";
+import MobileMenu from "../components/MobileMenu";
+import { useGlobalStore } from "@/store/useGlobalStore";
 
 export interface HeaderProps {
   menu: SanityMenu;
@@ -13,10 +15,12 @@ export interface HeaderProps {
 
 export default function Header({ menu }: HeaderProps) {
   const pathName = usePathname();
+  const menuIsOpen = useGlobalStore((state) => state.menuIsOpen);
+  const toggleMenuOpen = useGlobalStore((state) => state.toggleMenuOpen);
 
   return (
-    <header className="bg-black text-white h-20">
-      <div className="container mx-auto h-full">
+    <header className="relative bg-black text-white h-20 z-40">
+      <div className="bg-black relative container mx-auto h-full z-10">
         <div className="flex justify-between text-sm h-full">
           {/* Logo */}
           <div className="w-20 text-white h-full flex flex-col justify-center">
@@ -27,7 +31,7 @@ export default function Header({ menu }: HeaderProps) {
 
           {/* Nav */}
           <div className="flex">
-            <ul className="flex items-center h-full relative">
+            <ul className="flex items-center h-full relative tablet:hidden">
               {menu.items.map((item, itemIndex) => {
                 const isActive = pathName.includes(item?.link?.internal?.slug);
 
@@ -83,9 +87,21 @@ export default function Header({ menu }: HeaderProps) {
                 );
               })}
             </ul>
+            {/* Mobile Menu Trigger */}
+            <div className="h-full items-center hidden tablet:flex">
+              <div
+                className="w-5 cursor-pointer"
+                onClick={() => toggleMenuOpen()}
+              >
+                {menuIsOpen ? <Cancel /> : <Menu />}
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <MobileMenu menu={menu} />
     </header>
   );
 }

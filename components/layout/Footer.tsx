@@ -27,8 +27,8 @@ export default function Footer({
       <div className="bg-black text-white py-10">
         <div className="container">
           {/* Logo */}
-          <div className="grid grid-cols-12">
-            <div className="col-span-3">
+          <div className="grid grid-cols-12 gap-y-5">
+            <div className="col-span-3 tablet:col-span-6 mobile:col-span-12 mobile:mb-5">
               <div className="w-24">
                 <Logo />
               </div>
@@ -36,7 +36,7 @@ export default function Footer({
 
             {/* Menu 1 */}
             {menu1 && (
-              <div className="col-span-3">
+              <div className="col-span-3 tablet:col-span-6 mobile:col-span-12">
                 <h5 className="mb-5">{menu1?.title}</h5>
                 <ul>
                   {menu1?.items.map((item) => {
@@ -57,7 +57,7 @@ export default function Footer({
 
             {/* Menu 2 */}
             {menu2 && (
-              <div className="col-span-3">
+              <div className="col-span-3 tablet:col-span-6 mobile:col-span-12">
                 <h5 className="mb-5">{menu2?.title}</h5>
                 <ul>
                   {menu2?.items.map((item) => {
@@ -78,7 +78,7 @@ export default function Footer({
 
             {/* Social Profiles */}
             {socialProfiles && socialProfiles.length > 0 && (
-              <div className="col-span-3">
+              <div className="col-span-3 tablet:col-span-6 mobile:col-span-12">
                 <h5 className="mb-5">Social</h5>
                 <SocialProfileIcons socialProfiles={socialProfiles} />
               </div>
@@ -90,9 +90,9 @@ export default function Footer({
       {/* Copyright */}
       {copyright && (
         <div className="bg-black-light py-2">
-          <div className="container text-center flex justify-between items-center text-xs">
+          <div className="container text-center flex flex-wrap justify-between items-center text-xs">
             {byline && (
-              <div className="wysiwyg">
+              <div className="wysiwyg tablet:w-full tablet:text-center mb-1">
                 <PortableText
                   value={byline}
                   components={portableTextComponents}
@@ -100,7 +100,7 @@ export default function Footer({
               </div>
             )}
             {copyright && (
-              <div className="">
+              <div className="tablet:w-full tablet:text-center">
                 © {copyright} {new Date().getFullYear()}
               </div>
             )}

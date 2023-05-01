@@ -12,11 +12,11 @@ export default function CardGrid({ cards, columns = 3 }: CardGridProps) {
   ----------------------*/
   const columnClass = useMemo(() => {
     if (columns === 2) {
-      return "col-span-6";
+      return "col-span-6 tablet:col-span-6 mobile:col-span-12";
     } else if (columns === 3) {
-      return "col-span-4";
+      return "col-span-4 tablet:col-span-6 mobile:col-span-12";
     } else if (columns === 4) {
-      return "col-span-3";
+      return "col-span-3 tablet:col-span-6 mobile:col-span-12";
     }
   }, [columns]);
 
