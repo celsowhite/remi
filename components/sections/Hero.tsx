@@ -55,7 +55,7 @@ export default function Hero({
         >
           <div className="w-1/2 mobile:w-full max-w-lg">
             {eyebrow && <h5>{eyebrow}</h5>}
-            {title && <h2 className="mt-2">{title}</h2>}
+            {title && <h1 className="mt-2">{title}</h1>}
             {text && <p className="mt-5">{text}</p>}
             {button && button?.text && button?.link && (
               <Link

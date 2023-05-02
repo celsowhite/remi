@@ -25,7 +25,7 @@ export default function AccordionItem({
   return (
     <Accordion.Item
       value={value}
-      className={`accordion-item py-8 border-black ${
+      className={`accordion-item py-6 border-black ${
         index === 0 ? "border-t border-b" : "border-b"
       }`}
     >

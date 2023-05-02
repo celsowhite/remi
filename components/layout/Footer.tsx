@@ -92,7 +92,7 @@ export default function Footer({
         <div className="bg-black-light py-2">
           <div className="container text-center flex flex-wrap justify-between items-center text-xs">
             {byline && (
-              <div className="wysiwyg tablet:w-full tablet:text-center mb-1">
+              <div className="wysiwyg tablet:w-full tablet:text-center mb-1 font-semibold">
                 <PortableText
                   value={byline}
                   components={portableTextComponents}
@@ -100,7 +100,7 @@ export default function Footer({
               </div>
             )}
             {copyright && (
-              <div className="tablet:w-full tablet:text-center">
+              <div className="tablet:w-full tablet:text-center font-semibold">
                 © {copyright} {new Date().getFullYear()}
               </div>
             )}

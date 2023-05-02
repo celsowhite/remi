@@ -41,20 +41,20 @@ html {
 
 h1,
 h2.h1 {
-  @apply text-5xl;
+  @apply text-5xl tablet:text-4xl font-semibold;
 }
 
 h2,
 h1.h2 {
-  @apply text-4xl;
+  @apply text-4xl tablet:text-3xl font-semibold;
 }
 
 h3 {
-  @apply text-3xl;
+  @apply text-3xl tablet:text-2xl;
 }
 
 h4 {
-  @apply text-2xl;
+  @apply text-2xl tablet:text-xl;
 }
 
 h5 {
@@ -65,22 +65,9 @@ p {
   @apply tracking-tight leading-relaxed;
 }
 
-a {
-  /* @apply transition-colors duration-500; */
-}
-
-/* a:hover {
-  @apply hover:text-ocean-400 transition-colors;
-} */
-
 /*-------------------------------
 Helpers
 -------------------------------*/
-
-.paragraph-lg,
-.paragraph-lg p {
-  @apply text-lg;
-}
 
 /*-------------------------------
 Wysiwyg
