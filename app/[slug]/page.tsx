@@ -6,10 +6,9 @@ import {
   seoProjection,
 } from "@/helpers/groq/projections";
 import { generalSettingsQuery } from "@/helpers/groq/queries";
-import Hero from "@/components/sections/Hero";
 import PageHero from "@/components/sections/PageHero";
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   /*----------------------
   Page Data
   ----------------------*/
@@ -52,7 +51,11 @@ async function getPageData(slug: string) {
 /*----------------------
 Generate Metadata
 ----------------------*/
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const pageData = await getPageData(params.slug);
   return {
     title: pageData?.content?.seo?.title,

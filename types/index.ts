@@ -1,7 +1,7 @@
 import { PortableTextBlock } from "@sanity/types";
 
 /*----------------------
-Unions
+Types
 ----------------------*/
 
 export type SocialNetworks =

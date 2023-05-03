@@ -1,6 +1,5 @@
-import SanityImage, {
-  SanityImageProps,
-} from "@/components/components/SanityImage";
+import SanityImage from "@/components/components/SanityImage";
+import { SanityImage as SanityImageType } from "@/types";
 
 /*----------------------
 Portable Text Components
@@ -8,7 +7,7 @@ Portable Text Components
 const portableTextComponents: Object = {
   types: {
     // Image
-    image: ({ value }: { value: SanityImageProps }) => {
+    image: ({ value }: { value: SanityImageType }) => {
       return <SanityImage data={value} />;
     },
   },

@@ -5,12 +5,10 @@ import {
   generalSettingsQuery,
   postsQuery,
 } from "@/helpers/groq/queries";
-import Link from "@/components/components/Link";
-import SanityImage from "@/components/components/SanityImage";
 import PostCard from "@/components/components/PostCard";
 import { SanityPost } from "@/types";
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   /*----------------------
   Page Data
   ----------------------*/
@@ -59,8 +57,12 @@ async function getPageData() {
 /*----------------------
 Generate Metadata
 ----------------------*/
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const pageData = await getPageData(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const pageData = await getPageData();
 
   return {
     title: pageData?.content?.seo?.title,

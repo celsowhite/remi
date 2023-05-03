@@ -8,7 +8,7 @@ import {
 import { SanityPost } from "@/types";
 import PostCard from "@/components/components/PostCard";
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   /*----------------------
   Page Data
   ----------------------*/
@@ -61,7 +61,11 @@ async function getPageData(slug: string) {
 /*----------------------
 Generate Metadata
 ----------------------*/
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const pageData = await getPageData(params.slug);
 
   return {

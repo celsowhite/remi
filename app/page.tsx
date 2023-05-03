@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
 import { homePageQuery, generalSettingsQuery } from "@/helpers/groq/queries";
@@ -41,7 +42,7 @@ async function getPageData() {
 /*----------------------
 Generate Metadata
 ----------------------*/
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getPageData();
   return {
     title: pageData?.content?.seo?.title,

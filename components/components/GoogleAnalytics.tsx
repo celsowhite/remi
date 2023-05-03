@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
-declare const gtag: Gtag.Gtag;
-
 export default function GoogleAnalytics({ id }: { id: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -14,10 +12,12 @@ export default function GoogleAnalytics({ id }: { id: string }) {
   ----------------------*/
   useEffect(() => {
     const url = pathname + searchParams.toString();
-    gtag("config", id, {
-      page_location: url,
-      page_title: document.title,
-    });
+    if (gtag) {
+      gtag("config", id, {
+        page_location: url,
+        page_title: document.title,
+      });
+    }
   }, [pathname, searchParams, id]);
 
   /*----------------------

@@ -1,5 +1,5 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
-import {DocumentTextIcon, ImageIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
+import {DocumentTextIcon} from '@sanity/icons'
 import {SlugInput} from 'sanity-plugin-prefixed-slug'
 
 export default defineType({

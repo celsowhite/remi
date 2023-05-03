@@ -64,7 +64,7 @@ async function getGlobalData() {
 /*----------------------
 Generate Metadata
 ----------------------*/
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const globalData = await getGlobalData();
 
   return {

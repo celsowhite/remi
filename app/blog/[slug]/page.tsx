@@ -9,7 +9,7 @@ import { formatDate } from "@/helpers/formatDate";
 import SanityImage from "@/components/components/SanityImage";
 import SocialShareIcons from "@/components/components/SocialShareIcons";
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   /*----------------------
   Page Data
   ----------------------*/
@@ -91,7 +91,12 @@ async function getPageData(slug: string) {
 /*----------------------
 Generate Metadata
 ----------------------*/
-export async function generateMetadata({ params }): Promise<Metadata> {
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const pageData = await getPageData(params.slug);
   const path = getPostTypePath(
     pageData?.content?._type,

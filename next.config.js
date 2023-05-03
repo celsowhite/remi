@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
 };
 
