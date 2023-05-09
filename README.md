@@ -1,38 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Remi
 
-## Getting Started
+Next 13 and Sanity v3 starter template. Remi was created for two purposes.
 
-First, run the development server:
+- **Boilerplate**: Quickly get started on a new Next/Sanity project with the base cms and route structure in place.
+- **Theme**: Set up a simple site in a few hours. If you need a basic brochure site then you can easily set up Remi, use the page builder and deploy on a server.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Features
+
+- Next 13 including the new /app directory, server components and all the new features.
+- Sanity CMS including groq queries, page builder, dynamic schema type imports, seo/og fields hooked into the frontend and base schema structures.
+- Typescript across the stack.
+- Zustand store.
+
+## Get Started
+
+1. Create a Sanity project at sanity.io.
+2. Download the repo
+
+```sh
+git clone https://github.com/celsowhite/remi.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Create the env file and add your Sanity config variables.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+mv .env.sample .env.local
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+4. Install packages.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Local Dev
 
-## Learn More
+```sh
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The recommended way to deploy this repo is to connect it to a Vercel host. Setup a new Vercel project and make sure to add the env variables from .env.local.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Build the Sanity studio. The below command will build output files for Sanity studio and place them in the public folder for the app. By placing the files in the Next public folder, the studio will be available at the /studio route.
 
-## Deploy on Vercel
+```sh
+npm run sanity:build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Push to a vercel connected github repo. Vercel will auto build and deploy the repo to your host.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Q&A
+
+### Why is Sanity studio not embedded?
+
+Although it's possible to embed Sanity studio directly in the Next app router, I've opted to keep it isolated in its own folder. When trying to embed it, I faced a few issues getting some plugin modules to build and using some Vite specific techniques like import.meta. The native build tools for the studio and Next are different (Vite/Turbopack) which can cause a few issues with platform specific builds. Keeping the studio isolated also makes it more portable and easier to work on in isolation.
+
+### Can I turn off Typescript?
+
+This repo is meant to be for Typescript specific projects. If you'd like, you can ignore typescript errors at build time by turning on the ignoreBuildErrors flag in next.config.js.
