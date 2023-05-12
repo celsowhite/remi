@@ -32,7 +32,7 @@ export default function Header({ menu }: HeaderProps) {
           {/* Nav */}
           <div className="flex">
             <ul className="flex items-center h-full relative tablet:hidden">
-              {menu.items.map((item, itemIndex) => {
+              {menu?.items.map((item, itemIndex) => {
                 const isActive = pathName.includes(item?.link?.internal?.slug);
 
                 return (
@@ -58,7 +58,7 @@ export default function Header({ menu }: HeaderProps) {
                     {item?.children && (
                       <ul
                         className={`invisible group-hover:visible absolute top-full bg-white border border-black text-black rounded-md z-10 ${
-                          itemIndex === menu.items.length - 1
+                          itemIndex === menu?.items.length - 1
                             ? "right-0"
                             : "left-0"
                         }`}

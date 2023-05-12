@@ -32,7 +32,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
       <div className="pt-20 text-black">
         {/* Menu Items */}
         <ul className="">
-          {menu.items.map((item, itemIndex) => {
+          {menu?.items.map((item, itemIndex) => {
             const isOpen = openMenuItems.includes(item.title);
 
             return (
@@ -68,7 +68,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
                     <Collapsible.Content>
                       <ul
                         className={`pt-4 pl-4 ${
-                          itemIndex === menu.items.length - 1
+                          itemIndex === menu?.items.length - 1
                             ? "right-0"
                             : "left-0"
                         }`}
