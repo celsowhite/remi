@@ -14,7 +14,12 @@ Next 13 and Sanity v3 starter template. Remi was created for two purposes.
 
 ## Get Started
 
-1. Create a Sanity project at [sanity.io](https://www.sanity.io/).
+1. Create a Sanity project in another folder. Please make sure you already have a sanity account.
+
+```sh
+npm -y create sanity@latest
+```
+
 2. Download the repo
 
 ```sh
