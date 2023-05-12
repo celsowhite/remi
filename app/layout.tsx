@@ -68,6 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const globalData = await getGlobalData();
 
   return {
+    metadataBase: new URL(globalData?.general_settings?.site_url),
     title: {
       default: globalData?.general_settings?.seo?.title,
       template: `%s | ${globalData?.general_settings?.seo?.title}`,
