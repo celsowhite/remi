@@ -1,11 +1,11 @@
 import {defineType, defineField} from 'sanity'
-import {CodeIcon} from '@sanity/icons'
+import {LinkIcon} from '@sanity/icons'
 
 export default defineType({
   title: 'Social Profile',
   name: 'social_profile',
   type: 'object',
-  icon: CodeIcon,
+  icon: LinkIcon,
   fields: [
     defineField({
       title: 'Network',
