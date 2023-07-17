@@ -7,27 +7,7 @@ export const structure = (S) => {
       S.listItem()
         .title('Pages')
         .child(
-          S.list()
-            .title('Pages')
-            .items([
-              S.listItem()
-                .title('Landing')
-                .child(
-                  S.list()
-                    .title('Landing')
-                    .items([
-                      S.listItem()
-                        .title('Home')
-                        .showIcon(false)
-                        .child(S.document().schemaType('home_page').documentId('home_page')),
-                      S.listItem()
-                        .title('Blog')
-                        .showIcon(false)
-                        .child(S.document().schemaType('blog_page').documentId('blog_page')),
-                    ])
-                ),
-              S.documentTypeListItem('page').title('General'),
-            ])
+          S.documentList().title('Pages').filter('_type in ["page", "home_page", "blog_page"]')
         ),
       S.listItem()
         .title('Posts')

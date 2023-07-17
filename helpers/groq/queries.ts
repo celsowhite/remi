@@ -1,6 +1,5 @@
 import {
   seoProjection,
-  linkProjection,
   pageBuilderProjection,
   menuProjection,
 } from "./projections";
