@@ -39,6 +39,10 @@ module.exports = {
         "3xl": "80px",
         "4xl": "100px",
       },
+      // Border Color
+      borderColor: {
+        DEFAULT: "currentColor",
+      },
     },
   },
   corePlugins: {
