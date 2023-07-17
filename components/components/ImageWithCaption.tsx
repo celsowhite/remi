@@ -1,5 +1,5 @@
 import SanityImage from "@/components/components/SanityImage";
-import { SanityImage as SanityImageType } from "@/types";
+import { SanityImageType } from "@/types";
 
 export interface ImageWithCaptionProps {
   image: SanityImageType;

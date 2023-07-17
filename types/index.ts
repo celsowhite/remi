@@ -46,7 +46,7 @@ export interface SanitySocialNetwork {
   url: string;
 }
 
-export interface SanityImage {
+export interface SanityImageType {
   alt?: string;
   asset: {
     _ref: string;
@@ -62,7 +62,7 @@ export interface SanityPost {
   slug: {
     current: string;
   };
-  featured_image?: SanityImage;
+  featured_image?: SanityImageType;
   title: string;
   excerpt?: string;
 }
@@ -78,7 +78,7 @@ export interface SanityTag {
 export interface SanityHero {
   _type: "_hero";
   eyebrow: string;
-  image: SanityImage;
+  image: SanityImageType;
   text: string;
   title: string;
   button: SanityButton;

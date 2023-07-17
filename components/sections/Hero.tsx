@@ -1,6 +1,6 @@
 import SanityImage from "@/components/components/SanityImage";
 import Link from "../components/Link";
-import { SanityButton, SanityImage as SanityImageType } from "@/types";
+import { SanityButton, SanityImageType } from "@/types";
 
 export interface HeroProps {
   eyebrow?: string;

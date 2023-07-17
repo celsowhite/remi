@@ -1,6 +1,6 @@
 import SanityImage from "./SanityImage";
 import Link from "./Link";
-import { SanityButton, SanityImage as SanityImageType } from "@/types";
+import { SanityButton, SanityImageType } from "@/types";
 
 export interface CardProps {
   _key?: string;
