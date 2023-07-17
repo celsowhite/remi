@@ -24,7 +24,7 @@ module.exports = {
         laptop: { max: "1199px" },
         tablet: { max: "1079px" },
         mobile: { max: "749px" },
-        "sm-mobile": { max: "500px" },
+        "mobile-sm": { max: "500px" },
         "touch-device": { raw: "(hover: none) and (pointer: coarse)" },
       },
       // Spacing
