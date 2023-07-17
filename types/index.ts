@@ -54,6 +54,14 @@ export interface SanityImageType {
   };
 }
 
+export interface BasicImageType {
+  alt?: string;
+  src: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+}
+
 export interface SanityPost {
   _id: string;
   _createdAt: string;

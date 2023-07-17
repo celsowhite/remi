@@ -88,7 +88,7 @@ Wysiwyg
   }
 }
 
-.wysiwyg a {
+.wysiwyg a:not(.btn) {
   @apply text-black underline hover:no-underline;
 }
 
