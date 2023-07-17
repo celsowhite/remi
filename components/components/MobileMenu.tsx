@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "@/components/components/Link";
 import { SanityMenu } from "@/types";
-import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 import { NavArrowDown } from "iconoir-react";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useGlobalStore } from "@/store/useGlobalStore";
@@ -45,7 +44,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
                 <li className="w-full border-black border-b py-5 px-8">
                   <div className="flex items-center justify-between cursor-pointer w-full">
                     <Link
-                      url={getSanityLinkUrl(item.link)}
+                      url={item.link}
                       className={`uppercase font-semibold tracking-wider`}
                       onClick={() => toggleMenuOpen()}
                     >
@@ -77,7 +76,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
                           return (
                             <li key={childItem._key}>
                               <Link
-                                url={getSanityLinkUrl(childItem.link)}
+                                url={childItem.link}
                                 className={`uppercase font-semibold tracking-wider block ${
                                   childItemIndex === item.children.length - 1
                                     ? "mb-0"

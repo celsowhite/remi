@@ -1,7 +1,6 @@
 import SanityImage from "./SanityImage";
 import Link from "./Link";
 import { SanityButton, SanityImage as SanityImageType } from "@/types";
-import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
 export interface CardProps {
   _key?: string;
@@ -17,8 +16,8 @@ export default function Card({ title, text, image, button }: CardProps) {
       {/* Image */}
       {image && (
         <>
-          {button ? (
-            <Link className="mb-5" url={getSanityLinkUrl(button.link)}>
+          {button?.link ? (
+            <Link className="mb-5" url={button.link}>
               {image && <SanityImage data={image} />}
             </Link>
           ) : (
@@ -30,12 +29,9 @@ export default function Card({ title, text, image, button }: CardProps) {
       {/* Title */}
       {title && (
         <>
-          {button ? (
+          {button?.link ? (
             <h5 className="mt-4">
-              <Link
-                className="hover:opacity-70"
-                url={getSanityLinkUrl(button.link)}
-              >
+              <Link className="hover:opacity-70" url={button.link}>
                 {title}
               </Link>
             </h5>
@@ -49,8 +45,8 @@ export default function Card({ title, text, image, button }: CardProps) {
       {text && <p className="mt-1">{text}</p>}
 
       {/* Button */}
-      {button && (
-        <Link url={getSanityLinkUrl(button.link)} className="mt-4 link">
+      {button?.link && (
+        <Link url={button.link} className="mt-4 link">
           {button.text}
         </Link>
       )}

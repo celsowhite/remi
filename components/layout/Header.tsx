@@ -3,7 +3,6 @@
 import Logo from "@/components/assets/Logo";
 import Link from "@/components/components/Link";
 import { SanityMenu } from "@/types";
-import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 import { Cancel, Facebook, Menu, NavArrowDown } from "iconoir-react";
 import { usePathname } from "next/navigation";
 import MobileMenu from "../components/MobileMenu";
@@ -33,7 +32,7 @@ export default function Header({ menu }: HeaderProps) {
           <div className="flex">
             <ul className="flex items-center h-full relative tablet:hidden">
               {menu?.items.map((item, itemIndex) => {
-                const isActive = pathName.includes(item?.link?.internal?.slug);
+                const isActive = item?.link.includes(pathName);
 
                 return (
                   <li
@@ -42,7 +41,7 @@ export default function Header({ menu }: HeaderProps) {
                   >
                     <div className="flex items-center cursor-pointer">
                       <Link
-                        url={getSanityLinkUrl(item.link)}
+                        url={item.link}
                         className={`uppercase font-semibold tracking-wider border-white ${
                           isActive ? "opacity-100" : "opacity-70"
                         }`}
@@ -67,7 +66,7 @@ export default function Header({ menu }: HeaderProps) {
                           return (
                             <li key={childItem._key}>
                               <Link
-                                url={getSanityLinkUrl(childItem.link)}
+                                url={childItem.link}
                                 className={`uppercase font-semibold tracking-wider block p-2 bg-white hover:bg-black text-black hover:text-white min-w-[200px] border-b border-black ${
                                   childItemIndex === 0 &&
                                   "rounded-tl-md rounded-tr-md"

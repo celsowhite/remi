@@ -1,7 +1,6 @@
 import SanityImage from "@/components/components/SanityImage";
 import Link from "../components/Link";
 import { SanityButton, SanityImage as SanityImageType } from "@/types";
-import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
 export interface ImageTextPanelProps {
   eyebrow?: string;
@@ -40,10 +39,7 @@ export default function ImageTextPanel({
         {title && <h2 className="mt-2">{title}</h2>}
         {text && <p className="mt-5">{text}</p>}
         {button && (
-          <Link
-            url={getSanityLinkUrl(button.link)}
-            className="btn btn--primary mt-5"
-          >
+          <Link url={button.link} className="btn btn--primary mt-5">
             {button.text}
           </Link>
         )}

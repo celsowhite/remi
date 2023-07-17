@@ -1,7 +1,6 @@
 import SanityImage from "@/components/components/SanityImage";
 import Link from "../components/Link";
 import { SanityButton, SanityImage as SanityImageType } from "@/types";
-import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 
 export interface HeroProps {
   eyebrow?: string;
@@ -58,10 +57,7 @@ export default function Hero({
             {title && <h1 className="mt-2">{title}</h1>}
             {text && <p className="mt-5">{text}</p>}
             {button && button?.text && button?.link && (
-              <Link
-                url={getSanityLinkUrl(button.link)}
-                className="btn btn--primary mt-5"
-              >
+              <Link url={button.link} className="btn btn--primary mt-5">
                 {button.text}
               </Link>
             )}

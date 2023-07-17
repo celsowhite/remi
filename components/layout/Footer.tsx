@@ -1,7 +1,6 @@
 import Logo from "@/components/assets/Logo";
 import { SanityMenu, SanitySocialNetwork } from "@/types";
 import Link from "../components/Link";
-import getSanityLinkUrl from "@/helpers/getSanityLinkUrl";
 import SocialProfileIcons from "../components/SocialProfileIcons";
 import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@sanity/types";
@@ -43,7 +42,7 @@ export default function Footer({
                     return (
                       <li className="mb-2" key={item._key}>
                         <Link
-                          url={getSanityLinkUrl(item.link)}
+                          url={item.link}
                           className="hover:opacity-70 transition-opacity"
                         >
                           {item.title}
@@ -64,7 +63,7 @@ export default function Footer({
                     return (
                       <li className="mb-2" key={item._key}>
                         <Link
-                          url={getSanityLinkUrl(item.link)}
+                          url={item.link}
                           className="hover:opacity-70 transition-opacity"
                         >
                           {item.title}
