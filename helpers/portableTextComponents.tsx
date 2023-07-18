@@ -1,3 +1,4 @@
+import Embed, { EmbedProps } from "@/components/components/Embed";
 import SanityImage from "@/components/components/SanityImage";
 import { SanityImageType } from "@/types";
 
@@ -9,6 +10,10 @@ const portableTextComponents: Object = {
     // Image
     image: ({ value }: { value: SanityImageType }) => {
       return <SanityImage data={value} />;
+    },
+    // Embed
+    embed: ({ value }: { value: EmbedProps }) => {
+      return <Embed code={value.code} script={value.script} />;
     },
   },
 };

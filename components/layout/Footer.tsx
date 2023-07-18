@@ -2,9 +2,8 @@ import Logo from "@/components/assets/Logo";
 import { SanityMenu, SanitySocialNetwork } from "@/types";
 import Link from "../components/Link";
 import SocialProfileIcons from "../components/SocialProfileIcons";
-import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@sanity/types";
-import portableTextComponents from "@/helpers/portableTextComponents";
+import PortableText from "../components/PortableText";
 
 export interface FooterProps {
   menu1: SanityMenu;
@@ -92,10 +91,7 @@ export default function Footer({
           <div className="container text-center flex flex-wrap justify-between items-center text-xs">
             {byline && (
               <div className="wysiwyg tablet:w-full tablet:text-center mb-1 font-semibold">
-                <PortableText
-                  value={byline}
-                  components={portableTextComponents}
-                />
+                <PortableText value={byline} />
               </div>
             )}
             {copyright && (

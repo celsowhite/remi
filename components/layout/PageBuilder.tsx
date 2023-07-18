@@ -1,5 +1,3 @@
-import { PortableText } from "@portabletext/react";
-import portableTextComponents from "@/helpers/portableTextComponents";
 import ImageTextPanel from "@/components/sections/ImageTextPanel";
 import CardGrid from "@/components/sections/CardGrid";
 import ImageWithCaption from "../components/ImageWithCaption";
@@ -7,6 +5,8 @@ import AccordionList from "../sections/AccordionList";
 import TextBanner from "../sections/TextBanner";
 import Hero from "@/components/sections/Hero";
 import SectionHeader from "../sections/SectionHeader";
+import PortableText from "../components/PortableText";
+import EmbedSection from "../sections/EmbedSection";
 
 export interface PageBuilderProps {
   blocks: [any];
@@ -34,30 +34,24 @@ export default function PageBuilder({
       {blocks?.map((block) => {
         if (block._type === "richText") {
           /*----------------------
-          Content Block
+          Rich Text
           ----------------------*/
           return (
             <div key={block._key} className="mb-10">
               <div className={containerClass}>
                 <div className="wysiwyg">
-                  <PortableText
-                    value={block.content}
-                    components={portableTextComponents}
-                  />
+                  <PortableText value={block.content} />
                 </div>
               </div>
             </div>
           );
-        } else if (block._type === "embed") {
+        } else if (block._type === "embedSection") {
           /*----------------------
           Embed
           ----------------------*/
           return (
             <div key={block._key} className="mb-10">
-              <div className={containerClass}>
-                {" "}
-                <div dangerouslySetInnerHTML={{ __html: block.code }}></div>
-              </div>
+              <EmbedSection embed={block.embed} />
             </div>
           );
         } else if (block._type === "imageTextPanel") {

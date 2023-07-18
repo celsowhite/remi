@@ -18,6 +18,11 @@ export default defineType({
       type: 'text',
       rows: 3,
     }),
+    defineField({
+      title: 'Script',
+      name: 'script',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

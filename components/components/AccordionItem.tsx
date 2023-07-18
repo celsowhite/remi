@@ -1,8 +1,7 @@
 import * as Accordion from "@radix-ui/react-accordion";
-import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@sanity/types";
-import portableTextComponents from "@/helpers/portableTextComponents";
 import Icon from "./Icon";
+import PortableText from "./PortableText";
 
 export interface AccordionItemProps {
   index: number;
@@ -46,7 +45,7 @@ export default function AccordionItem({
       </Accordion.Header>
       <Accordion.Content className="accordion-item__content">
         <div className="pt-5 max-w-4xl accordion-item__content-inner wysiwyg">
-          <PortableText value={content} components={portableTextComponents} />
+          <PortableText value={content} />
         </div>
       </Accordion.Content>
     </Accordion.Item>

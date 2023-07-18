@@ -24,6 +24,7 @@ export default defineType({
         ],
         layout: 'dropdown',
       },
+      initialValue: 'left',
     }),
   ],
   preview: {
