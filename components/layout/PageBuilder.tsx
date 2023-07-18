@@ -146,7 +146,7 @@ export default function PageBuilder({
           Section Header
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div key={block._key} className="py-10">
               <SectionHeader
                 title={block.title}
                 text={block.text}

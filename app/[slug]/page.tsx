@@ -6,7 +6,6 @@ import {
   seoProjection,
 } from "@/helpers/groq/projections";
 import { generalSettingsQuery } from "@/helpers/groq/queries";
-import PageHero from "@/components/sections/PageHero";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   /*----------------------
@@ -19,12 +18,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ----------------------*/
   return (
     <div className="pb-10">
-      {/* Page Hero */}
-      <PageHero
-        title={pageData?.content?.title}
-        pageHero={pageData?.content?.pageHero}
-      />
-
       {/* Page Builder */}
       <PageBuilder blocks={pageData?.content?.pageBuilder} />
     </div>

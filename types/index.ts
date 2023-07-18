@@ -93,19 +93,9 @@ export interface SanityHero {
   contentPosition: "left" | "center" | "right";
 }
 
-export interface SanityPageHero {
-  _type: string;
-  excerpt: string;
-  hero: SanityHero;
-  title: string;
-  type: "title" | "image";
-}
-
 export interface SanityAccordionItem {
   _key: string;
   _type: "accordion";
-  content: {
-    content: PortableTextBlock;
-  };
+  text: PortableTextBlock | PortableTextBlock[];
   title: string;
 }

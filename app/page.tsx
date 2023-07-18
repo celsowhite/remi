@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { client } from "@/services/sanity/client";
 import PageBuilder from "@/components/layout/PageBuilder";
 import { homePageQuery, generalSettingsQuery } from "@/helpers/groq/queries";
-import PageHero from "@/components/sections/PageHero";
 
 export default async function Home() {
   /*----------------------
@@ -15,12 +14,6 @@ export default async function Home() {
   ----------------------*/
   return (
     <div>
-      {/* Page Hero */}
-      <PageHero
-        title={pageData?.content?.title}
-        pageHero={pageData?.content?.pageHero}
-      />
-
       {/* Page Builder */}
       <PageBuilder blocks={pageData?.content?.pageBuilder} />
     </div>

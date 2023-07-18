@@ -1,6 +1,7 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {DocumentTextIcon, FolderIcon, ImageIcon} from '@sanity/icons'
 import {SlugInput} from 'sanity-plugin-prefixed-slug'
+import pageBuilderField from '../partials/pageBuilderField'
 
 export default defineType({
   title: 'Home Page',
@@ -13,37 +14,7 @@ export default defineType({
       name: 'title',
       type: 'string',
     }),
-    defineField({
-      title: 'Page Hero',
-      name: 'pageHero',
-      type: 'pageHero',
-    }),
-    defineField({
-      title: 'Page Builder',
-      name: 'pageBuilder',
-      type: 'array',
-      of: [
-        defineArrayMember({type: 'richText'}),
-        defineArrayMember({type: 'embed'}),
-        defineArrayMember({type: 'imageTextPanel'}),
-        defineArrayMember({type: 'cardGrid'}),
-        defineArrayMember({
-          title: 'Image',
-          name: 'image',
-          type: 'image',
-          icon: ImageIcon,
-          fields: [
-            {title: 'Alt', name: 'alt', type: 'string'},
-            {title: 'Caption', name: 'caption', type: 'string'},
-          ],
-        }),
-        defineArrayMember({type: 'accordions'}),
-        defineArrayMember({type: 'textBanner'}),
-        defineArrayMember({type: 'hero'}),
-        defineArrayMember({type: 'sectionHeader'}),
-        defineArrayMember({type: 'postList'}),
-      ],
-    }),
+    pageBuilderField,
     {
       title: 'Slug',
       name: 'slug',
