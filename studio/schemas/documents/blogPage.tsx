@@ -1,17 +1,17 @@
 import {defineField, defineType} from 'sanity'
-import {TagIcon} from '@sanity/icons'
+import {DocumentTextIcon} from '@sanity/icons'
 import {SlugInput} from 'sanity-plugin-prefixed-slug'
 
 export default defineType({
-  title: 'Tag',
-  name: 'post_tag',
+  title: 'Page',
+  name: 'blogPage',
   type: 'document',
-  icon: TagIcon,
+  icon: DocumentTextIcon,
   fields: [
     defineField({
-      type: 'string',
-      name: 'title',
       title: 'Title',
+      name: 'title',
+      type: 'string',
     }),
     {
       title: 'Slug',
@@ -21,10 +21,9 @@ export default defineType({
         input: SlugInput,
       },
       options: {
-        source: 'title',
-        urlPrefix: '/blog/tag',
+        urlPrefix: '/',
       },
-      validation: (Rule) => Rule.required(),
+      readOnly: true,
     },
     defineField({
       name: 'seo',

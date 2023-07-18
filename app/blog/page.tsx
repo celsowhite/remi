@@ -49,7 +49,7 @@ async function getPageData() {
     `{
       "content": ${blogPageQuery},
       "posts": ${postsQuery},
-      "general_settings": ${generalSettingsQuery},
+      "generalSettings": ${generalSettingsQuery},
     }`
   );
 }
@@ -69,7 +69,7 @@ export async function generateMetadata({
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: `${pageData?.general_settings?.site_url}/blog/tag/${pageData?.content?.slug?.current}`,
+      url: `${pageData?.generalSettings?.siteUrl}/blog/tag/${pageData?.content?.slug?.current}`,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,
@@ -77,10 +77,10 @@ export async function generateMetadata({
         {
           url:
             pageData?.content?.seo?.image?.asset?.url ||
-            pageData.general_settings?.seo?.image?.asset?.url,
+            pageData.generalSettings?.seo?.image?.asset?.url,
           alt:
             pageData?.content?.seo?.image?.alt ||
-            pageData.general_settings?.seo?.image?.alt,
+            pageData.generalSettings?.seo?.image?.alt,
         },
       ],
     },

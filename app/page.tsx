@@ -18,11 +18,11 @@ export default async function Home() {
       {/* Page Hero */}
       <PageHero
         title={pageData?.content?.title}
-        pageHero={pageData?.content?.page_hero}
+        pageHero={pageData?.content?.pageHero}
       />
 
       {/* Page Builder */}
-      <PageBuilder blocks={pageData?.content?.page_builder} />
+      <PageBuilder blocks={pageData?.content?.pageBuilder} />
     </div>
   );
 }
@@ -34,7 +34,7 @@ async function getPageData() {
   return await client.fetch(
     `{
       "content": ${homePageQuery},
-      "general_settings": ${generalSettingsQuery},
+      "generalSettings": ${generalSettingsQuery},
     }`
   );
 }
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: `${pageData?.general_settings?.site_url}`,
+      url: `${pageData?.generalSettings?.siteUrl}`,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,
@@ -57,10 +57,10 @@ export async function generateMetadata(): Promise<Metadata> {
         {
           url:
             pageData?.content?.seo?.image?.asset?.url ||
-            pageData.general_settings?.seo?.image?.asset?.url,
+            pageData.generalSettings?.seo?.image?.asset?.url,
           alt:
             pageData?.content?.seo?.image?.alt ||
-            pageData.general_settings?.seo?.image?.alt,
+            pageData.generalSettings?.seo?.image?.alt,
         },
       ],
     },

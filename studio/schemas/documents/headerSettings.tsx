@@ -3,7 +3,7 @@ import {defineType, defineField} from 'sanity'
 
 export default defineType({
   title: 'Header Settings',
-  name: 'header_settings',
+  name: 'headerSettings',
   type: 'document',
   icon: ControlsIcon,
   fields: [

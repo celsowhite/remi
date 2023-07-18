@@ -3,7 +3,7 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   title: 'Page Hero',
-  name: 'page_hero',
+  name: 'pageHero',
   type: 'object',
   icon: BlockElementIcon,
   options: {

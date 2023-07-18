@@ -6,9 +6,7 @@ export const structure = (S) => {
     .items([
       S.listItem()
         .title('Pages')
-        .child(
-          S.documentList().title('Pages').filter('_type in ["page", "home_page", "blog_page"]')
-        ),
+        .child(S.documentList().title('Pages').filter('_type in ["page", "homePage", "blogPage"]')),
       S.listItem()
         .title('Posts')
         .icon(DocumentsIcon)
@@ -17,7 +15,7 @@ export const structure = (S) => {
             .title('Posts')
             .items([
               S.documentTypeListItem('post').title('All Posts'),
-              S.documentTypeListItem('post_tag').title('Tags'),
+              S.documentTypeListItem('postTag').title('Tags'),
             ])
         ),
       S.documentTypeListItem('menu').title('Menus'),
@@ -31,19 +29,19 @@ export const structure = (S) => {
               S.listItem()
                 .title('General')
                 .showIcon(false)
-                .child(S.document().schemaType('general_settings').documentId('general_settings')),
+                .child(S.document().schemaType('generalSettings').documentId('generalSettings')),
               S.listItem()
                 .title('Header')
                 .showIcon(false)
-                .child(S.document().schemaType('header_settings').documentId('header_settings')),
+                .child(S.document().schemaType('headerSettings').documentId('headerSettings')),
               S.listItem()
                 .title('Footer')
                 .showIcon(false)
-                .child(S.document().schemaType('footer_settings').documentId('footer_settings')),
+                .child(S.document().schemaType('footerSettings').documentId('footerSettings')),
               S.listItem()
                 .title('Social')
                 .showIcon(false)
-                .child(S.document().schemaType('social_settings').documentId('social_settings')),
+                .child(S.document().schemaType('socialSettings').documentId('socialSettings')),
             ])
         ),
     ])

@@ -24,10 +24,10 @@ export default defineType({
       type: 'reference',
       to: [
         {type: 'page'},
-        {type: 'blog_page'},
-        {type: 'home_page'},
+        {type: 'blogPage'},
+        {type: 'homePage'},
         {type: 'post'},
-        {type: 'post_tag'},
+        {type: 'postTag'},
       ],
       hidden: ({parent, value}) => parent?.type !== 'internal',
     }),

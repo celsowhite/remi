@@ -28,18 +28,18 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header menu={globalData?.header_settings?.menu} />
+        <Header menu={globalData?.headerSettings?.menu} />
         <main>{children}</main>
         <Footer
-          socialProfiles={globalData?.social_settings?.profiles}
-          menu1={globalData?.footer_settings?.footer_menu_1}
-          menu2={globalData?.footer_settings?.footer_menu_2}
-          copyright={globalData?.footer_settings?.copyright}
-          byline={globalData?.footer_settings?.byline?.content}
+          socialProfiles={globalData?.socialSettings?.profiles}
+          menu1={globalData?.footerSettings?.footerMenu1}
+          menu2={globalData?.footerSettings?.footerMenu2}
+          copyright={globalData?.footerSettings?.copyright}
+          byline={globalData?.footerSettings?.byline?.content}
         />
         <Suspense>
           <GoogleAnalytics
-            id={globalData?.general_settings?.google_analytics_id}
+            id={globalData?.generalSettings?.googleAnalyticsId}
           />
         </Suspense>
       </body>
@@ -53,10 +53,10 @@ Get Global Data
 async function getGlobalData() {
   return await client.fetch(
     `{
-      "general_settings": ${generalSettingsQuery},
-      "header_settings": ${headerSettingsQuery},
-      "footer_settings": ${footerSettingsQuery},
-      "social_settings": ${socialSettingsQuery},
+      "generalSettings": ${generalSettingsQuery},
+      "headerSettings": ${headerSettingsQuery},
+      "footerSettings": ${footerSettingsQuery},
+      "socialSettings": ${socialSettingsQuery},
     }`
   );
 }
@@ -68,30 +68,30 @@ export async function generateMetadata(): Promise<Metadata> {
   const globalData = await getGlobalData();
 
   return {
-    metadataBase: new URL(globalData?.general_settings?.site_url),
+    metadataBase: new URL(globalData?.generalSettings?.siteUrl),
     title: {
-      default: globalData?.general_settings?.seo?.title,
-      template: `%s | ${globalData?.general_settings?.seo?.title}`,
+      default: globalData?.generalSettings?.seo?.title,
+      template: `%s | ${globalData?.generalSettings?.seo?.title}`,
     },
-    description: globalData?.general_settings?.seo?.description,
+    description: globalData?.generalSettings?.seo?.description,
     openGraph: {
       type: "website",
-      url: globalData?.general_settings?.site_url,
+      url: globalData?.generalSettings?.siteUrl,
       title:
-        globalData?.general_settings?.seo?.title ||
-        globalData?.general_settings?.title,
-      description: globalData?.general_settings?.seo?.description,
+        globalData?.generalSettings?.seo?.title ||
+        globalData?.generalSettings?.title,
+      description: globalData?.generalSettings?.seo?.description,
       images: [
         {
-          url: globalData?.general_settings?.seo?.image?.asset?.url,
-          alt: globalData?.general_settings?.seo?.image?.alt,
+          url: globalData?.generalSettings?.seo?.image?.asset?.url,
+          alt: globalData?.generalSettings?.seo?.image?.alt,
         },
       ],
-      siteName: globalData?.general_settings?.title,
+      siteName: globalData?.generalSettings?.title,
     },
     twitter: {
       card: "summary_large_image",
-      site: globalData?.general_settings?.twitter_handle,
+      site: globalData?.generalSettings?.twitterHandle,
     },
   };
 }

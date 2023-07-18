@@ -15,18 +15,18 @@ export default defineType({
     }),
     defineField({
       title: 'Page Hero',
-      name: 'page_hero',
-      type: 'page_hero',
+      name: 'pageHero',
+      type: 'pageHero',
     }),
     defineField({
       title: 'Page Builder',
-      name: 'page_builder',
+      name: 'pageBuilder',
       type: 'array',
       of: [
-        defineArrayMember({type: 'rich_text'}),
+        defineArrayMember({type: 'richText'}),
         defineArrayMember({type: 'embed'}),
-        defineArrayMember({type: 'image_text_panel'}),
-        defineArrayMember({type: 'card_grid'}),
+        defineArrayMember({type: 'imageTextPanel'}),
+        defineArrayMember({type: 'cardGrid'}),
         defineArrayMember({
           title: 'Image',
           name: 'image',
@@ -38,10 +38,10 @@ export default defineType({
           ],
         }),
         defineArrayMember({type: 'accordions'}),
-        defineArrayMember({type: 'text_banner'}),
+        defineArrayMember({type: 'textBanner'}),
         defineArrayMember({type: 'hero'}),
-        defineArrayMember({type: 'section_header'}),
-        defineArrayMember({type: 'post_list'}),
+        defineArrayMember({type: 'sectionHeader'}),
+        defineArrayMember({type: 'postList'}),
       ],
     }),
     {

@@ -15,13 +15,13 @@ export default defineType({
     }),
     defineField({
       title: 'Page Builder',
-      name: 'page_builder',
+      name: 'pageBuilder',
       type: 'array',
       of: [
-        defineArrayMember({type: 'rich_text'}),
+        defineArrayMember({type: 'richText'}),
         defineArrayMember({type: 'embed'}),
-        defineArrayMember({type: 'image_text_panel'}),
-        defineArrayMember({type: 'card_grid'}),
+        defineArrayMember({type: 'imageTextPanel'}),
+        defineArrayMember({type: 'cardGrid'}),
         defineArrayMember({
           title: 'Image',
           name: 'image',
@@ -33,14 +33,14 @@ export default defineType({
           ],
         }),
         defineArrayMember({type: 'accordions'}),
-        defineArrayMember({type: 'text_banner'}),
+        defineArrayMember({type: 'textBanner'}),
         defineArrayMember({type: 'hero'}),
-        defineArrayMember({type: 'section_header'}),
+        defineArrayMember({type: 'sectionHeader'}),
       ],
     }),
     defineField({
       title: 'Featured Image',
-      name: 'featured_image',
+      name: 'featuredImage',
       type: 'image',
       fields: [{title: 'Alt', name: 'alt', type: 'string'}],
     }),
@@ -59,7 +59,7 @@ export default defineType({
         {
           type: 'reference',
           to: {
-            type: 'post_tag',
+            type: 'postTag',
           },
         },
       ],

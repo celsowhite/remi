@@ -2,9 +2,9 @@ import {LinkIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'menu_item_with_children',
+  name: 'menuItem',
   type: 'object',
-  title: 'Items',
+  title: 'Item',
   icon: LinkIcon,
   fields: [
     defineField({
@@ -22,11 +22,15 @@ export default defineType({
           allowRelative: true,
         }),
     }),
-    defineField({
-      type: 'array',
-      name: 'children',
-      title: 'Children',
-      of: [{type: 'menu_item'}],
-    }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare(selection) {
+      return {
+        title: selection.title,
+      }
+    },
+  },
 })

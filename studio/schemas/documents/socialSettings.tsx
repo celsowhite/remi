@@ -3,7 +3,7 @@ import {defineType, defineField} from 'sanity'
 
 export default defineType({
   title: 'Social Settings',
-  name: 'social_settings',
+  name: 'socialSettings',
   type: 'document',
   icon: ControlsIcon,
   fields: [
@@ -13,13 +13,13 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'social_profile',
+          type: 'socialProfile',
         },
       ],
     }),
     defineField({
       title: 'Twitter Handle',
-      name: 'twitter_handle',
+      name: 'twitterHandle',
       type: 'string',
     }),
   ],

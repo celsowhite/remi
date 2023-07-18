@@ -2,8 +2,8 @@ import {ThLargeIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  title: 'Card Grid',
-  name: 'card_grid',
+  title: 'Post List',
+  name: 'postList',
   icon: ThLargeIcon,
   type: 'object',
   fields: [
@@ -16,21 +16,11 @@ export default defineType({
         layout: 'dropdown',
       },
     }),
-    defineField({
-      title: 'Cards',
-      name: 'cards',
-      type: 'array',
-      of: [
-        {
-          type: 'card',
-        },
-      ],
-    }),
   ],
   preview: {
     prepare(selection) {
       return {
-        title: 'Card Grid',
+        title: 'Post List',
       }
     },
   },

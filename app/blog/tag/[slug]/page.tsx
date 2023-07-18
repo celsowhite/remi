@@ -52,7 +52,7 @@ async function getPageData(slug: string) {
     `{
       "content": ${postTagQuery},
       "posts": ${postsByTagQuery},
-      "general_settings": ${generalSettingsQuery},
+      "generalSettings": ${generalSettingsQuery},
     }`,
     { slug: slug }
   );
@@ -73,7 +73,7 @@ export async function generateMetadata({
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
-      url: pageData?.content?.site_url,
+      url: pageData?.content?.siteUrl,
       title: pageData?.content?.seo?.title || pageData?.title,
       description: pageData?.content?.seo?.description,
       siteName: pageData?.content?.title,
@@ -81,10 +81,10 @@ export async function generateMetadata({
         {
           url:
             pageData?.content?.seo?.image?.asset?.url ||
-            pageData.general_settings?.seo?.image?.asset?.url,
+            pageData.generalSettings?.seo?.image?.asset?.url,
           alt:
             pageData?.content?.seo?.image?.alt ||
-            pageData.general_settings?.seo?.image?.alt,
+            pageData.generalSettings?.seo?.image?.alt,
         },
       ],
     },
@@ -96,7 +96,7 @@ Generate Static Params
 ----------------------*/
 export async function generateStaticParams() {
   const slugs = await client.fetch(
-    `*[_type == "post_tag" && defined(slug.current)][].slug.current`
+    `*[_type == "postTag" && defined(slug.current)][].slug.current`
   );
 
   return slugs.map((slug: String) => ({

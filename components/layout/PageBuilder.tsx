@@ -32,7 +32,7 @@ export default function PageBuilder({
   return (
     <>
       {blocks?.map((block) => {
-        if (block._type === "rich_text") {
+        if (block._type === "richText") {
           /*----------------------
           Content Block
           ----------------------*/
@@ -60,7 +60,7 @@ export default function PageBuilder({
               </div>
             </div>
           );
-        } else if (block._type === "image_text_panel") {
+        } else if (block._type === "imageTextPanel") {
           /*----------------------
           Image Text Panel
           ----------------------*/
@@ -72,13 +72,13 @@ export default function PageBuilder({
                   title={block.title}
                   text={block.text}
                   image={block.image}
-                  imagePosition={block.image_position}
+                  imagePosition={block.imagePosition}
                   button={block.button}
                 />
               </div>
             </div>
           );
-        } else if (block._type === "card_grid") {
+        } else if (block._type === "cardGrid") {
           /*----------------------
           Card Grid
           ----------------------*/
@@ -111,7 +111,7 @@ export default function PageBuilder({
               </div>
             </div>
           );
-        } else if (block._type === "text_banner") {
+        } else if (block._type === "textBanner") {
           /*----------------------
           Text Banner
           ----------------------*/
@@ -136,12 +136,12 @@ export default function PageBuilder({
                 title={block.title}
                 text={block.text}
                 image={block.image}
-                content_position={block.content_position}
+                contentPosition={block.contentPosition}
                 button={block.button}
               />
             </div>
           );
-        } else if (block._type === "section_header") {
+        } else if (block._type === "sectionHeader") {
           /*----------------------
           Section Header
           ----------------------*/
@@ -150,7 +150,7 @@ export default function PageBuilder({
               <SectionHeader
                 title={block.title}
                 text={block.text}
-                contentPosition={block.content_position}
+                contentPosition={block.contentPosition}
               />
             </div>
           );

@@ -15,7 +15,7 @@ export default defineType({
     defineField({
       title: 'Content',
       name: 'content',
-      type: 'rich_text',
+      type: 'richText',
     }),
   ],
   preview: {

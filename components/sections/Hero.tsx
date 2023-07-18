@@ -8,7 +8,7 @@ export interface HeroProps {
   text?: string;
   image: SanityImageType;
   mobile_image?: SanityImageType;
-  content_position?: "left" | "center" | "right";
+  contentPosition?: "left" | "center" | "right";
   button: SanityButton;
   className?: string;
 }
@@ -19,7 +19,7 @@ export default function Hero({
   text,
   image,
   mobile_image,
-  content_position = "left",
+  contentPosition = "left",
   button,
   className = "",
 }: HeroProps) {
@@ -43,11 +43,11 @@ export default function Hero({
       <div className="absolute mobile:relative top-0 left-0 w-full h-full mobile:h-auto flex items-center">
         <div
           className={`container max-w-7xl flex w-full ${
-            content_position === "center"
+            contentPosition === "center"
               ? "justify-center mobile:justify-start text-center mobile:text-left"
               : ""
           } ${
-            content_position === "right"
+            contentPosition === "right"
               ? "justify-end mobile:justify-start"
               : ""
           }`}

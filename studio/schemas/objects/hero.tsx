@@ -34,7 +34,7 @@ export default defineType({
     }),
     defineField({
       title: 'Content Position',
-      name: 'content_position',
+      name: 'contentPosition',
       type: 'string',
       options: {
         list: [
