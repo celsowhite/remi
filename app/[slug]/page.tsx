@@ -51,7 +51,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const pageData = await getPageData(params.slug);
   return {
-    title: pageData?.content?.seo?.title,
+    title: pageData?.content?.seo?.title || pageData?.content?.title,
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",

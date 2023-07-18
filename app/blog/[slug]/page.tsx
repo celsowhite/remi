@@ -105,7 +105,7 @@ export async function generateMetadata({
   const url = `${pageData?.generalSettings?.siteUrl}${path}`;
 
   return {
-    title: pageData?.content?.seo?.title,
+    title: pageData?.content?.seo?.title || pageData?.content?.title,
     description: pageData?.content?.seo?.description,
     openGraph: {
       type: "website",
