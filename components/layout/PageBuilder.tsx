@@ -40,7 +40,7 @@ export default function PageBuilder({
             <div key={block._key} className="mb-10">
               <div className={containerClass}>
                 <div className="wysiwyg">
-                  <PortableText value={block.content} />
+                  <PortableText value={block.text} />
                 </div>
               </div>
             </div>

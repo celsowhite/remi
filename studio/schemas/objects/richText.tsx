@@ -1,37 +1,13 @@
 import {DocumentTextIcon} from '@sanity/icons'
-import {defineArrayMember, defineType} from 'sanity'
+import {defineType} from 'sanity'
+import richTextField from '../partials/richTextField'
 
 export default defineType({
   title: 'Rich Text',
   name: 'richText',
   type: 'object',
   icon: DocumentTextIcon,
-  fields: [
-    {
-      title: 'Content',
-      name: 'content',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-        }),
-        defineArrayMember({
-          type: 'image',
-          title: 'Image',
-          fields: [
-            {
-              title: 'Alt Text',
-              name: 'alt',
-              type: 'string',
-            },
-          ],
-        }),
-        defineArrayMember({
-          type: 'embed',
-        }),
-      ],
-    },
-  ],
+  fields: [richTextField],
   preview: {
     prepare(selection) {
       return {

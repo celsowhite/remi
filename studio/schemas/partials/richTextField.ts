@@ -22,6 +22,10 @@ const richTextField = defineField({
     defineArrayMember({
       type: 'embed',
     }),
+    defineArrayMember({
+      title: 'Button',
+      type: 'button',
+    }),
   ],
 })
 
