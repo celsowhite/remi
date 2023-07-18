@@ -1,5 +1,6 @@
 import {BlockElementIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
+import sectionIdField from '../partials/sectionIdField'
 
 export default defineType({
   title: 'Embed',
@@ -12,6 +13,7 @@ export default defineType({
       name: 'embed',
       type: 'embed',
     }),
+    sectionIdField,
   ],
   preview: {
     prepare(selection) {

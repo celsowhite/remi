@@ -1,5 +1,6 @@
 import {BlockContentIcon} from '@sanity/icons'
 import {defineType, defineField} from 'sanity'
+import sectionIdField from '../partials/sectionIdField'
 
 export default defineType({
   title: 'Text Banner',
@@ -19,6 +20,7 @@ export default defineType({
       name: 'button',
       type: 'button',
     }),
+    sectionIdField,
   ],
   preview: {
     prepare(selection) {

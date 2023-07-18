@@ -1,5 +1,6 @@
 import {InsertBelowIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
+import sectionIdField from '../partials/sectionIdField'
 
 export default defineType({
   title: 'Section Header',
@@ -26,6 +27,7 @@ export default defineType({
       },
       initialValue: 'left',
     }),
+    sectionIdField,
   ],
   preview: {
     prepare(selection) {

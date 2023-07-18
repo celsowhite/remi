@@ -37,7 +37,11 @@ export default function PageBuilder({
           Rich Text
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <div className={containerClass}>
                 <div className="wysiwyg">
                   <PortableText value={block.text} />
@@ -50,7 +54,11 @@ export default function PageBuilder({
           Embed
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <EmbedSection embed={block.embed} />
             </div>
           );
@@ -59,7 +67,11 @@ export default function PageBuilder({
           Image Text Panel
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <div className={containerClass}>
                 <ImageTextPanel
                   eyebrow={block.eyebrow}
@@ -77,7 +89,11 @@ export default function PageBuilder({
           Card Grid
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <div className={containerClass}>
                 <CardGrid cards={block.cards} columns={block.columns} />
               </div>
@@ -88,7 +104,11 @@ export default function PageBuilder({
           Image
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <div className={containerClass}>
                 <ImageWithCaption image={block} caption={block.caption} />
               </div>
@@ -99,7 +119,11 @@ export default function PageBuilder({
           Accordions
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <div className={containerClass}>
                 <AccordionList key={block._key} accordions={block.accordions} />
               </div>
@@ -110,7 +134,11 @@ export default function PageBuilder({
           Text Banner
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <TextBanner
                 eyebrow={block?.eyebrow}
                 title={block?.title}
@@ -124,7 +152,11 @@ export default function PageBuilder({
           Hero
           ----------------------*/
           return (
-            <div key={block._key} className="mb-10">
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
               <Hero
                 eyebrow={block.eyebrow}
                 title={block.title}
@@ -140,7 +172,11 @@ export default function PageBuilder({
           Section Header
           ----------------------*/
           return (
-            <div key={block._key} className="py-10">
+            <div
+              key={block._key}
+              className="relative py-10"
+              id={block?.sectionId}
+            >
               <SectionHeader
                 title={block.title}
                 text={block.text}

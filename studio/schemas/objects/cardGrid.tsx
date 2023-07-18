@@ -1,5 +1,6 @@
 import {ThLargeIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
+import sectionIdField from '../partials/sectionIdField'
 
 export default defineType({
   title: 'Card Grid',
@@ -26,6 +27,7 @@ export default defineType({
         },
       ],
     }),
+    sectionIdField,
   ],
   preview: {
     prepare(selection) {
