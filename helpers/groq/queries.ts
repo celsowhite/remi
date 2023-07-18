@@ -8,7 +8,7 @@ import {
 Pages
 ----------------------*/
 export const homePageQuery = `
-  *[_type == "home_page"][0] {
+  *[_type == "homePage"][0] {
     ...,
     ${pageBuilderProjection},
     ${seoProjection}
@@ -16,7 +16,7 @@ export const homePageQuery = `
 `;
 
 export const blogPageQuery = `
-  *[_type == "blog_page"][0] {
+  *[_type == "blogPage"][0] {
     ...,
     ${seoProjection}
   }
@@ -50,7 +50,7 @@ export const postBySlugQuery = `
 Taxonomies
 ----------------------*/
 export const postTagQuery = `
-  *[_type == "post_tag" && slug.current == $slug][0] {
+  *[_type == "postTag" && slug.current == $slug][0] {
     ...,
     ${seoProjection}
   }
@@ -60,30 +60,30 @@ export const postTagQuery = `
 Settings
 ----------------------*/
 export const generalSettingsQuery = `
-  *[_type == 'general_settings'][0] {
+  *[_type == 'generalSettings'][0] {
     ...,
     ${seoProjection}
   }
 `;
 
 export const headerSettingsQuery = `
-  *[_type == 'header_settings'][0] {
+  *[_type == 'headerSettings'][0] {
     ...,
     menu->${menuProjection}
   }
 `;
 
 export const footerSettingsQuery = `
-  *[_type == 'footer_settings'][0] {
+  *[_type == 'footerSettings'][0] {
     ...,
-    footer_menu_1->${menuProjection},
-    footer_menu_2->${menuProjection},
+    footerMenu1->${menuProjection},
+    footerMenu2->${menuProjection},
     ${seoProjection}
   }
 `;
 
 export const socialSettingsQuery = `
-  *[_type == 'social_settings'][0] {
+  *[_type == 'socialSettings'][0] {
     ...,
     ${seoProjection}
   }

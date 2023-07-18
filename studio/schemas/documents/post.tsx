@@ -1,6 +1,7 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {DocumentsIcon, DocumentTextIcon, ImageIcon} from '@sanity/icons'
 import {SlugInput} from 'sanity-plugin-prefixed-slug'
+import pageBuilderField from '../partials/pageBuilderField'
 
 export default defineType({
   title: 'Post',
@@ -13,34 +14,10 @@ export default defineType({
       name: 'title',
       type: 'string',
     }),
-    defineField({
-      title: 'Page Builder',
-      name: 'page_builder',
-      type: 'array',
-      of: [
-        defineArrayMember({type: 'rich_text'}),
-        defineArrayMember({type: 'embed'}),
-        defineArrayMember({type: 'image_text_panel'}),
-        defineArrayMember({type: 'card_grid'}),
-        defineArrayMember({
-          title: 'Image',
-          name: 'image',
-          type: 'image',
-          icon: ImageIcon,
-          fields: [
-            {title: 'Alt', name: 'alt', type: 'string'},
-            {title: 'Caption', name: 'caption', type: 'string'},
-          ],
-        }),
-        defineArrayMember({type: 'accordions'}),
-        defineArrayMember({type: 'text_banner'}),
-        defineArrayMember({type: 'hero'}),
-        defineArrayMember({type: 'section_header'}),
-      ],
-    }),
+    pageBuilderField,
     defineField({
       title: 'Featured Image',
-      name: 'featured_image',
+      name: 'featuredImage',
       type: 'image',
       fields: [{title: 'Alt', name: 'alt', type: 'string'}],
     }),
@@ -59,7 +36,7 @@ export default defineType({
         {
           type: 'reference',
           to: {
-            type: 'post_tag',
+            type: 'postTag',
           },
         },
       ],

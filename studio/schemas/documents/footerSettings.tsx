@@ -3,26 +3,26 @@ import {defineType, defineField} from 'sanity'
 
 export default defineType({
   title: 'FooterSettings',
-  name: 'footer_settings',
+  name: 'footerSettings',
   type: 'document',
   icon: ControlsIcon,
   fields: [
     defineField({
       title: 'Footer Menu 1',
-      name: 'footer_menu_1',
+      name: 'footerMenu1',
       type: 'reference',
       to: [{type: 'menu'}],
     }),
     defineField({
       title: 'Footer Menu 2',
-      name: 'footer_menu_2',
+      name: 'footerMenu2',
       type: 'reference',
       to: [{type: 'menu'}],
     }),
     defineField({
       title: 'Byline',
       name: 'byline',
-      type: 'rich_text',
+      type: 'richText',
     }),
     defineField({
       title: 'Copyright',

@@ -8,7 +8,7 @@ export interface AccordionItemProps {
   index: number;
   value: string;
   title: string;
-  content: PortableTextBlock;
+  content: PortableTextBlock | PortableTextBlock[];
   active: boolean;
 }
 

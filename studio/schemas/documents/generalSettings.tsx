@@ -3,7 +3,7 @@ import {defineType, defineField} from 'sanity'
 
 export default defineType({
   title: 'General Settings',
-  name: 'general_settings',
+  name: 'generalSettings',
   type: 'document',
   icon: ControlsIcon,
   fields: [
@@ -14,12 +14,12 @@ export default defineType({
     }),
     defineField({
       title: 'Site URL',
-      name: 'site_url',
+      name: 'siteUrl',
       type: 'url',
     }),
     defineField({
       title: 'Google Analytics ID',
-      name: 'google_analytics_id',
+      name: 'googleAnalyticsId',
       type: 'string',
     }),
     defineField({

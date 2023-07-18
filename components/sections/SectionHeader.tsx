@@ -16,7 +16,7 @@ export default function SectionHeader({
     <div className="">
       <div
         className={`container max-w-7xl flex ${
-          contentPosition === "center" && "justify-center text-center"
+          contentPosition === "center" ? "justify-center text-center" : ""
         }`}
       >
         <div className="max-w-lg">

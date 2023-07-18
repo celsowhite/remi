@@ -3,7 +3,7 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   title: 'Section Header',
-  name: 'section_header',
+  name: 'sectionHeader',
   type: 'object',
   icon: InsertBelowIcon,
   fields: [
@@ -15,7 +15,7 @@ export default defineType({
     }),
     defineField({
       title: 'Content Position',
-      name: 'content_position',
+      name: 'contentPosition',
       type: 'string',
       options: {
         list: [

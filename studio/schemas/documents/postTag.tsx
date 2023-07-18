@@ -4,7 +4,7 @@ import {SlugInput} from 'sanity-plugin-prefixed-slug'
 
 export default defineType({
   title: 'Tag',
-  name: 'post_tag',
+  name: 'postTag',
   type: 'document',
   icon: TagIcon,
   fields: [

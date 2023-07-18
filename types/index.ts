@@ -14,10 +14,10 @@ export type SocialNetworks =
 
 export type SanityPostTypes =
   | "post"
-  | "post_tag"
+  | "postTag"
   | "page"
-  | "home_page"
-  | "blog_page";
+  | "homePage"
+  | "blogPage";
 
 /*----------------------
 Interfaces
@@ -90,22 +90,12 @@ export interface SanityHero {
   text: string;
   title: string;
   button: SanityButton;
-  content_position: "left" | "center" | "right";
-}
-
-export interface SanityPageHero {
-  _type: string;
-  excerpt: string;
-  hero: SanityHero;
-  title: string;
-  type: "title" | "image";
+  contentPosition: "left" | "center" | "right";
 }
 
 export interface SanityAccordionItem {
   _key: string;
   _type: "accordion";
-  content: {
-    content: PortableTextBlock;
-  };
+  text: PortableTextBlock | PortableTextBlock[];
   title: string;
 }

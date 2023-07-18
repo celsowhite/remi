@@ -11,7 +11,7 @@ export const seoProjection = `
 `;
 
 export const pageBuilderProjection = `
-  page_builder[] {
+  pageBuilder[] {
     ...,
   }
 `;

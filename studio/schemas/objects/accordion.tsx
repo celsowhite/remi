@@ -1,5 +1,6 @@
 import {BlockElementIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
+import richTextField from '../partials/richTextField'
 
 export default defineType({
   title: 'Accordion',
@@ -12,11 +13,7 @@ export default defineType({
       name: 'title',
       type: 'string',
     }),
-    defineField({
-      title: 'Content',
-      name: 'content',
-      type: 'rich_text',
-    }),
+    richTextField,
   ],
   preview: {
     select: {

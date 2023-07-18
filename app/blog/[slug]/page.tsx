@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     pageData?.content?._type,
     pageData?.content?.slug?.current
   );
-  const url = `${pageData?.general_settings?.site_url}${path}`;
+  const url = `${pageData?.generalSettings?.siteUrl}${path}`;
 
   /*----------------------
   Template
@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
       {/* Content */}
       <PageBuilder
-        blocks={pageData?.content?.page_builder}
+        blocks={pageData?.content?.pageBuilder}
         containerSize="small"
       />
 
@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             return (
               <li key={tag._id}>
                 <Link
-                  url={getPostTypePath("post_tag", tag.slug.current)}
+                  url={getPostTypePath("postTag", tag.slug.current)}
                   className="p-2 bg-black-light mr-2 uppercase text-sm"
                 >
                   {tag.title}
@@ -82,7 +82,7 @@ async function getPageData(slug: string) {
   return await client.fetch(
     `{
       "content": ${postBySlugQuery},
-      "general_settings": ${generalSettingsQuery},
+      "generalSettings": ${generalSettingsQuery},
     }`,
     { slug: slug }
   );
@@ -102,7 +102,7 @@ export async function generateMetadata({
     pageData?.content?._type,
     pageData?.content?.slug?.current
   );
-  const url = `${pageData?.general_settings?.site_url}${path}`;
+  const url = `${pageData?.generalSettings?.siteUrl}${path}`;
 
   return {
     title: pageData?.content?.seo?.title,
@@ -117,10 +117,10 @@ export async function generateMetadata({
         {
           url:
             pageData?.content?.seo?.image?.asset?.url ||
-            pageData.general_settings?.seo?.image?.asset?.url,
+            pageData.generalSettings?.seo?.image?.asset?.url,
           alt:
             pageData?.content?.seo?.image?.alt ||
-            pageData.general_settings?.seo?.image?.alt,
+            pageData.generalSettings?.seo?.image?.alt,
         },
       ],
     },

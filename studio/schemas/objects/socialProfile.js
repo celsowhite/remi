@@ -3,7 +3,7 @@ import {LinkIcon} from '@sanity/icons'
 
 export default defineType({
   title: 'Social Profile',
-  name: 'social_profile',
+  name: 'socialProfile',
   type: 'object',
   icon: LinkIcon,
   fields: [

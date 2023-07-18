@@ -3,7 +3,7 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   title: 'Image Text Panel',
-  name: 'image_text_panel',
+  name: 'imageTextPanel',
   type: 'object',
   icon: BlockContentIcon,
   fields: [
@@ -27,7 +27,7 @@ export default defineType({
     }),
     defineField({
       title: 'Image Position',
-      name: 'image_position',
+      name: 'imagePosition',
       type: 'string',
       options: {
         list: [

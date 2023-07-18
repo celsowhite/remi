@@ -1,20 +1,18 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
-import {FolderIcon, ImageIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
+import {DocumentTextIcon} from '@sanity/icons'
 import {SlugInput} from 'sanity-plugin-prefixed-slug'
-import pageBuilderField from '../partials/pageBuilderField'
 
 export default defineType({
   title: 'Page',
-  name: 'page',
+  name: 'blogPage',
   type: 'document',
-  icon: FolderIcon,
+  icon: DocumentTextIcon,
   fields: [
     defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
     }),
-    pageBuilderField,
     {
       title: 'Slug',
       name: 'slug',
@@ -23,10 +21,9 @@ export default defineType({
         input: SlugInput,
       },
       options: {
-        source: 'title',
         urlPrefix: '/',
       },
-      validation: (Rule) => Rule.required(),
+      readOnly: true,
     },
     defineField({
       name: 'seo',
