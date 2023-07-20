@@ -25,6 +25,7 @@ const pageBuilderField = defineField({
     defineArrayMember({type: 'hero'}),
     defineArrayMember({type: 'sectionHeader'}),
     defineArrayMember({type: 'postList'}),
+    defineArrayMember({type: 'linkList'}),
   ],
 })
 

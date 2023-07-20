@@ -7,6 +7,7 @@ import Hero from "@/components/sections/Hero";
 import SectionHeader from "../sections/SectionHeader";
 import PortableText from "../components/PortableText";
 import EmbedSection from "../sections/EmbedSection";
+import LinkList from "../sections/LinkList";
 
 export interface PageBuilderProps {
   blocks: [any];
@@ -182,6 +183,12 @@ export default function PageBuilder({
                 text={block.text}
                 contentPosition={block.contentPosition}
               />
+            </div>
+          );
+        } else if (block._type === "linkList") {
+          return (
+            <div className="relative" id={block?.sectionId} key={block._key}>
+              <LinkList links={block?.links} columns={block.columns} />
             </div>
           );
         } else {
