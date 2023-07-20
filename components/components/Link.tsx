@@ -16,7 +16,10 @@ export default function Link({
   // External Flag
   const isExternal =
     url && typeof url === "string"
-      ? url.indexOf("://") > 0 || url.indexOf("//") === 0
+      ? url.indexOf("://") > 0 ||
+        url.indexOf("//") === 0 ||
+        url.indexOf("mailto") > 0 ||
+        url.indexOf("mailto") === 0
       : false;
 
   // External Link
