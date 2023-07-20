@@ -13,6 +13,7 @@ export default defineType({
       title: 'Text',
       name: 'text',
       type: 'text',
+      rows: 3,
     }),
     defineField({
       title: 'Content Position',
@@ -29,11 +30,4 @@ export default defineType({
     }),
     sectionIdField,
   ],
-  preview: {
-    prepare(selection) {
-      return {
-        title: 'Section Header',
-      }
-    },
-  },
 })

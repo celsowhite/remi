@@ -14,6 +14,7 @@ export default defineType({
       title: 'Text',
       name: 'text',
       type: 'text',
+      rows: 3,
     }),
     defineField({
       title: 'Image',
@@ -40,11 +41,4 @@ export default defineType({
     }),
     sectionIdField,
   ],
-  preview: {
-    prepare(selection) {
-      return {
-        title: 'Image Text Panel',
-      }
-    },
-  },
 })

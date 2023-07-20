@@ -16,6 +16,7 @@ export default defineType({
       title: 'Text',
       name: 'text',
       type: 'text',
+      rows: 3,
     }),
     defineField({
       title: 'Button',
