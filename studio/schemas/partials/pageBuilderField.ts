@@ -7,6 +7,7 @@ const pageBuilderField = defineField({
   type: 'array',
   of: [
     defineArrayMember({type: 'richText'}),
+    defineArrayMember({type: 'multiColumnRichText'}),
     defineArrayMember({type: 'embedSection'}),
     defineArrayMember({type: 'imageTextPanel'}),
     defineArrayMember({type: 'cardGrid'}),

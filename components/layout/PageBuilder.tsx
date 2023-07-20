@@ -9,6 +9,7 @@ import PortableText from "../components/PortableText";
 import EmbedSection from "../sections/EmbedSection";
 import LinkList from "../sections/LinkList";
 import ButtonSection from "../sections/ButtonSection";
+import MultiColumnRichText from "../sections/multiColumnRichText";
 
 export interface PageBuilderProps {
   blocks: [any];
@@ -45,6 +46,21 @@ export default function PageBuilder({
                 <div className="wysiwyg">
                   <PortableText value={block.text} />
                 </div>
+              </div>
+            </div>
+          );
+        } else if (block._type === "multiColumnRichText") {
+          return (
+            <div
+              key={block._key}
+              className="relative mb-10"
+              id={block?.sectionId}
+            >
+              <div className={containerClass}>
+                <MultiColumnRichText
+                  textBlocks={block.textBlocks}
+                  columns={block.columns}
+                />
               </div>
             </div>
           );
