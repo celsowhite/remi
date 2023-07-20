@@ -8,6 +8,7 @@ import SectionHeader from "../sections/SectionHeader";
 import PortableText from "../components/PortableText";
 import EmbedSection from "../sections/EmbedSection";
 import LinkList from "../sections/LinkList";
+import ButtonSection from "../sections/ButtonSection";
 
 export interface PageBuilderProps {
   blocks: [any];
@@ -34,9 +35,6 @@ export default function PageBuilder({
     <>
       {blocks?.map((block) => {
         if (block._type === "richText") {
-          /*----------------------
-          Rich Text
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -51,9 +49,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "embedSection") {
-          /*----------------------
-          Embed
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -64,9 +59,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "imageTextPanel") {
-          /*----------------------
-          Image Text Panel
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -86,9 +78,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "cardGrid") {
-          /*----------------------
-          Card Grid
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -101,9 +90,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "image") {
-          /*----------------------
-          Image
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -116,9 +102,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "accordions") {
-          /*----------------------
-          Accordions
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -131,9 +114,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "textBanner") {
-          /*----------------------
-          Text Banner
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -149,9 +129,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "hero") {
-          /*----------------------
-          Hero
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -169,9 +146,6 @@ export default function PageBuilder({
             </div>
           );
         } else if (block._type === "sectionHeader") {
-          /*----------------------
-          Section Header
-          ----------------------*/
           return (
             <div
               key={block._key}
@@ -190,6 +164,15 @@ export default function PageBuilder({
           return (
             <div className="relative" id={block?.sectionId} key={block._key}>
               <LinkList links={block?.links} columns={block.columns} />
+            </div>
+          );
+        } else if (block._type === "buttonSection") {
+          return (
+            <div className="relative" id={block?.sectionId} key={block._key}>
+              <ButtonSection
+                button={block.button}
+                alignment={block.alignment}
+              />
             </div>
           );
         } else {
