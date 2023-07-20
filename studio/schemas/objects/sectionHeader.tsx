@@ -10,6 +10,22 @@ export default defineType({
   fields: [
     defineField({title: 'Title', name: 'title', type: 'string'}),
     defineField({
+      title: 'Title Tag',
+      name: 'titleTag',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'h1', value: 'h1'},
+          {title: 'h2', value: 'h2'},
+          {title: 'h3', value: 'h3'},
+          {title: 'h4', value: 'h4'},
+          {title: 'h5', value: 'h5'},
+        ],
+        layout: 'dropdown',
+      },
+      initialValue: 'h2',
+    }),
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'text',

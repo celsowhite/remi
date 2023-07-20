@@ -180,6 +180,7 @@ export default function PageBuilder({
             >
               <SectionHeader
                 title={block.title}
+                titleTag={block.titleTag}
                 text={block.text}
                 contentPosition={block.contentPosition}
               />
