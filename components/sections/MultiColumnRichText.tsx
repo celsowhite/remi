@@ -1,4 +1,3 @@
-import Card, { CardProps } from "../components/Card";
 import { useMemo } from "react";
 import { PortableTextBlock } from "@sanity/types";
 import PortableText from "../components/PortableText";
