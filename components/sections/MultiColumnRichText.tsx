@@ -31,7 +31,7 @@ export default function MultiColumnRichText({
     <div className="grid grid-cols-12 gap-5">
       {textBlocks.map((textBlock) => {
         return (
-          <div className={columnClass} key={textBlock._key}>
+          <div className={`${columnClass} wysiwyg`} key={textBlock._key}>
             <PortableText value={textBlock.text} />
           </div>
         );

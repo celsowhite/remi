@@ -4,7 +4,7 @@ import richTextField from '../partials/richTextField'
 import sectionIdField from '../partials/sectionIdField'
 
 export default defineType({
-  title: 'Rich Text',
+  title: 'Multi Column Rich Text',
   name: 'multiColumnRichText',
   type: 'object',
   icon: DocumentTextIcon,
@@ -33,7 +33,7 @@ export default defineType({
   preview: {
     prepare(selection) {
       return {
-        title: 'Rich Text',
+        title: 'Multi Column Rich Text',
       }
     },
   },
