@@ -9,7 +9,7 @@ import PortableText from "../components/PortableText";
 import EmbedSection from "../sections/EmbedSection";
 import LinkList from "../sections/LinkList";
 import ButtonSection from "../sections/ButtonSection";
-import MultiColumnRichText from "../sections/multiColumnRichText";
+import MultiColumnRichText from "../sections/MultiColumnRichText";
 
 export interface PageBuilderProps {
   blocks: [any];
