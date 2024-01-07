@@ -10,6 +10,7 @@ import EmbedSection from "../sections/EmbedSection";
 import LinkList from "../sections/LinkList";
 import ButtonSection from "../sections/ButtonSection";
 import MultiColumnRichText from "../sections/MultiColumnRichText";
+import Slideshow from "../sections/Slideshow";
 
 export interface PageBuilderProps {
   blocks: [any];
@@ -188,6 +189,23 @@ export default function PageBuilder({
               <ButtonSection
                 button={block.button}
                 alignment={block.alignment}
+              />
+            </div>
+          );
+        } else if (block._type === "slideshow") {
+          return (
+            <div
+              className="relative mb-10"
+              id={block?.sectionId}
+              key={block._key}
+            >
+              <Slideshow
+                slides={block?.slides}
+                slidesPerView={block?.slidesPerView}
+                slideSpacing={block?.slideSpacing}
+                showArrowNav={block?.showArrowNav}
+                showDotNav={block?.showDotNav}
+                loop={block?.loop}
               />
             </div>
           );

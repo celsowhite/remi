@@ -24,6 +24,7 @@
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "iconoir-react": "^6.6.0",
+    "keen-slider": "^6.8.6",
     "next": "13.4.10",
     "next-sanity": "^5.1.2",
     "next-sanity-image": "^6.1.0",
